@@ -1,7 +1,7 @@
 <template>
   <div class="home">
     <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Medics"/>
+    <HelloWorld msg="Welcome to Medics 2021"/>
   </div>
 </template>
 
