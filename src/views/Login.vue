@@ -414,7 +414,7 @@
                         </div>
                         <form class="auth-card__right" method="POST">
                             <div class="auth-card__top">
-                                <h1 class="auth-card__title">Welcome to <span class="text-theme">Arion</span></h1>
+                                <h1 class="auth-card__title">Medics <span class="text-theme">et al</span></h1>
                                 <p class="auth-card__text">Welcome Back, Please login
                                     <br>to your account.</p>
                             </div>
