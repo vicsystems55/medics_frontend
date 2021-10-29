@@ -8,7 +8,7 @@
                                 <div class="widget__wrapper">
                                     <div class="widget__row">
                                         <div class="widget__left">
-                                            <h3 class="widget__title">Visits</h3>
+                                            <h3 class="widget__title">Members</h3>
                                             <div class="widget__status-title text-grey">Total visits today</div>
                                             <div class="widget__trade"><span class="widget__trade-count">4000</span><span class="trade-icon trade-icon--up">
                             <svg class="icon-icon-trade-up">
@@ -35,7 +35,7 @@
                                 <div class="widget__wrapper">
                                     <div class="widget__row">
                                         <div class="widget__left">
-                                            <h3 class="widget__title">Orders</h3>
+                                            <h3 class="widget__title">Subscriptions</h3>
                                             <div class="widget__status-title text-grey">Total visits today</div>
                                             <div class="widget__trade"><span class="widget__trade-count">1000</span><span class="trade-icon trade-icon--down">
                             <svg class="icon-icon-trade-down">
@@ -62,7 +62,7 @@
                                 <div class="widget__wrapper">
                                     <div class="widget__row">
                                         <div class="widget__left">
-                                            <h3 class="widget__title">Sales</h3>
+                                            <h3 class="widget__title">Leads</h3>
                                             <div class="widget__status-title text-grey">Total visits today</div>
                                             <div class="widget__trade"><span class="widget__trade-count">$500</span><span class="trade-icon trade-icon--up">
                             <svg class="icon-icon-trade-up">
@@ -447,7 +447,7 @@
                                     <div class="card__container">
                                         <div class="card__header">
                                             <div class="card__header-left">
-                                                <h3 class="card__header-title">Transactions History</h3>
+                                                <h3 class="card__header-title">Leads</h3>
                                             </div>
                                             <div class="card__tools-more">
                                                 <button class="items-more__button">
@@ -641,7 +641,7 @@
                                     <div class="card__container">
                                         <div class="card__header">
                                             <div class="card__header-left">
-                                                <h3 class="card__header-title">Transactions</h3>
+                                                <h3 class="card__header-title">Conversions</h3>
                                             </div>
                                             <div class="card__tools-more">
                                                 <button class="items-more__button">
