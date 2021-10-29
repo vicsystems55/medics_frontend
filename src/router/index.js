@@ -4,6 +4,7 @@ import Login from '../views/Login.vue'
 import Register from '../views/Register.vue'
 import Review from '../views/admin/Review.vue'
 import Members from '../views/admin/Members.vue'
+import ComingSoon from '../views/admin/ComingSoon.vue'
 import AdminDashboard from '../views/admin/Dashboard.vue'
 import Dashboard from '../views/layouts/Dashboard.vue'
 import Fullwidth from '../views/layouts/Fullwidth.vue'
@@ -72,6 +73,18 @@ const routes = [
         {
           path: '',
           component: Members  
+        }
+      ]
+  },
+
+  {
+    path: '/coming-soon',
+    name: 'ComingSoon',
+    component: Dashboard,
+      children: [
+        {
+          path: '',
+          component: ComingSoon  
         }
       ]
   },
