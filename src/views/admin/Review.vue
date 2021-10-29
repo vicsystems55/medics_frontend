@@ -731,22 +731,26 @@
                                                         <li class="dropdown-items__item"><a class="dropdown-items__link"><span class="dropdown-items__link-icon">
                                     <svg class="icon-icon-view">
                                       <use xlink:href="#icon-view"></use>
-                                    </svg></span>Details</a>
+                                    </svg>
+                                                    </span>Details</a>
                                                         </li>
                                                         <li class="dropdown-items__item"><a class="dropdown-items__link"><span class="dropdown-items__link-icon">
-                                    <svg class="icon-icon-duplicate">
-                                      <use xlink:href="#icon-duplicate"></use>
-                                    </svg></span>Duplicate</a>
+                                                        <svg class="icon-icon-duplicate">
+                                                        <use xlink:href="#icon-duplicate"></use>
+                                                        </svg>
+                                                    </span>Duplicate</a>
                                                         </li>
                                                         <li class="dropdown-items__item"><a class="dropdown-items__link"><span class="dropdown-items__link-icon">
-                                    <svg class="icon-icon-archive">
-                                      <use xlink:href="#icon-archive"></use>
-                                    </svg></span>Archive</a>
+                                                        <svg class="icon-icon-archive">
+                                                        <use xlink:href="#icon-archive"></use>
+                                                        </svg>
+                                                    </span>Archive</a>
                                                         </li>
                                                         <li class="dropdown-items__item"><a class="dropdown-items__link"><span class="dropdown-items__link-icon">
-                                    <svg class="icon-icon-trash">
-                                      <use xlink:href="#icon-trash"></use>
-                                    </svg></span>Delete</a>
+                                                        <svg class="icon-icon-trash">
+                                                        <use xlink:href="#icon-trash"></use>
+                                                        </svg>
+                                                    </span>Delete</a>
                                                         </li>
                                                     </ul>
                                                 </div>

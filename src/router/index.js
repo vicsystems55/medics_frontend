@@ -3,6 +3,7 @@ import Home from '../views/Home.vue'
 import Login from '../views/Login.vue'
 import Register from '../views/Register.vue'
 import Review from '../views/admin/Review.vue'
+import AdminDashboard from '../views/admin/Dashboard.vue'
 import Dashboard from '../views/layouts/Dashboard.vue'
 import Fullwidth from '../views/layouts/Fullwidth.vue'
 
@@ -40,6 +41,19 @@ const routes = [
   {
     path: '/dashboard',
     name: 'Dashboard',
+    component: Dashboard,
+      children: [
+        {
+          path: '',
+          component: AdminDashboard  
+        }
+      ]
+  },
+
+  
+  {
+    path: '/reviews',
+    name: 'Reviews',
     component: Dashboard,
       children: [
         {

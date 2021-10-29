@@ -1,7 +1,7 @@
 <template lang="">
     <div>
-          <svg xmlns="http://www.w3.org/2000/svg" style="border: 0 !important; clip: rect(0 0 0 0) !important; height: 1px !important; margin: -1px !important; overflow: hidden !important; padding: 0 !important; position: absolute !important; width: 1px !important;"
-    class="root-svg-symbols-element">
+    <svg xmlns="http://www.w3.org/2000/svg" style="border: 0 !important; clip: rect(0 0 0 0) !important; height: 1px !important; margin: -1px !important; overflow: hidden !important; padding: 0 !important; position: absolute !important; width: 1px !important;"
+            class="root-svg-symbols-element">
         <symbol id="icon-action" viewBox="0 0 22 22">
             <path d="M14.2 6.6H6.2V5L3 7.8L6.2 10.6V9H14.2V6.6ZM19 13.4L15.8 10.6V12.2H7.8V14.6H15.8V16.2L19 13.4Z" />
         </symbol>
@@ -412,40 +412,59 @@
                             <img class="auth-card__bg auth-bg-image-light" src="img/content/auth-bg.jpg" alt="#">
                             <img class="auth-card__bg auth-bg-image-dark" src="img/content/auth-bg-dark.jpg" alt="#">
                         </div>
-                        <form class="auth-card__right" method="POST">
+                        <Form class="auth-card__right" method="POST">
                             <div class="auth-card__top">
                                 <h1 class="auth-card__title">Create Account</h1>
                             </div>
                             <div class="auth-card__body">
                                 <div class="form-group">
-                                    <div class="input-group input-group--prepend"><span class="input-group__prepend">
-                        <svg class="icon-icon-user">
-                          <use xlink:href="#icon-user"></use>
-                        </svg></span>
-                                        <input class="input" type="text" value="Felecia Burke" required>
+                                    <div class="input-group input-group--prepend">
+                                    <span class="input-group__prepend">
+                                        <svg class="icon-icon-user">
+                                            <use xlink:href="#icon-user"></use>
+                                        </svg>
+                                    </span>
+                                        <Field class="input" type="text" value="Felecia Burke" required></Field>
+                                        <span class="text-danger"><ErrorMessage name="name" /></span>
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <div class="input-group input-group--prepend"><span class="input-group__prepend">
-                        <svg class="icon-icon-email-2">
-                          <use xlink:href="#icon-email-2"></use>
-                        </svg></span>
+                                    <div class="input-group input-group--prepend">
+                                    <span class="input-group__prepend">
+                                        <svg class="icon-icon-email-2">
+                                            <use xlink:href="#icon-email-2"></use>
+                                        </svg>
+                                    </span>
                                         <input class="input" type="email" value="example@mail.com" required>
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <div class="input-group input-group--prepend"><span class="input-group__prepend">
-                        <svg class="icon-icon-password">
-                          <use xlink:href="#icon-password"></use>
-                        </svg></span>
+                                    <div class="input-group input-group--prepend">
+                                    <span class="input-group__prepend">
+                                        <svg class="icon-icon-email-2">
+                                            <use xlink:href="#icon-email-2"></use>
+                                        </svg>
+                                    </span>
+                                        <input class="input" type="text" value="example@mail.com" required>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="input-group input-group--prepend">
+                                    <span class="input-group__prepend">
+                                        <svg class="icon-icon-password">
+                                            <use xlink:href="#icon-password"></use>
+                                        </svg>
+                                    </span>
                                         <input class="input" type="password" value="123456" required>
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <div class="input-group input-group--prepend"><span class="input-group__prepend">
-                        <svg class="icon-icon-password">
-                          <use xlink:href="#icon-password"></use>
-                        </svg></span>
+                                    <div class="input-group input-group--prepend">
+                                    <span class="input-group__prepend">
+                                        <svg class="icon-icon-password">
+                                            <use xlink:href="#icon-password"></use>
+                                        </svg>
+                                    </span>
                                         <input class="input" type="password" placeholder="Password (Confirm)" required>
                                     </div>
                                 </div>
@@ -466,7 +485,7 @@
                                 <div class="auth-card__sign">Already have account? <a class="text-blue" href="auth-login-v2.html">Login</a>
                                 </div>
                             </div>
-                        </form>
+                        </Form>
                     </div>
                 </div>
             </div>
@@ -474,3 +493,116 @@
     </div>
     </div>
 </template>
+
+<script>
+ import { useToast } from "vue-toastification";
+ import { Form, Field, ErrorMessage } from 'vee-validate';
+
+export default {
+    setup() {
+      // Get toast interface
+      const toast = useToast();
+
+    //   // Use it!
+    //   toast("I'm a toast!");
+
+    //   // or with options
+    //   toast.success("My toast content", {
+    //     timeout: 2000
+    //   });
+      // These options will override the options defined in the "app.use" plugin registration for this specific toast
+
+      // Make it available inside methods
+      return { toast }
+    },
+  name: 'HelloWorld',
+    components: {
+    Form,
+    Field,
+    ErrorMessage,
+  },
+  data() {
+      return {
+          name: '',
+          email: '',
+          password: '',
+          loading: false,
+          
+      }
+  },
+  props: {
+    msg: String
+  },
+  methods: {
+
+      
+
+      
+      signup(values) {
+
+             this.loading = true;
+
+             this.$store.dispatch('signIn', { 
+                    name: values.name,
+                    email: values.email,
+                    password: values.password
+                  }).then(() => {
+                    this.loading = true,
+                    this.$router.push('/chat')
+                    this.toast.success("You're In");
+                }).catch((e)=>{
+                    console.log(e.response.data.message)
+                    this.toast.error(e.response.data.message);
+                })
+
+// this.toast.info("I'm an info toast!");
+
+        //  this.axios.post(process.env.VUE_APP_URL+'/api/register', {
+        //                 name: values.name,
+        //                 email: values.email,
+        //                 password: values.password,
+        //             })
+        //             .then(response => {
+
+        //                 // save token in localstorage
+
+        //                 // localStorage.setItem('token', response.data.token);
+
+        //                 // redirect to user home
+                
+        //                 // this.toast.success("I'm in");
+
+        //                 this.loading = false,
+        //                 this.$router.push('/chat')
+        //                  this.toast.success("I'm in!");
+        //             }).catch(error => {
+        //                 // this.toast.eror("oops! an error")
+        //               console.log(error.response)
+
+        //             //   this.toast.info("I'm an info toast!");
+        //         });
+          
+             
+            },
+    validateEmail(value) {
+      // if the field is empty
+      if (!value) {
+        return 'This field is required';
+      }
+      // if the field is not a valid email
+      const regex = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i;
+      if (!regex.test(value)) {
+        return 'This field must be a valid email';
+      }
+      // All is good
+      return true;
+    },
+  },
+  mounted() {
+
+  },
+}
+</script>
+
+<!-- Add "scoped" attribute to limit CSS to this component only -->
+
