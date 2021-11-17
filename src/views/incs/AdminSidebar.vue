@@ -4,7 +4,7 @@
     <div>
             <nav class="sidebar__nav">
                         <ul class="sidebar__menu">
-                            <li class="sidebar__menu-item"><a class="sidebar__link active" href="index.html" aria-expanded="true">
+                            <li class="sidebar__menu-item"><a class="sidebar__link " href="index.html" aria-expanded="true">
                                 <span class="sidebar__link-icon">
                                         <svg class="icon-icon-dashboard">
                                             <use xlink:href="#icon-dashboard"></use>
@@ -136,7 +136,7 @@
 
 
                         </ul>
-                    </nav>
+            </nav>
     </div>
 </template>
 

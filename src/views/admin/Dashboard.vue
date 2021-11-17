@@ -1,6 +1,6 @@
 <template lang="">
     <div>
-                        <div class="container">
+            <div class="container">
                 <div class="widgets">
                     <div class="widgets__row row gutter-bottom-xl">
                         <div class="col-12 col-md-6 col-xl-4 d-flex">

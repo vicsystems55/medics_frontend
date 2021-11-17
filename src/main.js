@@ -12,7 +12,23 @@ import AllRules from '@vee-validate/rules'
 
 import Toast from "vue-toastification";
 import "vue-toastification/dist/index.css";
+
+// import Popper from 'vue-popperjs';
+// import 'vue-popperjs/dist/vue-popper.css';
+
+// import 'jquery/src/jquery.js';
+// import 'popper.js/dist/popper.min.js';
+// import 'bootstrap/dist/js/bootstrap.min.js';
 // import pusher from 'pusher-js'
+
+// try {
+//   window.Popper = require('popper.js').default;
+//   window.$ = window.jQuery = require('jquery');
+
+//   require('bootstrap');
+ 
+  
+// } catch (e) {}
 
 
 
