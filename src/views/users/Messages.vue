@@ -144,7 +144,7 @@
 </template>
 
 <script>
-import axios from 'axios'
+// import axios from 'axios'
 import { useToast } from "vue-toastification";
 
 export default {
@@ -183,28 +183,83 @@ export default {
 
             alert(this.RequestVerificationToken);
 
-            axios.post('http://www.rtvrs.com.ng/api/rtvrsvehicle', {
+            // axios.post('http://www.rtvrs.com.ng/api/rtvrsvehicle', {
 
-                VehicleRegNo : this.VehicleRegNo,
-                VehicleChassesNo : this.VehicleChassesNo,
-                PaymentRefNo : this.PaymentRefNo,
-                AmountPaid :  this.AmountPaid,
-                DatePaid :  this.DatePaid,
-                PaymentModeChanel : this.PaymentModeChanel,
-                OwnerAddressLGA : this.OwnerAddressLGA,
-                NextRenewalDate : this.NextRenewalDate,
-                _RequestVerificationToken : this.RequestVerificationToken,
-                CollectionAgentKey: this.CollectionAgentKey,
+            //     VehicleRegNo : this.VehicleRegNo,
+            //     VehicleChassesNo : this.VehicleChassesNo,
+            //     PaymentRefNo : this.PaymentRefNo,
+            //     AmountPaid :  this.AmountPaid,
+            //     DatePaid :  this.DatePaid,
+            //     PaymentModeChanel : this.PaymentModeChanel,
+            //     OwnerAddressLGA : this.OwnerAddressLGA,
+            //     NextRenewalDate : this.NextRenewalDate,
+            //     // _RequestVerificationToken : this.RequestVerificationToken,
+            //     CollectionAgentKey: this.CollectionAgentKey,
 
-            })
-            .then(function (response) {
+            // })
+            // .then(function (response) {
 
+            //     this.toast.success("You're In");
+            //     console.log(response);
+            // })
+            // .catch(function (error) {
+            //     console.log(error);
+            // });
+
+                let url = 'http://www.rtvrs.com.ng/api/rtvrsvehicle';
+       
+
+            var VehicleRegNo =  this.VehicleRegNo;
+            var VehicleChassesNo = this.VehicleChassesNo;
+            var OwnerAddressLGA = this.OwnerAddressLGA;
+            var AmountPaid = this.AmountPaid;
+            var DatePaid = this.DatePaid;
+            var NextRenewalDate = this.NextRenewalDate;
+            var PaymentModeChanel =   this.PaymentModeChanel;
+            var PaymentRefNo =   this.PaymentRefNo;
+            var CollectionAgentKey =   this.CollectionAgentKey; 
+             
+            var formdata = new FormData();
+            formdata.append("VehicleRegNo", VehicleRegNo);
+            formdata.append("VehicleChassesNo", VehicleChassesNo);
+            formdata.append("OwnerAddressLGA", OwnerAddressLGA);
+            formdata.append("AmountPaid", AmountPaid);
+            formdata.append("DatePaid", DatePaid);
+            formdata.append("NextRenewalDate", NextRenewalDate);
+            formdata.append("PaymentModeChanel", PaymentModeChanel);
+            formdata.append("PaymentRefNo", PaymentRefNo);
+            formdata.append("CollectionAgentKey", CollectionAgentKey);
+
+            var request = new XMLHttpRequest(); 
+            request.open("POST", url, true);
+            request.send(formdata); 
+            request.onloadend = function ()
+            {
+                if (request.status == 200)
+                {
+
+                    
                 this.toast.success("You're In");
-                console.log(response);
-            })
-            .catch(function (error) {
-                console.log(error);
-            });
+                    // try
+                    // { 
+                    //     //var r = JSON.parse(request.response).proccessFlag.trim();
+                    //     //JSON.stringify(r); 
+                    //     document.getElementById("Server_response").innerHTML = request.response;
+                    // }
+                }
+            }
+            // request.onerror = function myfunction(e)
+            // {
+                 
+            //     document.getElementById("Server_response").innerHTML = "Connection Faild";
+            // }
+
+        
+        // catch (e)
+        // {
+             
+        //     document.getElementById("Server_response").innerHTML = "Unknown Error occured";
+        // }
 
 
 
