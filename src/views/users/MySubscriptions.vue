@@ -2,7 +2,7 @@
     <div>
          <div class="container">
                 <div class="page-header">
-                    <h1 class="page-header__title">Members</h1>
+                    <h1 class="page-header__title">My Subscription</h1>
                 </div>
                 
             </div>

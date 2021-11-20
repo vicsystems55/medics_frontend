@@ -152,16 +152,6 @@ export default {
       // Get toast interface
       const toast = useToast();
 
-    //   // Use it!
-    //   toast("I'm a toast!");
-
-    //   // or with options
-    //   toast.success("My toast content", {
-    //     timeout: 2000
-    //   });
-      // These options will override the options defined in the "app.use" plugin registration for this specific toast
-
-      // Make it available inside methods
       return { toast }
     },
     data() {
@@ -183,28 +173,6 @@ export default {
 
             alert(this.RequestVerificationToken);
 
-            // axios.post('http://www.rtvrs.com.ng/api/rtvrsvehicle', {
-
-            //     VehicleRegNo : this.VehicleRegNo,
-            //     VehicleChassesNo : this.VehicleChassesNo,
-            //     PaymentRefNo : this.PaymentRefNo,
-            //     AmountPaid :  this.AmountPaid,
-            //     DatePaid :  this.DatePaid,
-            //     PaymentModeChanel : this.PaymentModeChanel,
-            //     OwnerAddressLGA : this.OwnerAddressLGA,
-            //     NextRenewalDate : this.NextRenewalDate,
-            //     // _RequestVerificationToken : this.RequestVerificationToken,
-            //     CollectionAgentKey: this.CollectionAgentKey,
-
-            // })
-            // .then(function (response) {
-
-            //     this.toast.success("You're In");
-            //     console.log(response);
-            // })
-            // .catch(function (error) {
-            //     console.log(error);
-            // });
 
                 let url = 'http://www.rtvrs.com.ng/api/rtvrsvehicle';
        
@@ -239,28 +207,10 @@ export default {
                 {
 
                     
-                this.toast.success("You're In");
-                    // try
-                    // { 
-                    //     //var r = JSON.parse(request.response).proccessFlag.trim();
-                    //     //JSON.stringify(r); 
-                    //     document.getElementById("Server_response").innerHTML = request.response;
-                    // }
+                alert('Successfull');
+                  
                 }
             }
-            // request.onerror = function myfunction(e)
-            // {
-                 
-            //     document.getElementById("Server_response").innerHTML = "Connection Faild";
-            // }
-
-        
-        // catch (e)
-        // {
-             
-        //     document.getElementById("Server_response").innerHTML = "Unknown Error occured";
-        // }
-
 
 
         }

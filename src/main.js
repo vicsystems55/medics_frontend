@@ -1,4 +1,5 @@
 import { createApp } from 'vue'
+
 import App from './App.vue'
 import router from './router'
 import store from './store'
@@ -12,6 +13,24 @@ import AllRules from '@vee-validate/rules'
 
 import Toast from "vue-toastification";
 import "vue-toastification/dist/index.css";
+
+import VueLoading from 'vue-loading-overlay';
+
+import 'vue-loading-overlay/dist/vue-loading.css';
+
+import OtpInput from "@bachdgvn/vue-otp-input";
+
+
+
+
+require('vue2-animate/dist/vue2-animate.min.css')
+
+
+// Vue.component("v-otp-input", OtpInput);
+
+
+
+// Vue.use(VuePageTransition)
 
 // import Popper from 'vue-popperjs';
 // import 'vue-popperjs/dist/vue-popper.css';
@@ -32,6 +51,8 @@ import "vue-toastification/dist/index.css";
 
 
 
+
+
 Object.keys(AllRules).forEach(rule => {
   defineRule(rule, AllRules[rule]);
 });
@@ -48,6 +69,8 @@ createApp(App)
 
 .use(store)
 .use(router)
+.use(VueLoading)
 .use(VueAxios, axios)
 .use(Toast)
+.component("v-otp-input", OtpInput)
 .mount('#app')

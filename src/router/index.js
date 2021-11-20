@@ -2,6 +2,7 @@ import { createRouter, createWebHashHistory } from 'vue-router'
 import Home from '../views/Home.vue'
 import Login from '../views/Login.vue'
 import Register from '../views/Register.vue'
+import EmailOTP from '../views/EmailOTP.vue'
 import Review from '../views/admin/Review.vue'
 import Members from '../views/admin/Members.vue'
 
@@ -60,6 +61,18 @@ const routes = [
         {
           path: '',
           component: Login,
+        }
+      ]
+  },
+
+  {
+    path: '/verify',
+    name: 'EmailOTP',
+    component: Fullwidth,
+      children: [
+        {
+          path: '',
+          component: EmailOTP,
         }
       ]
   },
@@ -214,7 +227,7 @@ const routes = [
 
 
   {
-    path: '/user',
+    path: '/userx',
     name: 'UserDashboard',
     component: Dashboard,
       children: [

@@ -424,7 +424,7 @@
                         <svg class="icon-icon-user">
                           <use xlink:href="#icon-user"></use>
                         </svg></span>
-                                        <input class="input" type="email" value="example@mail.com" required>
+                                        <input class="input shadow" type="email" value="example@mail.com" required>
                                     </div>
                                 </div>
                                 <div class="form-group">
@@ -432,19 +432,19 @@
                         <svg class="icon-icon-password">
                           <use xlink:href="#icon-password"></use>
                         </svg></span>
-                                        <input class="input" type="password" value="123456" required>
+                                        <input class="input shadow" type="password" value="123456" required>
                                     </div>
                                 </div>
-                                <div class="row align-items-center">
+                                 <div class="row align-items-center">
                                     <div class="col">
                                         <div class="form-group">
                                             <div class="input-group input-group--prepend">
                                                 <label class="checkbox">
                                                     <input type="checkbox" checked><span class="checkbox__marker"><span class="checkbox__marker-icon">
-                                <svg class="icon-icon-checked">
-                                  <use xlink:href="#icon-checked"></use>
-                                </svg></span></span><span class="ml-2">Remember Me</span>
-                                                </label>
+                                            <svg class="icon-icon-checked">
+                                            <use xlink:href="#icon-checked"></use>
+                                            </svg></span></span><span class="ml-2">Remember Me</span>
+                                                            </label>
                                             </div>
                                         </div>
                                     </div>
@@ -453,17 +453,24 @@
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="auth-card__bottom">
-                                <div class="auth-card__buttons">
-                                    <div class="auth-card__button"><a class="button button--secondary button--block" href="auth-create-v2.html"><span class="button__text">Sign Up</span></a>
-                                    </div>
-                                    <div class="auth-card__button">
-                                        <button class="button button--primary button--block" type="button" onclick="javascript:location.href = 'index.html'"><span class="button__text">Login</span>
-                                        </button>
+                                <div class="form-group">
+                                        <div class="auth-card__submit">
+                                    <button class="button button--primary button--block" type="button" @click="submit()"><span class="button__text">Login</span>
+                                    </button>
+                                </div>
+
+                                  <div class="row align-items-center">
+                                    
+                                    <div class="col-auto">
+                                        <div class="form-group py-3"><a class="text-blue" href="auth-forgot-v2.html">Create an account</a>
+                                        </div>
                                     </div>
                                 </div>
+
+                                </div>
+                               
                             </div>
+                           
                         </form>
                     </div>
                 </div>
@@ -472,3 +479,38 @@
     </div>
     </div>
 </template>
+
+<script>
+
+
+export default {
+
+    data() {
+        return {
+             fullPage: false
+        }
+    },
+
+    methods: {
+                    submit() {
+                let loader = this.$loading.show({
+                    // Optional parameters
+                    container: this.fullPage ? null : this.$refs.formContainer,
+                    canCancel: true,
+                    onCancel: this.onCancel,
+                    color: '#6CC3EC',
+                });
+                // simulate AJAX
+                setTimeout(() => {
+                    loader.hide()
+
+                    this.$router.push('/userx')
+                }, 5000)
+            },
+            onCancel() {
+                console.log('User cancelled the loader.')
+            }
+    },
+    
+}
+</script>

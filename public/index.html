@@ -26,6 +26,7 @@
     <link rel="stylesheet" href="css/filepond-plugin-image-preview.min.css" />
     <link rel="stylesheet" href="css/swiper-bundle.min.css" />
     <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" type="text/css" href="dist/css/jquery-pincode-autotab.min.css">
     <!-- <link rel="apple-touch-icon" sizes="57x57" href="img/content/favicons/apple-icon-57x57.png" />
     <link rel="apple-touch-icon" sizes="60x60" href="img/content/favicons/apple-icon-60x60.png" />
     <link rel="apple-touch-icon" sizes="72x72" href="img/content/favicons/apple-icon-72x72.png" />
@@ -45,10 +46,9 @@
     <meta name="theme-color" content="#ffffff" />
    
 </head>
+<div id="app">
 
-<body class="page-home">
-   <div id="app"></div>
-
+</div>
    <script src="jss/gsap/gsap.min.js"></script>
    <script src="jss/gsap/ScrollToPlugin.min.js"></script>
    <script src="jss/gsap/ScrollTrigger.min.js"></script>
@@ -61,7 +61,7 @@
    <script src="jss/vendor/grid/masonry.pkgd.min.js"></script>
    <script src="jss/vendor/grid/isotope.pkgd.min.js"></script>
    <script src="jss/vendor/charts/circle-progress.min.js"></script>
-   <script src="jss/vendor/charts/echarts.common.min.js"></script>
+   <!-- <script src="jss/vendor/charts/echarts.common.min.js"></script> -->
    <script src="jss/vendor/charts/apexcharts/apexcharts.min.js"></script>
    <script src="jss/vendor/cleave/cleave.min.js"></script>
    <script src="jss/vendor/cleave/addons/cleave-phone.us.js"></script>
@@ -80,7 +80,12 @@
    <script src="jss/vendor/scrollmagic/debug.addIndicators.min.js"></script>
    <script src="jss/components.js"></script>
    <script src="jss/common.js"></script>
-    
-</body>
+    <script type="text/javascript" src="dist/js/jquery-pincode-autotab.min.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function() {
+		    $(".jpa input").jqueryPincodeAutotab();
+		});
+	</script>
+
 
 </html>
