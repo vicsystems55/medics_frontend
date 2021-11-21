@@ -394,7 +394,7 @@
                     <div class="page-auth__gradient-shape"></div>
                     <div class="auth-logo">
                         <img class="auth-logo__icon" src="img/content/logotype.svg" width="44" alt="#" />
-                        <div class="auth-logo__text">arion</div>
+                        <div class="auth-logo__text">RTVRS</div>
                     </div>
                     <div class="page-auth__gradient-column"></div>
                 </div>
@@ -406,7 +406,7 @@
                             <div class="auth-card__logo">
                                 <div class="auth-logo">
                                     <img class="auth-logo__icon" src="img/content/logotype.svg" width="44" alt="#" />
-                                    <div class="auth-logo__text">arion</div>
+                                    <div class="auth-logo__text">RTVRS</div>
                                 </div>
                             </div>
                             <img class="auth-card__bg auth-bg-image-light" src="img/content/auth-bg.jpg" alt="#">
@@ -414,7 +414,7 @@
                         </div>
                         <form class="auth-card__right" method="POST">
                             <div class="auth-card__top">
-                                <h1 class="auth-card__title">Medics <span class="text-theme">et al</span></h1>
+                                <h1 class="auth-card__title">RTVRS <span class="text-theme"></span></h1>
                                 <p class="auth-card__text">Welcome Back, Please login
                                     <br>to your account.</p>
                             </div>

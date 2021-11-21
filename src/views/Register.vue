@@ -9,7 +9,7 @@
                     <div class="page-auth__gradient-shape"></div>
                     <div class="auth-logo">
                         <img class="auth-logo__icon" src="img/content/logotype.svg" width="44" alt="#" />
-                        <div class="auth-logo__text">arion</div>
+                        <div class="auth-logo__text">RTVRS</div>
                     </div>
                     <div class="page-auth__gradient-column"></div>
                 </div>
@@ -21,7 +21,7 @@
                             <div class="auth-card__logo">
                                 <div class="auth-logo">
                                     <img class="auth-logo__icon" src="img/content/logotype.svg" width="44" alt="#" />
-                                    <div class="auth-logo__text">arion</div>
+                                    <div class="auth-logo__text">RTVRS</div>
                                 </div>
                             </div>
                             <img class="auth-card__bg auth-bg-image-light" src="img/content/auth-bg.jpg" alt="#">
