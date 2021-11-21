@@ -174,7 +174,7 @@ export default {
             alert(this.RequestVerificationToken);
 
 
-                let url = 'http://www.rtvrs.com.ng/api/rtvrsvehicle';
+                let url = 'https://www.rtvrs.com.ng/api/rtvrsvehicle';
        
 
             var VehicleRegNo =  this.VehicleRegNo;
