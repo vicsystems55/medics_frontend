@@ -1,5 +1,5 @@
 import { createRouter, createWebHashHistory } from 'vue-router'
-import Home from '../views/Home.vue'
+import Home from '../views/front_page/Home.vue'
 import Login from '../views/Login.vue'
 import Register from '../views/Register.vue'
 import EmailOTP from '../views/EmailOTP.vue'

@@ -20,7 +20,7 @@ import 'vue-loading-overlay/dist/vue-loading.css';
 
 import OtpInput from "@bachdgvn/vue-otp-input";
 
-
+// import VueToastify from "vue-toastify";
 
 
 require('vue2-animate/dist/vue2-animate.min.css')

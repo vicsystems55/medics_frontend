@@ -8,12 +8,14 @@
                                 <div class="widget__wrapper">
                                     <div class="widget__row">
                                         <div class="widget__left">
-                                            <h3 class="widget__title">Members</h3>
+                                            <h3 class="widget__title">Revenue</h3>
                                             <div class="widget__status-title text-grey">Total visits today</div>
                                             <div class="widget__trade"><span class="widget__trade-count">4000</span><span class="trade-icon trade-icon--up">
-                            <svg class="icon-icon-trade-up">
-                              <use xlink:href="#icon-trade-up"></use>
-                            </svg></span><span class="badge badge--sm badge--green">7%</span>
+                                                <svg class="icon-icon-trade-up">
+                                                    <use xlink:href="#icon-trade-up"></use>
+                                                </svg>
+                                            </span>
+                            <span class="badge badge--sm badge--green">7%</span>
                                             </div>
                                             <div class="widget__details"><a class="link-under text-grey" href="#">Detail</a>
                                             </div>

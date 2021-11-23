@@ -771,7 +771,7 @@
                     <div class="container container--sm">
                         <a class="sidebar__logo" href="index.html">
                       
-                            <div class="sidebar__logo-text">M. et al</div>
+                            <div class="sidebar__logo-text">RTVRS</div>
                         </a>
                     </div>
                 </div>

@@ -22,34 +22,12 @@
                                             <use xlink:href="#icon-dashboard"></use>
                                         </svg>
                                 </span>
-                                <span class="sidebar__link-text">Resources</span>
+                                <span class="sidebar__link-text">Business Profile</span>
                             </router-link>
                             </li>
 
                             
-                             <li class="sidebar__menu-item">
-                             <router-link class="sidebar__link " to="/user/leads" aria-expanded="true">
-                                <span class="sidebar__link-icon">
-                                        <svg class="icon-icon-dashboard">
-                                            <use xlink:href="#icon-dashboard"></use>
-                                        </svg>
-                                </span>
-                                <span class="sidebar__link-text">My Leads</span>
-                            </router-link>
-                            </li>
-                            
-                            
-                            
-                             <li class="sidebar__menu-item">
-                             <router-link class="sidebar__link" to="/user"  aria-expanded="true">
-                                <span class="sidebar__link-icon">
-                                        <svg class="icon-icon-dashboard">
-                                            <use xlink:href="#icon-dashboard"></use>
-                                        </svg>
-                                </span>
-                                <span class="sidebar__link-text">My Page</span>
-                            </router-link>
-                            </li>
+                        
 
                                                         
                              <li class="sidebar__menu-item">
