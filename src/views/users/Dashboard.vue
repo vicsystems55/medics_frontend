@@ -9,25 +9,19 @@
                                     <div class="widget__row">
                                         <div class="widget__left">
                                             <h3 class="widget__title">Revenue</h3>
-                                            <div class="widget__status-title text-grey">Total visits today</div>
-                                            <div class="widget__trade"><span class="widget__trade-count">4000</span><span class="trade-icon trade-icon--up">
+                                            <div class="widget__status-title text-grey">Total revenue today</div>
+                                            <div class="widget__trade">
+                                                <span class="widget__trade-count">N 4000</span><span class="trade-icon trade-icon--up">
                                                 <svg class="icon-icon-trade-up">
                                                     <use xlink:href="#icon-trade-up"></use>
                                                 </svg>
                                             </span>
-                            <span class="badge badge--sm badge--green">7%</span>
+                                                <span class="badge badge--sm badge--green">7%</span>
                                             </div>
                                             <div class="widget__details"><a class="link-under text-grey" href="#">Detail</a>
                                             </div>
                                         </div>
-                                        <div class="widget__chart">
-                                            <div class="widget__chart-inner">
-                                                <div class="widget__chart-percentage">50<small>%</small>
-                                                </div>
-                                                <div class="widget__chart-caption">New Visits</div>
-                                            </div>
-                                            <div class="widget__chart-canvas js-progress-circle" data-value="0.5" data-color="#22CCE2"></div>
-                                        </div>
+                                        
                                     </div>
                                 </div>
                             </div>

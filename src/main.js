@@ -20,6 +20,11 @@ import 'vue-loading-overlay/dist/vue-loading.css';
 
 import OtpInput from "@bachdgvn/vue-otp-input";
 
+  // In main.js
+// import LoadScript from 'vue-plugin-load-script';
+
+
+
 // import VueToastify from "vue-toastify";
 
 

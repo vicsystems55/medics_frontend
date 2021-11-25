@@ -49,7 +49,11 @@ export default {
     methods: {
                 submit() {
 
-                     
+                    var bodyFormData = new FormData();
+
+                    bodyFormData.append('StateCode', this.state_code); 
+
+                    bodyFormData.append('BusinessName', this.business_name); 
 
                         let loader = this.$loading.show({
                             // Optional parameters
@@ -59,26 +63,47 @@ export default {
                             color: '#6CC3EC',
                         });
 
-                       this.axios.post('/user', {
+                                this.axios({
+                                method: "post",
+                                url: "http://www.rtvrs.com.ng/api/VistorTests",
+                                data: bodyFormData,
+                                headers: { "Content-Type": "multipart/form-data" },
+                                })
+                                .then(function (response) {
+                                    //handle success
+                                    console.log(response['data']['transactionCode']);
+                                    toast.success(response['data']['transactionCode']);
+                                    loader.hide()
 
-                            StateCode: this.state_code,
-                            BusinessName: this.business_name
+                                    
+                                })
+                                .catch(function (response) {
+                                    //handle error
+                                    console.log(response);
+                                    toast.error('Error');
+                                    loader.hide()
+                                });
 
-                        })
-                        .then(function (response) {
+                    //    this.axios.post('http://www.rtvrs.com.ng/api/VistorTests ', {
 
-                            console.log(response);
+                    //         StateCode: this.state_code,
+                    //         BusinessName: this.business_name
 
-                            loader.hide()
-                        })
-                        .catch(function (error) {
+                    //     })
+                    //     .then(function (response) {
 
-                            console.log(error);
+                    //         console.log(response);
+                    //         toast.success('Successful');
+                    //         loader.hide()
+                    //     })
+                    //     .catch(function (error) {
 
-                            toast.error('error');
+                    //         console.log(error);
 
-                            loader.hide()
-                        });
+                    //         toast.error('error');
+
+                    //         loader.hide()
+                    //     });
 
                   
                     },

@@ -424,7 +424,7 @@
                         <svg class="icon-icon-user">
                           <use xlink:href="#icon-user"></use>
                         </svg></span>
-                                        <input class="input shadow" type="email" value="example@mail.com" required>
+                                        <input class="input shadow" type="email" v-model="email" required>
                                     </div>
                                 </div>
                                 <div class="form-group">
@@ -432,7 +432,7 @@
                         <svg class="icon-icon-password">
                           <use xlink:href="#icon-password"></use>
                         </svg></span>
-                                        <input class="input shadow" type="password" value="123456" required>
+                                        <input class="input shadow" type="password" v-model="password" required>
                                     </div>
                                 </div>
                                  <div class="row align-items-center">
@@ -487,7 +487,10 @@ export default {
 
     data() {
         return {
-             fullPage: false
+             fullPage: false,
+             email: '',
+             password: '',
+             role: '',
         }
     },
 
@@ -500,15 +503,29 @@ export default {
                     onCancel: this.onCancel,
                     color: '#6CC3EC',
                 });
-                // simulate AJAX
-                setTimeout(() => {
-                    loader.hide()
 
-                    this.$router.push('/userx')
-                }, 5000)
+                if (this.email == 'admin@rtvrs.com.ng') {
+
+                     this.$router.push('/admin');
+                     loader.hide()
+                    
+                }if(this.email == 'state@rtvrs.com.ng'){
+
+                    this.$router.push('/state_officer')
+                    loader.hide()
+                }
+
+
+                // simulate AJAX
+                // setTimeout(() => {
+                //     loader.hide()
+
+                //     this.$router.push('/userx')
+                // }, 5000)
             },
             onCancel() {
                 console.log('User cancelled the loader.')
+                // loader.hide()
             }
     },
     

@@ -4,6 +4,17 @@
             <nav class="sidebar__nav">
             <div class="p-5"></div>
                         <ul class="sidebar__menu">
+                            <li class="sidebar__menu-item active">
+                            <router-link class="sidebar__link active" to="/user" aria-expanded="true">
+                                <span class="sidebar__link-icon">
+                                        <svg class="icon-icon-person">
+                                            <use xlink:href="#icon-person"></use>
+                                        </svg>
+                                </span>
+                                <span class="sidebar__link-text">STATE OFFICER</span>
+                            </router-link>
+                            </li>
+
                             <li class="sidebar__menu-item">
                             <router-link class="sidebar__link " to="/userx" aria-expanded="true">
                                 <span class="sidebar__link-icon">
@@ -91,6 +102,8 @@
                                 <span class="sidebar__link-text">Logout</span>
                             </router-link>
                             </li>
+
+                            
 
 
                             

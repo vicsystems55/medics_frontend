@@ -89,6 +89,18 @@ const routes = [
       ]
   },
 
+  {
+    path: '/state_officer',
+    name: 'Dashboard',
+    component: Dashboard,
+      children: [
+        {
+          path: '',
+          component: AdminDashboard  
+        }
+      ]
+  },
+
   
   {
     path: '/reviews',
