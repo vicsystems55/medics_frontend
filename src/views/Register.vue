@@ -1,4 +1,4 @@
-<template lang="">
+<template >
     <div>
  
     <div class="page-wrapper">
@@ -27,7 +27,7 @@
                             <img class="auth-card__bg auth-bg-image-light" src="img/content/auth-bg.jpg" alt="#">
                             <img class="auth-card__bg auth-bg-image-dark" src="img/content/auth-bg-dark.jpg" alt="#">
                         </div>
-                        <Form class="auth-card__right" method="POST">
+                        <div class="auth-card__right" method="POST">
                             <div class="auth-card__top">
                                 <h1 class="auth-card__title">Create Account</h1>
                             </div>
@@ -39,7 +39,7 @@
                                             <use xlink:href="#icon-email-2"></use>
                                         </svg>
                                     </span>
-                                        <input class="input shadow" type="text" value="" required placeholder="Fullname">
+                                        <input class="input shadow" type="text" v-model="UserFullName" required placeholder="Fullname">
                                     </div>
                                 </div>
                                 <div class="form-group">
@@ -49,7 +49,18 @@
                                             <use xlink:href="#icon-email-2"></use>
                                         </svg>
                                     </span>
-                                        <input class="input shadow" type="email" value="example@mail.com" required>
+                                        <input class="input shadow" type="text" placeholder="Username" v-model="UserName" required>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <div class="input-group input-group--prepend">
+                                    <span class="input-group__prepend">
+                                        <svg class="icon-icon-email-2">
+                                            <use xlink:href="#icon-email-2"></use>
+                                        </svg>
+                                    </span>
+                                        <input class="input shadow" type="email" placeholder="Email" v-model="UserEmail" required>
                                     </div>
                                 </div>
                                 <div class="form-group">
@@ -59,7 +70,7 @@
                                             <use xlink:href="#icon-password"></use>
                                         </svg>
                                     </span>
-                                        <input class="input shadow" type="passowrd" value="" placeholder="Create a password" required>
+                                        <input class="input shadow" type="passowrd"  placeholder="Create a password" v-model="UserPassword" required>
                                     </div>
                                 </div>
                                
@@ -70,9 +81,91 @@
                                             <use xlink:href="#icon-password"></use>
                                         </svg>
                                     </span>
-                                        <input class="input shadow" type="password" placeholder="Password (Confirm)" required>
+                                        <input class="input shadow" type="password" placeholder="Password (Confirm)"  required>
                                     </div>
                                 </div>
+
+                                <div class="form-group">
+                                    <div class="input-group input-group--prepend">
+                                    <span class="input-group__prepend">
+                                        <svg class="icon-icon-password">
+                                            <use xlink:href="#icon-password"></use>
+                                        </svg>
+                                    </span>
+                                        <input class="input shadow" type="text" placeholder="+234 " v-model="UserPhoneNumber"  required>
+                                    </div>
+                                </div>
+
+                                 <div class="form-group">
+                                    <div class="input-group input-group--prepend">
+                                    <span class="input-group__prepend">
+                                        <svg class="icon-icon-password">
+                                            <use xlink:href="#icon-password"></use>
+                                        </svg>
+                                    </span>
+                                        <select v-model="UserCategory" class="input shadow" >
+                                            <option value="">--Account Type--</option>
+                                            <option value="9">LGA Tax Officer</option>
+                                            <option value="8">Board Tax Officer</option>
+                                            <option value="7">System Support</option>
+                                            <option value="5">Board Admin</option>
+                                            <option value="4">Zonal Admin</option>
+                                            <option value="3">Area Admin</option>
+                                            <option value="2">Enumerator</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                    <div class="form-group">
+                                    <div class="input-group input-group--prepend">
+                                    <span class="input-group__prepend">
+                                        <svg class="icon-icon-password">
+                                            <use xlink:href="#icon-password"></use>
+                                        </svg>
+                                    </span>
+                                        <select class="input shadow" v-model="UserState">
+                                            <option value="">--Select State--</option>
+                                            <option value="Abia">Abia</option>
+                                            <option value="Adamawa">Adamawa</option>
+                                            <option value="Akwa Ibom">Akwa Ibom</option>
+                                            <option value="Anambra">Anambra</option>
+                                            <option value="Bauchi">Bauchi</option>
+                                            <option value="Bayelsa">Bayelsa</option>
+                                            <option value="Benue">Benue</option>
+                                            <option value="Borno">Borno</option>
+                                            <option value="Cross Rive">Cross River</option>
+                                            <option value="Delta">Delta</option>
+                                            <option value="Ebonyi">Ebonyi</option>
+                                            <option value="Edo">Edo</option>
+                                            <option value="Ekiti">Ekiti</option>
+                                            <option value="Enugu">Enugu</option>
+                                            <option value="FCT">Federal Capital Territory</option>
+                                            <option value="Gombe">Gombe</option>
+                                            <option value="Imo">Imo</option>
+                                            <option value="Jigawa">Jigawa</option>
+                                            <option value="Kaduna">Kaduna</option>
+                                            <option value="Kano">Kano</option>
+                                            <option value="Katsina">Katsina</option>
+                                            <option value="Kebbi">Kebbi</option>
+                                            <option value="Kogi">Kogi</option>
+                                            <option value="Kwara">Kwara</option>
+                                            <option value="Lagos">Lagos</option>
+                                            <option value="Nasarawa">Nasarawa</option>
+                                            <option value="Niger">Niger</option>
+                                            <option value="Ogun">Ogun</option>
+                                            <option value="Ondo">Ondo</option>
+                                            <option value="Osun">Osun</option>
+                                            <option value="Oyo">Oyo</option>
+                                            <option value="Plateau">Plateau</option>
+                                            <option value="Rivers">Rivers</option>
+                                            <option value="Sokoto">Sokoto</option>
+                                            <option value="Taraba">Taraba</option>
+                                            <option value="Yobe">Yobe</option>
+                                            <option value="Zamfara">Zamfara</option>
+                                        </select>
+                                    </div>
+                                </div>
+
                                 <div class="form-group">
                                     <label class="checkbox">
                                         <input type="checkbox" checked><span class="checkbox__marker"><span class="checkbox__marker-icon">
@@ -87,10 +180,10 @@
                                 </div>
                             </div>
                             <div class="auth-card__bottom">
-                                <div class="auth-card__sign">Already have account? <a class="text-blue" href="auth-login-v2.html">Login</a>
+                                <div class="auth-card__sign">Already have account? <a class="text-blue" href="/login">Login</a>
                                 </div>
                             </div>
-                        </Form>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -100,35 +193,103 @@
 </template>
 
 <script>
+import { useToast } from 'vue-toastification'
 
+const toast = useToast()
 
 export default {
 
     data() {
         return {
-             fullPage: false
+             fullPage: false,
+             UserState: '',
+             UserPhoneNumber: '',
+             UserPassword: '',
+             UserName: '',
+             UserFullName: '',
+             UserCategory: '',
+             UserEmail: '',
         }
     },
 
     methods: {
-                    submit() {
-                let loader = this.$loading.show({
-                    // Optional parameters
-                    container: this.fullPage ? null : this.$refs.formContainer,
-                    canCancel: true,
-                    onCancel: this.onCancel,
-                    color: '#6CC3EC',
-                });
-                // simulate AJAX
-                setTimeout(() => {
-                    loader.hide()
+                submit() {
 
-                    this.$router.push('/verify')
-                }, 5000)
-            },
-            onCancel() {
-                console.log('User cancelled the loader.')
-            }
+                    var bodyFormData = new FormData();
+
+                    bodyFormData.append('UserState', this.UserState); 
+
+                    bodyFormData.append('UserPhoneNumber', this.UserPhoneNumber); 
+
+                    bodyFormData.append('UserPasswork', this.UserPassword); 
+
+                    bodyFormData.append('UserName', this.UserName); 
+
+                    bodyFormData.append('UserFullName', this.UserFullName); 
+
+                    bodyFormData.append('UserCategory', this.UserCategory);
+                    
+                    bodyFormData.append('UserEmail', this.UserEmail);
+
+
+                        let loader = this.$loading.show({
+                            // Optional parameters
+                            container: this.fullPage ? null : this.$refs.formContainer,
+                            canCancel: true,
+                            onCancel: this.onCancel,
+                            color: '#6CC3EC',
+                        });
+
+                                this.axios({
+                                method: "post",
+                                url: " https://micro.rtvrs.com.ng/api/UserRegister",
+                                data: bodyFormData,
+                                headers: { "Content-Type": "multipart/form-data" },
+                                })
+                                .then(function (response) {
+                                    //handle success
+                                    console.log(response['data']['transactionCode']);
+                                    toast.success('Registration Successful');
+                                    loader.hide()
+
+                                    this.$router.push('/'+this.UserCategory)
+
+                                    
+                                })
+                                .catch(function (response) {
+                                    //handle error
+                                    console.log(response);
+                                    toast.error('Error');
+                                    loader.hide()
+                                });
+
+                    //    this.axios.post('http://www.rtvrs.com.ng/api/VistorTests ', {
+
+                    //         StateCode: this.state_code,
+                    //         BusinessName: this.business_name
+
+                    //     })
+                    //     .then(function (response) {
+
+                    //         console.log(response);
+                    //         toast.success('Successful');
+                    //         loader.hide()
+                    //     })
+                    //     .catch(function (error) {
+
+                    //         console.log(error);
+
+                    //         toast.error('error');
+
+                    //         loader.hide()
+                    //     });
+
+                  
+                    },
+
+                    onCancel() {
+                        console.log('User cancelled the loader.')
+                    }
     },
     
 }

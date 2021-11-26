@@ -501,7 +501,7 @@
                         </a>
                     </div>
                 </div>
-                <div class="sidebar__content bg-warning text-dark" data-simplebar="data-simplebar">
+                <div class="sidebar__content " data-simplebar="data-simplebar">
                    
 
                     <UserSidebar v-if="is_admin"></UserSidebar>
