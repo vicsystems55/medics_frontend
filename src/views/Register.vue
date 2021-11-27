@@ -248,18 +248,32 @@ export default {
                                 })
                                 .then(function (response) {
                                     //handle success
-                                    console.log(response['data']['transactionCode']);
+                                    console.log(response);
                                     toast.success('Registration Successful');
+                                    
                                     loader.hide()
 
-                                    this.$router.push('/'+this.UserCategory)
+                                    switch (this.UserCategory) {
+                                        case 8:
+                                            this.$router.push('/LGATaxOfficer')
+                                            break;
+
+                                        case 5:
+                                            this.$router.push('/BoardAdmin')
+                                            break;
+                                    
+                                        default:
+                                            break;
+                                    }
+
+                                    // this.$router.push('/'+response['data']['UserCategory'])
 
                                     
                                 })
                                 .catch(function (response) {
                                     //handle error
                                     console.log(response);
-                                    toast.error('Error');
+                                    toast.error(response);
                                     loader.hide()
                                 });
 
