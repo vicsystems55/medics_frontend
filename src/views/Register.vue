@@ -269,10 +269,12 @@ export default {
                                     toast.success('Registration Successful');
 
                                     // this.$router.push('/'+response['data']['UserCategory'])
-
+                                        alert('stop');
                                     
                                 })
                                 .catch(function (response) {
+
+                                    alert('y');
                                     //handle error
                                     console.log(response);
                                     toast.error(response);
