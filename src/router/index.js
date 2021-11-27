@@ -1,5 +1,5 @@
 import { createRouter, createWebHashHistory } from 'vue-router'
-import Home from '../views/front_page/Home.vue'
+// import Home from '../views/front_page/Home.vue'
 import Login from '../views/Login.vue'
 import Register from '../views/Register.vue'
 import EmailOTP from '../views/EmailOTP.vue'
@@ -27,7 +27,13 @@ const routes = [
   {
     path: '/',
     name: 'Home',
-    component: Home
+    component: Fullwidth,
+      children: [
+        {
+          path: '',
+          component: Login,
+        }
+      ]
   },
 
   {

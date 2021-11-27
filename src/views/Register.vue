@@ -248,9 +248,8 @@ export default {
                                 })
                                 .then(function (response) {
                                     //handle success
-                                    console.log(response);
-                                    toast.success('Registration Successful');
                                     
+
                                     loader.hide()
 
                                     switch (this.UserCategory) {
@@ -265,6 +264,9 @@ export default {
                                         default:
                                             break;
                                     }
+
+                                    console.log(response);
+                                    toast.success('Registration Successful');
 
                                     // this.$router.push('/'+response['data']['UserCategory'])
 
