@@ -216,26 +216,21 @@
                                                 <div class="dropdown-items dropdown-items--right">
                                                     <div class="dropdown-items__container">
                                                         <ul class="dropdown-items__list">
-                                                            <li class="dropdown-items__item"><a class="dropdown-items__link"><span class="dropdown-items__link-icon">
-                                      <svg class="icon-icon-refresh">
-                                        <use xlink:href="#icon-refresh"></use>
-                                      </svg></span>Refresh</a>
+                                                            <li class="dropdown-items__item">
+                                                                <router-link :to="{name:'AdminAssessment',params:{id:businessProfile.businessID} }" class="dropdown-items__link"><span class="dropdown-items__link-icon">
+                                                                    <svg class="icon-icon-download">
+                                                                        <use xlink:href="#icon-download"></use>
+                                                                    </svg></span>Assessment
+                                                                </router-link>
                                                             </li>
-                                                            <li class="dropdown-items__item"><a class="dropdown-items__link"><span class="dropdown-items__link-icon">
-                                      <svg class="icon-icon-settings">
-                                        <use xlink:href="#icon-settings"></use>
-                                      </svg></span>Settings</a>
+                                                            <li class="dropdown-items__item">
+                                                                <router-link :to="{name:'AdminDemandNotice',params:{id:businessProfile.businessID} }" class="dropdown-items__link"><span class="dropdown-items__link-icon">
+                                                                    <svg class="icon-icon-download">
+                                                                        <use xlink:href="#icon-download"></use>
+                                                                    </svg></span>D.Notice
+                                                                </router-link>
                                                             </li>
-                                                            <li class="dropdown-items__item"><a class="dropdown-items__link"><span class="dropdown-items__link-icon">
-                                      <svg class="icon-icon-download">
-                                        <use xlink:href="#icon-download"></use>
-                                      </svg></span>Download</a>
-                                                            </li>
-                                                            <li class="dropdown-items__item"><a class="dropdown-items__link"><span class="dropdown-items__link-icon">
-                                      <svg class="icon-icon-action">
-                                        <use xlink:href="#icon-action"></use>
-                                      </svg></span>Action</a>
-                                                            </li>
+                                                            
                                                         </ul>
                                                     </div>
                                                 </div>
@@ -372,66 +367,66 @@
     </div>
 </template>
 <script>
-import { useToast } from 'vue-toastification'
+    import { useToast } from 'vue-toastification'
 
-const toast = useToast()
-export default {
+    const toast = useToast()
+    export default {
 
-    data() {
-        return {
-            businessProfiles: []
-        }
-    },
+        data() {
+            return {
+                businessProfiles: []
+            }
+        },
 
-    methods: {
-        getBusinessProfiles(){
-            
-                        let loader = this.$loading.show({
-                            // Optional parameters
-                            container: this.fullPage ? null : this.$refs.formContainer,
-                            canCancel: true,
-                            onCancel: this.onCancel,
-                            color: '#6CC3EC',
-                        });
-                        // let self = this;
-                                this.axios({
-                                method: "get",
-                                url: " https://micro.rtvrs.com.ng/api/BusinessProfiles",
-                    
-                                })
-                                .then( (response)=> {
-                                    //handle success
+        methods: {
+            getBusinessProfiles(){
+                
+                            let loader = this.$loading.show({
+                                // Optional parameters
+                                container: this.fullPage ? null : this.$refs.formContainer,
+                                canCancel: true,
+                                onCancel: this.onCancel,
+                                color: '#6CC3EC',
+                            });
+                            // let self = this;
+                                    this.axios({
+                                    method: "get",
+                                    url: " https://micro.rtvrs.com.ng/api/BusinessProfiles",
+                        
+                                    })
+                                    .then( (response)=> {
+                                        //handle success
 
 
-                                    console.log(response)
-                                    this.businessProfiles = response.data
+                                        console.log(response)
+                                        this.businessProfiles = response.data
 
-                                    localStorage.setItem('businessProfiles', JSON.stringify(response.data)) 
+                                        localStorage.setItem('businessProfiles', JSON.stringify(response.data)) 
 
-                                    loader.hide()
+                                        loader.hide()
 
+
+                                        
+                                        // toast.success('Registration Successful');
+
+                                        // this.$router.push('/'+response['data']['UserCategory'])
+                                        
+                                        
+                                    })
+                                    .catch(function (response) {
 
                                     
-                                    // toast.success('Registration Successful');
+                                        //handle error
+                                        console.log(response);
+                                        toast.error(response);
+                                        loader.hide()
+                                    });
+            }
+        },
 
-                                    // this.$router.push('/'+response['data']['UserCategory'])
-                                      
-                                    
-                                })
-                                .catch(function (response) {
-
-                                  
-                                    //handle error
-                                    console.log(response);
-                                    toast.error(response);
-                                    loader.hide()
-                                });
-        }
-    },
-
-    mounted() {
-        this.getBusinessProfiles()
-    },
-    
-}
+            mounted() {
+                this.getBusinessProfiles()
+            },
+        
+    }
 </script>

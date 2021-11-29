@@ -2,6 +2,9 @@ import AdminDashboard from '../views/admin/Dashboard'
 import AdminNotifications from '../views/admin/Notifications'
 import AdminAccountManagement from '../views/admin/AccountManagement.vue'
 import AdminBusinessProfiles from '../views/admin/BusinessProfiles'
+import AdminBusinessProfile from '../views/admin/BusinessProfile'
+import AdminDemandNotice from '../views/admin/DemandNotice'
+import AdminAssessment from '../views/admin/Assessment'
 import AdminDemandNotices from '../views/admin/DemandNotices'
 import AdminStates from '../views/admin/States'
 import Dashboard from '../views/layouts/Dashboard.vue'
@@ -44,8 +47,26 @@ export default [
             component: AdminBusinessProfiles
         },
 
-        
         {
+            name: 'AdminBusinessProfile',
+            path: 'BusinessProfile/:id',
+            component: AdminBusinessProfile
+        },
+
+        {
+            name: 'AdminDemandNotice',
+            path: 'DemandNotice/:id',
+            component: AdminDemandNotice
+        },
+
+        {
+            name: 'AdminAssessment',
+            path: 'Accessment/:id',
+            component: AdminAssessment
+        },
+
+        
+        {   
             path: 'DemandNotices',
             component: AdminDemandNotices
         },
