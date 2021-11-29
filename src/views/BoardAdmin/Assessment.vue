@@ -2,16 +2,43 @@
     <div>
    
 <div class="container">
-         <h2>Assessment</h2>
+         <h2>Assessment for {{businessProfile.businessName}}</h2>
+
+        <div class="contianer">
+             <table class="table">
+             <tr>
+                 <th>Business Name:</th>
+                 <td>{{businessProfile.businessName}}</td>
+
+                <th>TIN:</th>
+                 <td></td>
+             </tr>
+              <tr>
+                 <th>Address</th>
+                 <td>{{businessProfile.businessAddress}}</td>
+
+                  <th>TIN:</th>
+                 <td></td>
+             </tr>
+             <tr>
+                 <th>Phone</th>
+                 <td>{{businessProfile.businessPhoneNo}}</td>
+
+                  <th>TIN:</th>
+                 <td></td>
+             </tr>
+         </table>
+        </div>
+
         <div class="p-3"></div>
     <div class="row">
     <div class="col-3">
-        <h6>Equipment Type:</h6>
-        <div class="form-group">
-            <input type="text" class="form-control" value="TV" disabled>
-        </div>
+        <h6>Equipment:</h6>
         <div class="form-group">
             <input type="text" class="form-control" value="Radio" disabled>
+        </div>
+        <div class="form-group">
+            <input type="text" class="form-control" value="TV" disabled>
         </div>
         <div class="form-group">
             <input type="text" class="form-control" value="Computer" disabled>
@@ -21,13 +48,13 @@
     <div class="col-3">
         <h6>Quantity:</h6>
         <div class="form-group">
-            <input type="number" class="form-control" value="1">
+            <input type="number" class="form-control" v-model="radio">
         </div>
         <div class="form-group">
-            <input type="number" class="form-control" value="1">
+            <input type="number" class="form-control" v-model="tv">
         </div>
         <div class="form-group">
-            <input type="number" class="form-control" value="1">
+            <input type="number" class="form-control" v-model="computer">
         </div>
     </div>
 
@@ -77,13 +104,17 @@
 
         data() {
             return {
-                businessProfile: []
+                businessProfile: [],
+                enumeration: [],
+                radio: '',
+                tv: '',
+                computer:''
             }
         },
 
         methods: {
             getBusinessProfiles(){
-                alert(this.$route.params.id)
+                // console.log(this.businessProfile.businessEnumerations)
                             let loader = this.$loading.show({
                                 // Optional parameters
                                 container: this.fullPage ? null : this.$refs.formContainer,
@@ -101,9 +132,16 @@
                                         //handle success
 
 
-                                        console.log(response)
+                                        console.log(response.data['businessEnumerations'])
 
                                         this.businessProfile = response.data
+
+                                        this.enumeration = response.data['businessEnumerations']
+
+                                        this.radio = response.data['businessEnumerations'][0].totalItemCount
+                                        this.tv = response.data['businessEnumerations'][1].totalItemCount
+                                        this.computer = response.data['businessEnumerations'][2].totalItemCount
+                                        console.log(this.tv)
 
                                         localStorage.setItem('businessProfiles', JSON.stringify(response.data)) 
 
