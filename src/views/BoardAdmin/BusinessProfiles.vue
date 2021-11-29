@@ -2,7 +2,7 @@
     <div>
          <div class="container">
                 <div class="page-header">
-                    <h1 class="page-header__title">Contacts <span class="text-grey">({{businessProfiles.length}})</span></h1>
+                    <h1 class="page-header__title">Businesses <span class="text-grey">({{businessProfiles.length}})</span></h1>
                 </div>
                 <div class="page-tools">
                     <div class="page-tools__breadcrumbs">
@@ -171,23 +171,15 @@
                                                             <li class="dropdown-items__item"><a class="dropdown-items__link" href="order-details.html"><span class="dropdown-items__link-icon">
                                       <svg class="icon-icon-view">
                                         <use xlink:href="#icon-view"></use>
-                                      </svg></span>Details</a>
+                                      </svg></span>Assessments</a>
                                                             </li>
                                                             <li class="dropdown-items__item"><a class="dropdown-items__link"><span class="dropdown-items__link-icon">
                                       <svg class="icon-icon-duplicate">
                                         <use xlink:href="#icon-duplicate"></use>
-                                      </svg></span>Duplicate</a>
+                                      </svg></span>Notice</a>
                                                             </li>
-                                                            <li class="dropdown-items__item"><a class="dropdown-items__link"><span class="dropdown-items__link-icon">
-                                      <svg class="icon-icon-archive">
-                                        <use xlink:href="#icon-archive"></use>
-                                      </svg></span>Archive</a>
-                                                            </li>
-                                                            <li class="dropdown-items__item"><a class="dropdown-items__link"><span class="dropdown-items__link-icon">
-                                      <svg class="icon-icon-trash">
-                                        <use xlink:href="#icon-trash"></use>
-                                      </svg></span>Delete</a>
-                                                            </li>
+                                                           
+                                                            
                                                         </ul>
                                                     </div>
                                                 </div>
@@ -216,30 +208,21 @@
                                                 <div class="dropdown-items dropdown-items--right">
                                                     <div class="dropdown-items__container">
                                                         <ul class="dropdown-items__list">
-                                                            <li class="dropdown-items__item"><a class="dropdown-items__link"><span class="dropdown-items__link-icon">
+                                                            <li class="dropdown-items__item">
+                                                                <router-link class="dropdown-items__link" :to="{name:'BoardAdminAssessment',params:{id:businessProfile.businessID} }"><span class="dropdown-items__link-icon">
                                                                 <svg class="icon-icon-refresh">
                                                                     <use xlink:href="#icon-refresh"></use>
                                                                 </svg>
-                                                            </span>Update Assessment</a>
+                                                            </span>Assessments</router-link>
                                                             </li>
-                                                            <li class="dropdown-items__item"><a class="dropdown-items__link"><span class="dropdown-items__link-icon">
+                                                            <li class="dropdown-items__item">
+                                                                <router-link class="dropdown-items__link" :to="{name:'BoardAdminDemandNotice',params:{id:businessProfile.businessID} }"><span class="dropdown-items__link-icon">
                                                             <svg class="icon-icon-settings">
                                                                 <use xlink:href="#icon-settings"></use>
                                                             </svg>
-                                                            </span>Settings</a>
+                                                            </span>Notice.</router-link>
                                                             </li>
-                                                            <li class="dropdown-items__item">
-                                                                <router-link :to="{name:'AdminBusinessProfile',params:{id:businessProfile.businessID} }" class="dropdown-items__link"><span class="dropdown-items__link-icon">
-                                                                    <svg class="icon-icon-download">
-                                                                        <use xlink:href="#icon-download"></use>
-                                                                    </svg></span>View
-                                                                </router-link>
-                                                            </li>
-                                                            <li class="dropdown-items__item"><a class="dropdown-items__link"><span class="dropdown-items__link-icon">
-                                      <svg class="icon-icon-action">
-                                        <use xlink:href="#icon-action"></use>
-                                      </svg></span>Action</a>
-                                                            </li>
+                                                            
                                                         </ul>
                                                     </div>
                                                 </div>

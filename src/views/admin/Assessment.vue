@@ -94,14 +94,14 @@
                             // let self = this;
                                     this.axios({
                                     method: "get",
-                                    url: " https://micro.rtvrs.com.ng/api/BusinessProfiles",
+                                    url: " https://micro.rtvrs.com.ng/api/Assessment/"+this.$route.params.id,
                         
                                     })
                                     .then( (response)=> {
                                         //handle success
 
 
-                                        console.log(response.data[this.$route.params.id])
+                                        console.log(response)
 
                                         this.businessProfile = response.data
 

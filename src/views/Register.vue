@@ -273,25 +273,23 @@ export default {
 
                                     loader.hide()
 
-                                    switch (self.UserCategory) {
-                                        case 8:
-                                            self.$router.push('/LGATaxOfficer')
-                                            break;
-
-                                        case 5:
-                                            self.$router.push('/BoardAdmin')
-                                            break;
-                                    
-                                        default:
-                                            break;
+                                    if(this.UserCategory == '6'){
+                                        localStorage.setItem('user_role', '6')
+                                        toast.success('Registration Successful');
+                                        return this.$router.push('/Admin/Dashboard');
+                                    }if(this.UserCategory == '5'){
+                                         localStorage.setItem('user_role', '5')
+                                        toast.success('Registration Successful');
+                                        return this.$router.push('/BoardAdmin/Dashboard')
                                     }
+
 
                             
 
-                                    toast.success('Registration Successful');
+                                    
 
                                     // this.$router.push('/'+response['data']['UserCategory'])
-                                        alert('stop');
+                                        // alert('stop');
                                     
                                 })
                                 .catch(function (response) {

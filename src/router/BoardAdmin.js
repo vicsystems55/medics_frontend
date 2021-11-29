@@ -7,6 +7,11 @@ import BoardAdminBusinessProfiles from '../views/BoardAdmin/BusinessProfiles'
 import BoardAdminDemandNotices from '../views/BoardAdmin/DemandNotices'
 import BoardAdminSettings from '../views/BoardAdmin/Settings'
 
+import BoardAdminAssessment from '../views/BoardAdmin/Assessment'
+import BoardAdminDemandNotice from '../views/BoardAdmin/DemandNotice'
+
+
+
 import xDashboard from '../views/layouts/Dashboard.vue'
 import { useToast } from 'vue-toastification'
 
@@ -42,6 +47,18 @@ export default [
         {
             path: 'Assessements',
             component: BoardAdminAssessements
+        },
+
+        {
+            name: 'BoardAdminAssessment',
+            path: 'Accessment/:id',
+            component: BoardAdminAssessment
+        },
+
+        {
+            name: 'BoardAdminDemandNotice',
+            path: 'DemandNotice/:id',
+            component: BoardAdminDemandNotice
         },
 
         {

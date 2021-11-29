@@ -2,7 +2,7 @@
     <div>
          <div class="container">
                 <div class="page-header">
-                    <h1 class="page-header__title">Contacts <span class="text-grey">({{businessProfiles.length}})</span></h1>
+                    <h1 class="page-header__title">Businesses <span class="text-grey">({{businessProfiles.length}})</span></h1>
                 </div>
                 <div class="page-tools">
                     <div class="page-tools__breadcrumbs">
@@ -169,25 +169,20 @@
                                                     <div class="dropdown-items__container">
                                                         <ul class="dropdown-items__list">
                                                             <li class="dropdown-items__item"><a class="dropdown-items__link" href="order-details.html"><span class="dropdown-items__link-icon">
-                                      <svg class="icon-icon-view">
-                                        <use xlink:href="#icon-view"></use>
-                                      </svg></span>Details</a>
+                                                            <svg class="icon-icon-view">
+                                                                <use xlink:href="#icon-view"></use>
+                                                            </svg>
+                                                            </span>Assessment</a>
+
                                                             </li>
                                                             <li class="dropdown-items__item"><a class="dropdown-items__link"><span class="dropdown-items__link-icon">
-                                      <svg class="icon-icon-duplicate">
-                                        <use xlink:href="#icon-duplicate"></use>
-                                      </svg></span>Duplicate</a>
+                                                                <svg class="icon-icon-duplicate">
+                                                                    <use xlink:href="#icon-duplicate"></use>
+                                                                </svg>
+                                                                </span>Notice</a>
+
                                                             </li>
-                                                            <li class="dropdown-items__item"><a class="dropdown-items__link"><span class="dropdown-items__link-icon">
-                                      <svg class="icon-icon-archive">
-                                        <use xlink:href="#icon-archive"></use>
-                                      </svg></span>Archive</a>
-                                                            </li>
-                                                            <li class="dropdown-items__item"><a class="dropdown-items__link"><span class="dropdown-items__link-icon">
-                                      <svg class="icon-icon-trash">
-                                        <use xlink:href="#icon-trash"></use>
-                                      </svg></span>Delete</a>
-                                                            </li>
+                                                           
                                                         </ul>
                                                     </div>
                                                 </div>
