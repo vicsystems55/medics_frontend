@@ -414,9 +414,8 @@
                         </div>
                         <div class="auth-card__right" >
                             <div class="auth-card__top">
-                                <h1 class="auth-card__title">Login <span class="text-theme"></span></h1>
-                                <p class="auth-card__text">Welcome Back, Please login
-                                    <br>to your account.</p>
+                                <h1 class="auth-card__title">Reset Password <span class="text-theme"></span></h1>
+                                <p class="auth-card__text">Enter email registered with your account. A reset link will be sent, follow the link to reset account credentials</p>
                             </div>
                             <div class="auth-card__body">
                                 <div class="form-group">
@@ -426,58 +425,18 @@
                                     <use xlink:href="#icon-user"></use>
                                     </svg>
                                     </span>
-                                        <input class="input shadow" type="email" v-model="email" placeholder="Enter email" required>
+                                        <input class="input shadow" type="email" v-model="email" placeholder="Enter Account Email" required>
                                     </div>
                                 </div>
-                                
-
-                                <div class="form-group">
-                                    <label>Password: </label>
-                                    <label @click="togglePasswordVisibility()" class="float-right" style="margin-left: 250px; margin-top: 36px; position: absolute; z-index: 999"> <img height="20" width="20" src="https://cdn-icons-png.flaticon.com/128/709/709612.png" style="z-index:999"></label>
-                                    <div class="input-group input-group--prepend">
-
-                                        <span class="input-group__prepend">
-                                            <svg class="icon-icon-password">
-                                                <use xlink:href="#icon-password"></use>
-                                            </svg>
-                                        </span>
-
-                                        <input class="input shadow" ref="pass" :type="passwordAttribute" v-model="password" placeholder="Enter password" required>
-
-                                    </div>
-                                </div>
-                                 <div class="row align-items-center">
-                                    <div class="col">
-                                        <div class="form-group">
-                                            <div class="input-group input-group--prepend">
-                                                <label class="checkbox">
-                                                    <input type="checkbox" checked><span class="checkbox__marker"><span class="checkbox__marker-icon">
-                                            <svg class="icon-icon-checked">
-                                            <use xlink:href="#icon-checked"></use>
-                                            </svg></span></span><span class="ml-2">Remember Me</span>
-                                                            </label>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-auto">
-                                        <div class="form-group">
-                                            <router-link class="text-blue" to="/EmailReset">Forgot Password?</router-link>
-                                        </div>
-                                    </div>
-                                </div>
+                               
+                               
                                 <div class="form-group">
                                         <div class="auth-card__submit">
-                                    <button class="button button--primary button--block" type="button" @click="submit()"><span class="button__text">Login</span>
+                                    <button class="button button--primary button--block" type="button" @click="submit()"><span class="button__text">Submit</span>
                                     </button>
                                 </div>
 
-                                  <div class="row align-items-center">
-                                    
-                                    <div class="col-auto">
-                                        <div class="form-group py-3"><a class="text-blue" href="auth-forgot-v2.html">Create an account</a>
-                                        </div>
-                                    </div>
-                                </div>
+                                 
 
                                 </div>
                                
@@ -505,23 +464,11 @@ export default {
              email: '',
              password: '',
              role: '',
-             passwordAttribute: 'password'
         }
     },
 
     methods: {
-
-        togglePasswordVisibility(){
-       
-            if(this.passwordAttribute == 'password'){
-                this.passwordAttribute = 'text'
-            }else{
-                this.passwordAttribute = 'password'
-            }
-
-        },
                     submit() {
-                        // alert('start')
                 let loader = this.$loading.show({
                     // Optional parameters
                     container: this.fullPage ? null : this.$refs.formContainer,
@@ -530,31 +477,19 @@ export default {
                     color: '#6CC3EC',
                 });
 
-                    setTimeout(() => {
-                
-                }, 5000)
+                if (this.email == 'admin@rtvrs.com.ng') {
 
-                if (this.email == 'admin@rtvrs.com.ng' && this.password == 'admin@2021') {
-                
-                    localStorage.setItem('user_role', '6')
-                    
-                   
+                     this.$router.push('/Admin/Dashboard');
                      loader.hide()
                      toast.success('Login Successful');
+                    
+                }if(this.email == 'state@rtvrs.com.ng'){
 
-                      return this.$router.push('/Admin/Dashboard');
-                     
-                    
-                }if(this.email == 'kadunastate@rtvrs.com.ng' && this.password == 'kadunastate@2021'){
-                    localStorage.setItem('user_role', '5')
-                    this.$router.push('/BoardAdmin/Dashboard')
+                    this.$router.push('/BoardAdmin/Dashoard')
                     loader.hide()
-                    toast.success('Login Successful');
-                    
                 }else{
 
                     this.$router.push('/login');
-                    toast.error('Invalid Credentials');
 
                 }
 
@@ -574,4 +509,3 @@ export default {
     
 }
 </script>
-

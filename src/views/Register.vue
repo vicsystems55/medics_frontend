@@ -29,10 +29,11 @@
                         </div>
                         <div class="auth-card__right" method="POST">
                             <div class="auth-card__top">
-                                <h1 class="auth-card__title">Create Account</h1>
+                                <h1 class="auth-card__title">Create an Account</h1>
                             </div>
                             <div class="auth-card__body">
                                 <div class="form-group">
+                                    <label>Fullname:</label>
                                     <div class="input-group input-group--prepend">
                                     <span class="input-group__prepend">
                                         <svg class="icon-icon-email-2">
@@ -43,6 +44,7 @@
                                     </div>
                                 </div>
                                 <div class="form-group">
+                                     <label>Username:</label>
                                     <div class="input-group input-group--prepend">
                                     <span class="input-group__prepend">
                                         <svg class="icon-icon-email-2">
@@ -54,6 +56,7 @@
                                 </div>
 
                                 <div class="form-group">
+                                     <label>Email:</label>
                                     <div class="input-group input-group--prepend">
                                     <span class="input-group__prepend">
                                         <svg class="icon-icon-email-2">
@@ -64,6 +67,7 @@
                                     </div>
                                 </div>
                                 <div class="form-group">
+                                     <label>Password:</label>
                                     <div class="input-group input-group--prepend">
                                     <span class="input-group__prepend">
                                         <svg class="icon-icon-password">
@@ -75,6 +79,7 @@
                                 </div>
                                
                                 <div class="form-group">
+                                     <label>Confirm Password:</label>
                                     <div class="input-group input-group--prepend">
                                     <span class="input-group__prepend">
                                         <svg class="icon-icon-password">
@@ -86,6 +91,7 @@
                                 </div>
 
                                 <div class="form-group">
+                                    <label for="">Phone Number:</label>
                                     <div class="input-group input-group--prepend">
                                     <span class="input-group__prepend">
                                         <svg class="icon-icon-password">
@@ -97,6 +103,7 @@
                                 </div>
 
                                  <div class="form-group">
+                                     <label for="">Account Type</label>
                                     <div class="input-group input-group--prepend">
                                     <span class="input-group__prepend">
                                         <svg class="icon-icon-password">
@@ -117,6 +124,7 @@
                                 </div>
 
                                     <div class="form-group">
+                                        <label for="">State</label>
                                     <div class="input-group input-group--prepend">
                                     <span class="input-group__prepend">
                                         <svg class="icon-icon-password">
@@ -190,6 +198,8 @@
         </main>
     </div>
     </div>
+
+    
 </template>
 
 <script>
@@ -215,6 +225,8 @@ export default {
     methods: {
                 submit() {
 
+
+
                     var bodyFormData = new FormData();
 
                     bodyFormData.append('UserState', this.UserState); 
@@ -231,6 +243,8 @@ export default {
                     
                     bodyFormData.append('UserEmail', this.UserEmail);
 
+                    // var userRole = this.UserCategory;
+
 
                         let loader = this.$loading.show({
                             // Optional parameters
@@ -239,33 +253,41 @@ export default {
                             onCancel: this.onCancel,
                             color: '#6CC3EC',
                         });
-
+                        // let self = this;
                                 this.axios({
                                 method: "post",
                                 url: " https://micro.rtvrs.com.ng/api/UserRegister",
                                 data: bodyFormData,
                                 headers: { "Content-Type": "multipart/form-data" },
                                 })
-                                .then(function (response) {
+                                .then( (response)=> {
                                     //handle success
-                                    
+
+
+                                    console.log(this.UserCategory)
+
+                                      this.$router.push('/BoardAdmin')
+
+
+                                    localStorage.setItem('user_data', JSON.stringify(response.data)) 
 
                                     loader.hide()
 
-                                    switch (this.UserCategory) {
+                                    switch (self.UserCategory) {
                                         case 8:
-                                            this.$router.push('/LGATaxOfficer')
+                                            self.$router.push('/LGATaxOfficer')
                                             break;
 
                                         case 5:
-                                            this.$router.push('/BoardAdmin')
+                                            self.$router.push('/BoardAdmin')
                                             break;
                                     
                                         default:
                                             break;
                                     }
 
-                                    console.log(response);
+                            
+
                                     toast.success('Registration Successful');
 
                                     // this.$router.push('/'+response['data']['UserCategory'])
@@ -274,7 +296,7 @@ export default {
                                 })
                                 .catch(function (response) {
 
-                                    alert(bodyFormData);
+                                    alert(response);
                                     //handle error
                                     console.log(response);
                                     toast.error(response);
@@ -307,6 +329,19 @@ export default {
 
                     onCancel() {
                         console.log('User cancelled the loader.')
+                    },
+
+                    makepayment(){
+                        var samplePaymentRequest = {
+                             merchant_code: "MX007",          
+                            pay_item_id: "101007",
+                            txn_ref: "sample_txn_ref_123",
+                            amount: 10000, 
+                            currency: 566, // ISO 4217 numeric code of the currency used
+                            // onComplete: paymentCallback,
+                            mode: 'TEST'
+                        };
+                        window.webpayCheckout(samplePaymentRequest);
                     }
     },
     

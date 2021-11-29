@@ -478,11 +478,19 @@
                         <a class="profile-dropdown__item dropdown-menu__item" href="#" tabindex="0"><span class="profile-dropdown__icon">
                         <svg class="icon-icon-settings">
                           <use xlink:href="#icon-settings"></use>
-                        </svg></span><span>Settings</span></a>
-                                    <div class="dropdown-menu__divider"></div><a class="profile-dropdown__item dropdown-menu__item" href="#" tabindex="0"><span class="profile-dropdown__icon">
-                        <svg class="icon-icon-logout">
-                          <use xlink:href="#icon-logout"></use>
-                        </svg></span><span>Logout</span></a>
+                        </svg>
+                        </span>
+                        <span>Settings</span>
+                        </a>
+                                    <div class="dropdown-menu__divider"></div>
+                                    <a class="profile-dropdown__item dropdown-menu__item"  tabindex="0" @click="logout()">
+                                        <span class="profile-dropdown__icon">
+                                        <svg class="icon-icon-logout">
+                                        <use xlink:href="#icon-logout"></use>
+                                        </svg>
+                                        </span>
+                                        <span>Logout</span>
+                                    </a>
                                 </div>
                             </div>
                         </div>
@@ -504,9 +512,11 @@
                 <div class="sidebar__content " data-simplebar="data-simplebar">
                    
 
-                    <UserSidebar v-if="is_admin"></UserSidebar>
+                    <AdminSidebar v-if="is_admin"></AdminSidebar>
+                    <BoardAdminSidebar v-if="is_board_admin"></BoardAdminSidebar>
+                   
 
-                    <AdminSidebar v-else></AdminSidebar>
+                    <!-- <AdminSidebar v-else></AdminSidebar> -->
 
 
 
@@ -529,51 +539,24 @@
 
 <script>
 
-import UserSidebar from  '@/views/incs/UserSidebar.vue'
+import BoardAdminSidebar from  '@/views/incs/BoardAdmin.vue'
 import AdminSidebar from  '@/views/incs/AdminSidebar.vue'
-  //  import "@popperjs/core"
-    // import '@/assets/jss/gsap/gsap.min.js'
-    // import '@/assets/jss/gsap/ScrollToPlugin.min.js'
-    // import '@/assets/jss/gsap/ScrollTrigger.min.js'
-    // import '@/assets/jss/vendor/popper.min.js'
-    // import '@/assets/jss/vendor/jquery.min.js'
-    // import '@/assets/jss/vendor/bootstrap.bundle.min.js'
-    // import '@/assets/jss/vendor/imagesloaded.pkgd.min.js'
-    // import '@/assets/jss/vendor/simplebar.min.js'
-    // import '@/assets/jss/vendor/tippy-bundle.umd.min.js'
-    // import '@/assets/jss/vendor/grid/masonry.pkgd.min.js'
-    // import '@/assets/jss/vendor/grid/isotope.pkgd.min.js'
-    // import '@/assets/jss/vendor/charts/circle-progress.min.js'
-    // import '@/assets/jss/vendor/charts/echarts.common.min.js'
-    // import '@/assets/jss/vendor/charts/apexcharts/apexcharts.min.js'
-    // import '@/assets/jss/vendor/cleave/cleave.min.js'
-    // import '@/assets/jss/vendor/cleave/addons/cleave-phone.us.js'
-    // import '@/assets/jss/vendor/jqvmap/jquery.vmap.min.js'
-    // import '@/assets/jss/vendor/jqvmap/jquery.vmap.world.js'
-    // import '@/assets/jss/vendor/jqvmap/jquery.vmap.sampledata.js'
-    // import '@/assets/jss/vendor/jquery.star-rating-svg.min.js'
-    // import '@/assets/jss/vendor/calendar/flatpickr/flatpickr.min.js'
-    // import '@/assets/jss/vendor/calendar/flatpickr/en.js'
-    // import '@/assets/jss/vendor/select2.min.js'
-    // import '@/assets/jss/vendor/editors/quill.min.js'
-    // import '@/assets/jss/vendor/filepond/filepond-plugin-image-preview.min.js'
-    // import '@/assets/jss/vendor/filepond/filepond.min.js'
-    // import '@/assets/jss/vendor/swiper-bundle.min.js'
-    // import '@/assets/jss/vendor/scrollmagic/ScrollMagic.min.js'
-    // import '@/assets/jss/vendor/scrollmagic/debug.addIndicators.min.js'
-    // import '@/assets/jss/components.js'
-    // import '@/assets/jss/common.js'
+import { useToast } from 'vue-toastification'
+
+const toast = useToast()
 
 
 
 export default {
     components:{
-        UserSidebar,
-        AdminSidebar
+      
+        AdminSidebar,
+        BoardAdminSidebar
     },
     data() {
         return {
-            is_admin: true,
+            is_admin: false,
+            is_board_admin: false,
             sidebar_show: '',
             sidebar_button: '',
             aside_class: '',
@@ -581,8 +564,14 @@ export default {
         }
     },
     methods: {
-        toggleMenu(){
+        logout(){
+            alert('loggin out')
+            localStorage.setItem('user_role', '')
 
+            this.$router.push('/login');
+        },
+        toggleMenu(){
+       alert('collapse')
             if(!this.sidebar_active){
                 this.sidebar_show = 'sidebar-show sidebar-collapse sidebar-active'
                 this.sidebar_button = 'active'
@@ -600,11 +589,32 @@ export default {
             
         },
         collapseMenu(){
+            alert('collapse')
             this.sidebar_show = ''
             this.sidebar_button = ''
             this.aside_class = ''
             this.sidebar_active = ''
+        },
+        selectSideBar(){
+            // alert('helped by God')
+            if(localStorage.getItem('user_role') == '6'){
+                return this.is_admin = true;
+               
+
+            }
+            if(localStorage.getItem('user_role') == '5'){
+              
+                return this.is_board_admin = true
+            }else{
+                this.$router.push('/login')
+                toast.warning('Session Expired');
+            }
         }
+    },
+    mounted() {
+
+       this.selectSideBar()
+      
     },
 }
 </script>

@@ -1,6 +1,7 @@
 import { createRouter, createWebHashHistory } from 'vue-router'
 // import Home from '../views/front_page/Home.vue'
 import Login from '../views/Login.vue'
+import EmailReset from '../views/EmailReset.vue'
 import Register from '../views/Register.vue'
 import EmailOTP from '../views/EmailOTP.vue'
 
@@ -13,7 +14,7 @@ import Fullwidth from '../views/layouts/Fullwidth.vue'
 // import LGATaxOfficer from '../router/LGATaxOfficer'
 // import BoardTaxOfficer from '../router/BoardTaxOfficer'
 // import SystemSupport from '../router/SystemSupport'
-// import BoardAdmin from '../router/BoardAdmin'
+import BoardAdmin from '../router/BoardAdmin'
 // import ZonalAdmin from '../router/ZonalAdmin'
 // import AreaAdmin from '../router/AreaAdmin'
 // import Enumerators from '../router/Enumerator'
@@ -23,6 +24,14 @@ import Admin from '../router/Admin'
 
 const routes = [
 
+  // ...LGATaxOfficer,
+  // ...BoardTaxOfficer,
+  // ...SystemSupport,
+  ...BoardAdmin,
+  // ...ZonalAdmin,
+  // ...AreaAdmin,
+  // ...Enumerators,
+  ...Admin,
 
   {
     path: '/',
@@ -72,6 +81,18 @@ const routes = [
       ]
   },
 
+  {
+    path: '/EmailReset',
+    name: 'EmailReset',
+    component: Fullwidth,
+      children: [
+        {
+          path: '',
+          component: EmailReset,
+        }
+      ]
+  },
+
 
   {
     path: '/coming-soon',
@@ -84,23 +105,8 @@ const routes = [
         }
       ]
   },
-  {
-    path: '/about',
-    name: 'About',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
-  },
 
-  // ...LGATaxOfficer,
-  // ...BoardTaxOfficer,
-  // ...SystemSupport,
-  // ...BoardAdmin,
-  // ...ZonalAdmin,
-  // ...AreaAdmin,
-  // ...Enumerators,
-  ...Admin
+
 ]
 
 const router = createRouter({

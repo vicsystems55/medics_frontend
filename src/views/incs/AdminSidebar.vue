@@ -3,14 +3,26 @@
 <template lang="">
     <div>
             <nav class="sidebar__nav">
+                <div class="p-5"></div>
                         <ul class="sidebar__menu">
-                            <li class="sidebar__menu-item"><a class="sidebar__link " href="index.html" aria-expanded="true">
+                            <li class="sidebar__menu-item active">
+                            <a class="sidebar__link active" aria-expanded="true">
+                                <span class="sidebar__link-icon">
+                                        <svg class="icon-icon-person">
+                                            <use xlink:href="#icon-person"></use>
+                                        </svg>
+                                </span>
+                                <span class="sidebar__link-text">SUPER ADMIN</span>
+                            </a>
+                            </li>
+
+                            <li class="sidebar__menu-item"><router-link class="sidebar__link " to='/Admin/Dashboard' aria-expanded="true">
                                 <span class="sidebar__link-icon">
                                         <svg class="icon-icon-dashboard">
                                             <use xlink:href="#icon-dashboard"></use>
                                         </svg>
                                 </span>
-                                <span class="sidebar__link-text">Dashboard</span></a>
+                                <span class="sidebar__link-text">Dashboard</span></router-link>
                             </li>
                             
                          
@@ -29,15 +41,47 @@
                                                 </ul>
                                             </div>
                                         </li> -->
-                            
-                            <li class="sidebar__menu-item">
-                                <a class="sidebar__link" href="ui-kit.html" aria-expanded="false">
+                                <li class="sidebar__menu-item">
+                                    <router-link class="sidebar__link" to='/Admin/States' aria-expanded="false">
+                                        <span class="sidebar__link-icon">
+                                            <svg class="icon-icon-settings">
+                                                <use xlink:href="#icon-settings"></use>
+                                            </svg>
+                                        </span>
+                                        <span class="sidebar__link-text">States</span>
+                                    </router-link>
+                                </li>
+
+                               <li class="sidebar__menu-item">
+                                <router-link class="sidebar__link" to='/Admin/BusinessProfiles' aria-expanded="false">
                                     <span class="sidebar__link-icon">
                                         <svg class="icon-icon-settings">
                                             <use xlink:href="#icon-settings"></use>
                                         </svg>
                                     </span>
-                                    <span class="sidebar__link-text">Members</span>
+                                    <span class="sidebar__link-text">Business Profiles</span>
+                                </router-link>
+                            </li>
+
+                            <li class="sidebar__menu-item">
+                                <a class="sidebar__link" to='/Admin/DemandNotices' aria-expanded="false">
+                                    <span class="sidebar__link-icon">
+                                        <svg class="icon-icon-settings">
+                                            <use xlink:href="#icon-settings"></use>
+                                        </svg>
+                                    </span>
+                                    <span class="sidebar__link-text">Demand Notices</span>
+                                </a>
+                            </li>
+                            
+                            <li class="sidebar__menu-item">
+                                <a class="sidebar__link" to='/Admin/AccountManagement' aria-expanded="false">
+                                    <span class="sidebar__link-icon">
+                                        <svg class="icon-icon-settings">
+                                            <use xlink:href="#icon-settings"></use>
+                                        </svg>
+                                    </span>
+                                    <span class="sidebar__link-text">Account Management</span>
                                 </a>
                             </li>
 
@@ -45,7 +89,7 @@
                      
 
                             <li class="sidebar__menu-item">
-                                <a class="sidebar__link" href="ui-kit.html" aria-expanded="false">
+                                <a class="sidebar__link" to='/Admin/Notifications' aria-expanded="false">
                                     <span class="sidebar__link-icon">
                                         <svg class="icon-icon-settings">
                                             <use xlink:href="#icon-settings"></use>
@@ -58,7 +102,7 @@
                     
 
                             <li class="sidebar__menu-item">
-                                <a class="sidebar__link" href="ui-kit.html" aria-expanded="false">
+                                <a class="sidebar__link" to='/Admin/Settings' aria-expanded="false">
                                     <span class="sidebar__link-icon">
                                         <svg class="icon-icon-settings">
                                             <use xlink:href="#icon-settings"></use>
