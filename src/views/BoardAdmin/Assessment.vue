@@ -48,13 +48,13 @@
     <div class="col-3">
         <h6>Quantity:</h6>
         <div class="form-group">
-            <input type="number" class="form-control" v-model="radio">
+            <input type="number" class="form-control" @change="calculate_radio_total(radio)" v-model="radio">
         </div>
         <div class="form-group">
-            <input type="number" class="form-control" v-model="tv">
+            <input type="number" class="form-control" @change="calculate_tv_total(tv)" v-model="tv">
         </div>
         <div class="form-group">
-            <input type="number" class="form-control" v-model="computer">
+            <input type="number" class="form-control" @change="calculate_computer_total(computer)" v-model="computer">
         </div>
     </div>
 
@@ -62,13 +62,13 @@
     <div class="col-3">
         <h6>Rate</h6>
         <div class="form-group">
-            <input type="number" class="form-control" value="1200">
+            <input type="number" class="form-control" v-model="radio_rate">
         </div>
         <div class="form-group">
-            <input type="number" class="form-control" value="1200">
+            <input type="number" class="form-control" v-model="tv_rate">
         </div>
         <div class="form-group">
-            <input type="number" class="form-control" value="1200">
+            <input type="number" class="form-control" v-model="computer_rate">
         </div>
     </div>
 
@@ -88,7 +88,7 @@
 </div>
 
 <div class="container text-center py-3">
-    <button class="btn btn-primary col-md-4"> Submit</button>
+    <button class="btn btn-primary col-md-4"  @click="updateAssessment()"> Submit</button>
 </div>
         
 
@@ -108,11 +108,23 @@
                 enumeration: [],
                 radio: '',
                 tv: '',
-                computer:''
+                computer:'',
+                radio_rate: '',
+                tv_rate: '',
+                computer_rate:''
             }
         },
 
         methods: {
+            calculate_radio_total(){
+                
+            },
+            calculate_tv_total(){
+                
+            },
+            calculate_computer_total(){
+                
+            },
             getBusinessProfiles(){
                 // console.log(this.businessProfile.businessEnumerations)
                             let loader = this.$loading.show({
@@ -139,8 +151,18 @@
                                         this.enumeration = response.data['businessEnumerations']
 
                                         this.radio = response.data['businessEnumerations'][0].totalItemCount
+                                        this.radio_rate = response.data['businessEnumerations'][0].taxRate
+                                        this.radio_enumeration_id = response.data['businessEnumerations'][0].businessEnumerationID
+                                        
+
                                         this.tv = response.data['businessEnumerations'][1].totalItemCount
+                                        this.tv_rate = response.data['businessEnumerations'][1].taxRate
+                                        this.tv_enumeration_id = response.data['businessEnumerations'][1].businessEnumerationID
+
                                         this.computer = response.data['businessEnumerations'][2].totalItemCount
+                                        this.computer_rate = response.data['businessEnumerations'][2].taxRate
+                                        this.computer_enumeration_id = response.data['businessEnumerations'][2].businessEnumerationID
+
                                         console.log(this.tv)
 
                                         localStorage.setItem('businessProfiles', JSON.stringify(response.data)) 
@@ -163,6 +185,51 @@
                                         toast.error(response);
                                         loader.hide()
                                     });
+            },
+
+            updateAssessment(){
+
+
+                    var bodyFormData = new FormData();
+
+                    bodyFormData.append('Qty_'+this.radio_enumeration_id, this.radio); 
+
+                    bodyFormData.append('Qty_'+this.tv_enumeration_id, this.tv); 
+
+                    bodyFormData.append('Qty_'+this.computer_enumeration_id, this.computer); 
+
+
+                    bodyFormData.append('Rate_'+this.radio_enumeration_id, this.radio_rate); 
+
+                    bodyFormData.append('Rate_'+this.tv_enumeration_id, this.tv_rate); 
+
+                    bodyFormData.append('Rate_'+this.computer_enumeration_id, this.computer_rate);
+                    
+            
+                    console.log(bodyFormData)
+
+                let loader = this.$loading.show({
+                    // Optional parameters
+                    container: this.fullPage ? null : this.$refs.formContainer,
+                    canCancel: true,
+                    onCancel: this.onCancel,
+                    color: '#6CC3EC',
+                });
+
+                this.axios({
+                    method: 'post',
+                    url: 'https://micro.rtvrs.com.ng/api/Assessment',
+                    data: bodyFormData,
+                    headers: { "Content-Type": "multipart/form-data" },
+                })
+                .then((response)=>{
+                    console.log(response)
+                    loader.hide()
+                })
+                .catch((response)=>{
+                    console.log(response)
+                })
+
             }
         },
 

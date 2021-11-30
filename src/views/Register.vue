@@ -233,7 +233,7 @@ export default {
 
                     bodyFormData.append('UserPhoneNumber', this.UserPhoneNumber); 
 
-                    bodyFormData.append('UserPasswork', this.UserPassword); 
+                    bodyFormData.append('UserPassword', this.UserPassword); 
 
                     bodyFormData.append('UserName', this.UserName); 
 
