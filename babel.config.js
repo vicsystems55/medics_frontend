@@ -8,6 +8,7 @@ module.exports = {
   //   https: true,
   //   hotOnly: true,
   // }
+  // outputDir: '../public/site/dist'
 }
 
 

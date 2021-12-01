@@ -474,7 +474,7 @@
                                   <div class="row align-items-center">
                                     
                                     <div class="col-auto">
-                                        <div class="form-group py-3"><a class="text-blue" href="auth-forgot-v2.html">Create an account</a>
+                                        <div class="form-group py-3"><a class="text-blue" href="/register">Create an account</a>
                                         </div>
                                     </div>
                                 </div>
