@@ -420,13 +420,13 @@
                             </div>
                             <div class="auth-card__body">
                                 <div class="form-group">
-                                    <label>Email</label>
+                                    <label>Username</label>
                                     <div class="input-group input-group--prepend"><span class="input-group__prepend">
                                     <svg class="icon-icon-user">
                                     <use xlink:href="#icon-user"></use>
                                     </svg>
                                     </span>
-                                        <input class="input shadow" type="email" v-model="email" placeholder="Enter email" required>
+                                        <input class="input shadow" type="text" v-model="username" placeholder="Enter Username" required>
                                     </div>
                                 </div>
                                 
@@ -503,6 +503,7 @@ export default {
         return {
              fullPage: false,
              email: '',
+             username: '',
              password: '',
              role: '',
              passwordAttribute: 'password'
@@ -520,7 +521,7 @@ export default {
             }
 
         },
-                    submit() {
+                submit() {
                         // alert('start')
                 let loader = this.$loading.show({
                     // Optional parameters
@@ -531,32 +532,86 @@ export default {
                 });
 
                     setTimeout(() => {
-                
-                }, 5000)
+                        loader.hide()
+                    }, 5000)
 
-                if (this.email == 'admin@rtvrs.com.ng' && this.password == 'admin@2021') {
+
+                    var bodyFormData = new FormData();
+
+                    bodyFormData.append('UserName', this.username); 
+
+                    bodyFormData.append('UserPassword', this.password); 
+
+                  
+                  this.axios({
+                      method: 'post',
+                      url: 'https://micro.rtvrs.com.ng/api/UserLogin',
+                      data: bodyFormData
+                  })
+                  .then((response)=>{
+                      alert(this.username)
+                      alert(this.password)
+                      this.email = this.username
+                      console.log(response)
+
+                    if (this.email == 'admin@rtvrs.com.ng' && this.password == 'admin@2021') {
                 
-                    localStorage.setItem('user_role', '6')
+                        localStorage.setItem('user_role', '6')
                     
                    
-                     loader.hide()
-                     toast.success('Login Successful');
+                        loader.hide()
+                        toast.success('Login Successful');
 
                       return this.$router.push('/Admin/Dashboard');
                      
                     
-                }if(this.email == 'kadunastate@rtvrs.com.ng' && this.password == 'kadunastate@2021'){
-                    localStorage.setItem('user_role', '5')
-                    this.$router.push('/BoardAdmin/Dashboard')
-                    loader.hide()
-                    toast.success('Login Successful');
+                    }if(response.data.defaultSystemRole == 5){
+
+                        // alert('yes state')
+                        localStorage.setItem('user_role', '5')
+                        
+                        loader.hide()
+                        toast.success('Login Successful');
+
+                        return this.$router.push('/BoardAdmin/Dashboard')
+                        
+                    }else{
+
+                        this.$router.push('/login');
+                        toast.error('Invalid Credentials');
+
+                    }
+                        
+                    })
+                  .catch((response)=>{
+                      console.log(response)
+                  })  
+
+
+
+                // if (this.email == 'admin@rtvrs.com.ng' && this.password == 'admin@2021') {
+                
+                //     localStorage.setItem('user_role', '6')
                     
-                }else{
+                   
+                //      loader.hide()
+                //      toast.success('Login Successful');
 
-                    this.$router.push('/login');
-                    toast.error('Invalid Credentials');
+                //       return this.$router.push('/Admin/Dashboard');
+                     
+                    
+                // }if(this.email == 'kadunastate@rtvrs.com.ng' && this.password == 'kadunastate@2021'){
+                //     localStorage.setItem('user_role', '5')
+                //     this.$router.push('/BoardAdmin/Dashboard')
+                //     loader.hide()
+                //     toast.success('Login Successful');
+                    
+                // }else{
 
-                }
+                //     this.$router.push('/login');
+                //     toast.error('Invalid Credentials');
+
+                // }
 
 
                 // simulate AJAX

@@ -464,7 +464,7 @@
                                     <div class="header__profile-image"><span class="header__profile-image-text">MA</span>
                                         <img src="img/content/humans/item-4.jpg" alt="#" />
                                     </div>
-                                    <div class="header__profile-text"><span>Mark Anderson</span>
+                                    <div class="header__profile-text"><span>{{userDatax.userFullName}}</span>
                                     </div><span class="icon-arrow-down">
                       <svg class="icon-icon-arrow-down">
                         <use xlink:href="#icon-arrow-down"></use>
@@ -561,9 +561,13 @@ export default {
             sidebar_button: '',
             aside_class: '',
             sidebar_active: false,
+            userDatax: []
         }
     },
     methods: {
+        getUserData(){
+             this.userDatax = JSON.parse(localStorage.getItem('user_data'));
+        },
         logout(){
             alert('loggin out')
             localStorage.setItem('user_role', '')
@@ -571,7 +575,7 @@ export default {
             this.$router.push('/login');
         },
         toggleMenu(){
-       alert('collapse')
+    //    alert('collapse')
             if(!this.sidebar_active){
                 this.sidebar_show = 'sidebar-show sidebar-collapse sidebar-active'
                 this.sidebar_button = 'active'
@@ -589,7 +593,7 @@ export default {
             
         },
         collapseMenu(){
-            alert('collapse')
+            // alert('collapse')
             this.sidebar_show = ''
             this.sidebar_button = ''
             this.aside_class = ''
@@ -614,7 +618,8 @@ export default {
     mounted() {
 
        this.selectSideBar()
-      
+       
+      this.getUserData()
     },
 }
 </script>

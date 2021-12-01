@@ -1,22 +1,24 @@
 <template>
    <div>
          <div class="container">
-                <div class="page-header">
-                    <h1 class="page-header__title">Hi, State Admin</h1>
+                <div class="page-header py-2">
+                    <h1 class="page-header__title">Hi, {{userData.userFullName}}</h1>
+                    <h6 class="font-italic">Username: {{userData.userName}}</h6>
+                    <h6 class="font-italic">Email: {{userData.userEmail}}</h6>
                 </div>
 
                  <div class="row">
                 
 
-                 <div class="col-md-4">
+                 <div class="col-md-4 p-2">
                     <div class="widget">
                         <div style="height: 130px;" class="widget__wrapper">
 
                             <div class="">
                                 <h3 class="widget__title">Businesses</h3>
-                                <div class="widget__status-title text-grey">Total businesses onboarded</div>
+                                <div class="widget__status-title text-grey">Total businesses registered</div>
                                 <div class="widget__trade">
-                                <span class="widget__trade-count">30</span>
+                                <span class="widget__trade-count">{{businessProfiles.length}}</span>
                                 <span class="trade-icon trade-icon--up">
                                     <svg class="icon-icon-trade-up">
                                         <use xlink:href="#icon-trade-up"></use>
@@ -31,7 +33,7 @@
                     </div>
                 </div>
 
-                <div class="col-md-4">
+                <div class="col-md-4 p-2">
                     <div class="widget">
                         <div style="height: 130px;" class="widget__wrapper">
 
@@ -54,7 +56,7 @@
                     </div>
                 </div>
 
-                 <div class="col-md-4">
+                 <div class="col-md-4 p-2">
                     <div class="widget">
                         <div style="height: 130px;" class="widget__wrapper">
 
@@ -87,3 +89,52 @@
             </div>
     </div>
 </template>
+
+<script>
+export default {
+    data() {
+        return {
+            businessProfiles: [],
+            userData: []
+        }
+    },
+    methods: {
+        getUserData(){
+            
+
+           this.userData = JSON.parse(localStorage.getItem('user_data'));
+
+        //    alert(this.userData.userFullName)
+        },
+        getBusinessProfiles(){
+            let loader = this.$loading.show({
+                // Optional parameters
+                container: this.fullPage ? null : this.$refs.formContainer,
+                canCancel: true,
+                onCancel: this.onCancel,
+                color: '#6CC3EC',
+            });
+
+            this.axios({
+                method: 'get',
+                url:'https://micro.rtvrs.com.ng/api/BusinessProfiles/KADUNA',
+
+            })
+            .then((response)=>{
+
+                this.businessProfiles = response.data
+                loader.hide()
+            })
+            .catch((response)=>{
+
+                console.log(response)
+                loader.hide()
+            })
+        }
+    },
+    mounted() {
+        this.getBusinessProfiles()
+        this.getUserData()
+    },
+}
+</script>

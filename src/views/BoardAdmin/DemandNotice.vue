@@ -1,29 +1,29 @@
 <template>
    <div class="container">
        <div class="container p-5">
-           <button class="btn btn-primary shadow float-right">Print</button>
+           <button class="btn btn-primary shadow float-right" @click="print()">Print</button>
        </div>
-        <div style="min-height: 312px; width: 730px;" class="container shadow bg-white py-5">
+        <div id="printMe" style="min-height: 312px; width: 730px;" class="container shadow bg-white py-5">
             <h4 class="text-center">KADUNA STATE INTERNAL REVENUE SERVICE</h4>
             <h6 class="text-center">HEAD OFFICE: OBASANJO HOUSE, YAKUBU GOWON WAY, KADUNA</h6>
        <table class="table">
            <tr>
                <td>Name</td>
-               <td></td>
+               <td>{{businessName}}</td>
                <td>TIN</td>
                <td></td>
            </tr>
 
             <tr>
                <td>Address</td>
-               <td></td>
+               <td>{{businessAddress}}</td>
                <td>Assesment No.</td>
                <td></td>
            </tr>
 
             <tr>
                <td>Phone</td>
-               <td></td>
+               <td>{{businessPhoneNo}}</td>
                <td>Date:</td>
                <td></td>
            </tr>
@@ -79,3 +79,50 @@
     </div>
    </div>
 </template>
+
+<script>
+export default {
+    data() {
+        return {
+            demandNoticeData: [],
+            businessName: '',
+            businessAddress: '',
+            businessPhoneNo: '',
+            output: null
+        }
+    },
+    methods: {
+        print(){
+            alert('print doc');
+          
+        },
+        getDemandNotice(){
+            let loader = this.$loading.show({
+                // Optional parameters
+                container: this.fullPage ? null : this.$refs.formContainer,
+                canCancel: true,
+                onCancel: this.onCancel,
+                color: '#6CC3EC',
+            });
+            this.axios({
+                method: 'get',
+                url: 'https://micro.rtvrs.com.ng/api/BusinessDemandNotices/'+this.$route.params.id
+            })
+            .then((response)=>{
+                this.demandNoticeData = response.data
+                this.businessName = response.data.businessDetails.businessName
+                this.businessAddress = response.data.businessDetails.businessAddress
+                this.businessPhoneNo = response.data.businessDetails.businessPhoneNo
+                console.log(response.data)
+                loader.hide()
+            })
+            .catch((response)=>{
+                console.log(response)
+            })
+        }
+    },
+    mounted() {
+        this.getDemandNotice()
+    },
+}
+</script>

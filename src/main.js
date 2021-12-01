@@ -20,6 +20,8 @@ import 'vue-loading-overlay/dist/vue-loading.css';
 
 import OtpInput from "@bachdgvn/vue-otp-input";
 
+// import VueHtmlToPaper from 'vue-html-to-paper';
+
   // In main.js
 // import LoadScript from 'vue-plugin-load-script';
 
@@ -77,5 +79,6 @@ createApp(App)
 .use(VueLoading)
 .use(VueAxios, axios)
 .use(Toast)
+// .use(VueHtmlToPaper)
 .component("v-otp-input", OtpInput)
 .mount('#app')

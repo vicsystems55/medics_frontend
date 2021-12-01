@@ -4,8 +4,8 @@
 <div class="container">
          <h2>Assessment for {{businessProfile.businessName}}</h2>
 
-        <div class="contianer">
-             <table class="table">
+        <div class="contianer table-responsive">
+             <table class="table table-striped hover">
              <tr>
                  <th>Business Name:</th>
                  <td>{{businessProfile.businessName}}</td>
@@ -48,13 +48,13 @@
     <div class="col-3">
         <h6>Quantity:</h6>
         <div class="form-group">
-            <input type="number" class="form-control" @change="calculate_radio_total(radio)" v-model="radio">
+            <input type="number" class="form-control" @keyup="calculate_radio_total(radio,radio_rate)" v-model="radio">
         </div>
         <div class="form-group">
-            <input type="number" class="form-control" @change="calculate_tv_total(tv)" v-model="tv">
+            <input type="number" class="form-control" @keyup="calculate_tv_total(tv,tv_rate)" v-model="tv">
         </div>
         <div class="form-group">
-            <input type="number" class="form-control" @change="calculate_computer_total(computer)" v-model="computer">
+            <input type="number" class="form-control" @keyup="calculate_computer_total(computer,computer_rate)" v-model="computer">
         </div>
     </div>
 
@@ -62,26 +62,26 @@
     <div class="col-3">
         <h6>Rate</h6>
         <div class="form-group">
-            <input type="number" class="form-control" v-model="radio_rate">
+            <input type="number" class="form-control" v-model="radio_rate" disabled>
         </div>
         <div class="form-group">
-            <input type="number" class="form-control" v-model="tv_rate">
+            <input type="number" class="form-control" v-model="tv_rate" disabled>
         </div>
         <div class="form-group">
-            <input type="number" class="form-control" v-model="computer_rate">
+            <input type="number" class="form-control" v-model="computer_rate" disabled>
         </div>
     </div>
 
     <div class="col-3">
         <h6>Total</h6>
         <div class="form-group">
-            <input type="number" class="form-control" value="">
+            <input type="number" class="form-control" v-model="radio_total">
         </div>
         <div class="form-group">
-            <input type="number" class="form-control" value="">
+            <input type="number" class="form-control" v-model="tv_total">
         </div>
         <div class="form-group">
-            <input type="number" class="form-control" value="">
+            <input type="number" class="form-control" v-model="computer_total">
         </div>
     </div>
 </div>
@@ -106,24 +106,34 @@
             return {
                 businessProfile: [],
                 enumeration: [],
+
                 radio: '',
                 tv: '',
                 computer:'',
+
                 radio_rate: '',
                 tv_rate: '',
-                computer_rate:''
+                computer_rate:'',
+
+                radio_total: '',
+                tv_total: '',
+                computer_total:''
             }
         },
 
         methods: {
-            calculate_radio_total(){
-                
+            calculate_radio_total(radio, radio_rate){
+
+                this.radio_total = parseInt(radio) * parseInt(radio_rate)
+
+                // alert(this.radio_rate)
+
             },
-            calculate_tv_total(){
-                
+            calculate_tv_total(tv, tv_rate){
+                this.tv_total = parseInt(tv) * parseInt(tv_rate)
             },
-            calculate_computer_total(){
-                
+            calculate_computer_total(computer, computer_rate){
+                   this.computer_total = parseInt(computer) * parseInt(computer_rate)
             },
             getBusinessProfiles(){
                 // console.log(this.businessProfile.businessEnumerations)
@@ -223,6 +233,7 @@
                     headers: { "Content-Type": "multipart/form-data" },
                 })
                 .then((response)=>{
+                    toast.success('Assessment Updated');
                     console.log(response)
                     loader.hide()
                 })

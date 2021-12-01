@@ -19,6 +19,7 @@
     "vee-validate": "^4.5.2",
     "vue": "^3.0.0",
     "vue-axios": "^3.3.7",
+    "vue-html-to-paper": "^1.4.4",
     "vue-loading-overlay": "^4.0.4",
     "vue-page-transition": "^0.2.2",
     "vue-plugin-load-script": "^1.3.5",
