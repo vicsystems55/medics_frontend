@@ -549,8 +549,8 @@ export default {
                       data: bodyFormData
                   })
                   .then((response)=>{
-                      alert(this.username)
-                      alert(this.password)
+                    //   alert(this.username)
+                    //   alert(this.password)
                       this.email = this.username
                       console.log(response)
 

@@ -211,11 +211,14 @@ export default {
                 url: 'https://micro.rtvrs.com.ng/api/BusinessDemandNotices/'+this.$route.params.id
             })
             .then((response)=>{
+                this.demandNoticeDetails = response.data.demandNoticeDetails
                 this.demandNoticeData = response.data
                 this.businessName = response.data.businessDetails.businessName
                 this.businessAddress = response.data.businessDetails.businessAddress
                 this.businessPhoneNo = response.data.businessDetails.businessPhoneNo
-                console.log(response.data)
+                alert('demand details')
+                console.log(response.data.demandNoticeDetails)
+                //  console.log(this.demandNoticeDetails)
                 loader.hide()
             })
             .catch((response)=>{
