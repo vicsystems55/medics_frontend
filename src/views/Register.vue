@@ -40,7 +40,7 @@
                                             <use xlink:href="#icon-email-2"></use>
                                         </svg>
                                     </span>
-                                        <input class="input shadow" type="text" v-model="UserFullName" required placeholder="Fullname">
+                                        <input class="input shadow" type="text" v-model="UserFullName" required placeholder="Enter fullname">
                                     </div>
                                 </div>
                                 <div class="form-group">
@@ -51,7 +51,7 @@
                                             <use xlink:href="#icon-email-2"></use>
                                         </svg>
                                     </span>
-                                        <input class="input shadow" type="text" placeholder="Username" v-model="UserName" required>
+                                        <input class="input shadow" type="text" placeholder="Create a username" v-model="UserName" required>
                                     </div>
                                 </div>
 
@@ -63,18 +63,19 @@
                                             <use xlink:href="#icon-email-2"></use>
                                         </svg>
                                     </span>
-                                        <input class="input shadow" type="email" placeholder="Email" v-model="UserEmail" required>
+                                        <input class="input shadow" type="email" placeholder="Supply a valid email" v-model="UserEmail" required>
                                     </div>
                                 </div>
                                 <div class="form-group">
                                      <label>Password:</label>
+                                    <label @click="togglePasswordVisibility()" class="float-right" style="margin-left: 250px; margin-top: 36px; position: absolute; z-index: 999"> <img height="20" width="20" src="https://cdn-icons-png.flaticon.com/128/709/709612.png" style="z-index:999"></label>
                                     <div class="input-group input-group--prepend">
                                     <span class="input-group__prepend">
                                         <svg class="icon-icon-password">
                                             <use xlink:href="#icon-password"></use>
                                         </svg>
                                     </span>
-                                        <input class="input shadow" type="passowrd"  placeholder="Create a password" v-model="UserPassword" required>
+                                        <input ref="pass" :type="passwordAttribute" class="input shadow"  placeholder="Create a password" v-model="UserPassword" required>
                                     </div>
                                 </div>
                                
@@ -188,7 +189,7 @@
                                 </div>
                             </div>
                             <div class="auth-card__bottom">
-                                <div class="auth-card__sign">Already have account? <a class="text-blue" href="/login">Login</a>
+                                <div class="auth-card__sign">Already have account? <router-link class="text-blue" to="/login">Login</router-link>
                                 </div>
                             </div>
                         </div>
@@ -219,10 +220,21 @@ export default {
              UserFullName: '',
              UserCategory: '',
              UserEmail: '',
+            passwordAttribute: 'password'
         }
     },
 
     methods: {
+
+        togglePasswordVisibility(){
+       
+            if(this.passwordAttribute == 'password'){
+                this.passwordAttribute = 'text'
+            }else{
+                this.passwordAttribute = 'password'
+            }
+
+        },
                 submit() {
 
 
