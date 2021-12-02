@@ -34,10 +34,19 @@
                     <div class="page-tools__right">
                         <div class="page-tools__right-row">
                             <div class="page-tools__right-item">
-                                <a class="button-icon" @click="print()">
+                                <a class="button-icon shadow" @click="print()">
                                     <span class="button-icon__icon">
                                         <svg class="icon-icon-print">
                                             <use xlink:href="#icon-print"></use>
+                                        </svg>
+                                    </span>
+                                </a>
+                            </div>
+                             <div class="page-tools__right-item">
+                                <a class="button-icon shadow" @click="email()">
+                                    <span class="button-icon__icon">
+                                        <svg class="icon-icon-email">
+                                            <use xlink:href="#icon-email"></use>
                                         </svg>
                                     </span>
                                 </a>
@@ -240,6 +249,15 @@ export default {
     methods: {
         print(){
             alert('print doc');
+
+            var printContents = document.getElementById('printMe').innerHTML;
+            var originalContents = document.body.innerHTML;
+
+            document.body.innerHTML = printContents;
+
+            window.print();
+
+            document.body.innerHTML = originalContents;
           
         },
         getDemandNotice(){
