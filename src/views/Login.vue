@@ -461,7 +461,7 @@
                                     </div>
                                     <div class="col-auto">
                                         <div class="form-group">
-                                            <router-link class="text-blue" to="/EmailReset">Forgot Password?</router-link>
+                                           
                                         </div>
                                     </div>
                                 </div>
