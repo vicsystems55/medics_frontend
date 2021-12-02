@@ -81,36 +81,62 @@
         <p class=" px-5">
             In pursuance of Section 7(4th Schedule of the 1999 constitution), Section 98 and Section 99 (a, b, and c) of the Kaduna State Tax (codification and Consolidation) Law, 2020 which impose a tax on ownership of device or equipment capable of receiving and transmitting   radio and television broadcast content in the state. A notice of assessment is hereby served on you in respect of the device(s) usage for the year(s) stated below;
         </p>
+
         <div class="container">
-            <h6 class="px-5">RADIO</h6>
+            <h6 class="font-weight-bold px-5">Year 2020</h6>
+
+    
                 <table class="table ">
+                  <tr class="table__row">
+                    <td class="table__td border"> <span class="font-weight-bold">Device Type</span> </td>
+                    <td v-for="device in demandNoticeDetails2020" :key="device.id" class="table__td border">{{device.taxItemDescription}}</td>
+                </tr>
                  <tr class="table__row">
-                    <td class="table__td border">ASSESSMENT PERIOD</td>
-                    <td class="table__td border">2020</td>
-                    <td class="table__td border">2021</td>
+                    <td class="table__td border"> <span class="font-weight-bold">Number of Devices</span> </td>
+                    <td v-for="device in demandNoticeDetails2020" :key="device.id" class="table__td border">{{device.totalDeviceCount}}</td>
+                </tr>
+                <tr class="table__row">
+                    <td class="table__td border"> <span class="font-weight-bold">Annual Rate per Device</span> </td>
+                    <td v-for="device in demandNoticeDetails2020" :key="device.id" class="table__td border">{{device.applicabeRate}}</td>
+                </tr>
+                <tr class="table__row">
+                    <td class="table__td border"> <span class="font-weight-bold">Total Tax Due</span> </td>
+                    <td v-for="device in demandNoticeDetails2020" :key="device.id" class="table__td border">{{device.demandedAmount}}</td>
                 </tr>
 
-                 <tr class="table__row">
-                    <td class="table__td border">Number of Devices</td>
-                    <td class="table__td border">92</td>
-                    <td class="table__td border">92</td>
-                </tr>
+                
+                </table>
 
-                 <tr class="table__row">
-                    <td class="table__td border">Annual Rate per Device</td>
-                    <td class="table__td border">N3,600 </td>
-                    <td class="table__td border">N3,600 </td>
-                </tr>
-
-                 <tr class="table__row">
-                    <td class="table__td border"></td>
-                    <td class="table__td border"></td>
-                    <td class="table__td border"></td>
-                </tr>
-            </table>
         </div>
 
-        <div class="container">
+        <div class="container pt-5 table-responsive">
+            <h6 class="font-weight-bold px-5">Year 2021</h6>
+
+    
+                <table class="table ">
+                  <tr class="table__row">
+                    <td class="table__td border"> <span class="font-weight-bold">Device Type</span> </td>
+                    <td v-for="device in demandNoticeDetails2021" :key="device.id" class="table__td border">{{device.taxItemDescription}}</td>
+                </tr>
+                 <tr class="table__row">
+                    <td class="table__td border"> <span class="font-weight-bold">Number of Devices</span> </td>
+                    <td v-for="device in demandNoticeDetails2021" :key="device.id" class="table__td border">{{device.totalDeviceCount}}</td>
+                </tr>
+                <tr class="table__row">
+                    <td class="table__td border"> <span class="font-weight-bold">Annual Rate per Device</span> </td>
+                    <td v-for="device in demandNoticeDetails2021" :key="device.id" class="table__td border">{{device.applicabeRate}}</td>
+                </tr>
+                <tr class="table__row">
+                    <td class="table__td border"> <span class="font-weight-bold">Total Tax Due</span> </td>
+                    <td v-for="device in demandNoticeDetails2021" :key="device.id" class="table__td border">{{device.demandedAmount}}</td>
+                </tr>
+
+                
+                </table>
+
+        </div>
+           
+            <!-- <div class="container">
                  <h6 class="px-5">TELEVISION</h6>
                 <table class="table table--lines">
                  <tr class="table__row">
@@ -138,8 +164,8 @@
                     <td class="table__td border"></td>
                     <td class="table__td border"></td>
                 </tr>
-            </table>
-        </div>
+                </table>
+            </div>
 
             <div class="container">
                  <h6 class="px-5">COMPUTERS</h6>
@@ -168,12 +194,12 @@
                     <td class="table__td border"></td>
                     <td class="table__td border"></td>
                 </tr>
-            </table>
-        </div>
+                </table>
+            </div> -->
 
              
 
-        <p class="px-5">
+        <p class="px-5 pt-3">
             You are kindly requested to pay the tax due totaling ₦662,400 to Kaduna State IGR account in any bank using the Payment ID 100001 within seven (7) days from the date of service of this notice.
         </p>
 
@@ -197,6 +223,8 @@ export default {
     data() {
         return {
             demandNoticeData: [],
+            demandNoticeDetails2020: [],
+            demandNoticeDetails2021: [],
             businessName: '',
             businessAddress: '',
             businessPhoneNo: '',
@@ -227,7 +255,23 @@ export default {
                 this.businessAddress = response.data.businessDetails.businessAddress
                 this.businessPhoneNo = response.data.businessDetails.businessPhoneNo
                 // alert('demand details')
-                console.log(response.data.demandNoticeDetails)
+
+               
+                    this.demandNoticeDetails2020 = this.demandNoticeDetails
+                    .filter(element => 
+                    (new Date(element.yearsCharged))
+                    .getFullYear() =='2020')
+        
+
+           
+                    this.demandNoticeDetails2021 = this.demandNoticeDetails
+                    .filter(element2 => 
+                    (new Date(element2.yearsCharged))
+                    .getFullYear() =='2021')
+               
+
+
+
                 //  console.log(this.demandNoticeDetails)
                 loader.hide()
             })
