@@ -26,7 +26,7 @@
                                 </span>
                                 <span class="badge badge--sm badge--green"></span>
                             </div>
-                                <div class="widget__details"><a class="link-under text-grey" href="#">Detail</a>
+                                <div class="widget__details"><router-link class="link-under text-grey" to="/BoardAdmin/BusinessProfiles">Detail</router-link>
                                 </div>
                             </div>
                         </div>
@@ -49,7 +49,7 @@
                                 </span>
                                 <span class="badge badge--sm badge--green"></span>
                             </div>
-                                <div class="widget__details"><a class="link-under text-grey" href="#">Detail</a>
+                                <div class="widget__details"><a class="link-under text-grey">Detail</a>
                                 </div>
                             </div>
                         </div>
@@ -72,7 +72,7 @@
                                 </span>
                                 <span class="badge badge--sm badge--green"></span>
                             </div>
-                                <div class="widget__details"><a class="link-under text-grey" href="#">Detail</a>
+                                <div class="widget__details"><a class="link-under text-grey" >Detail</a>
                                 </div>
                             </div>
                         </div>

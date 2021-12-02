@@ -216,7 +216,7 @@
                                                             </span>Assessments</router-link>
                                                             </li>
                                                             <li class="dropdown-items__item">
-                                                                <router-link class="dropdown-items__link" :to="{name:'BoardAdminDemandNotice',params:{id:businessProfile.businessID} }"><span class="dropdown-items__link-icon">
+                                                                <router-link class="dropdown-items__link" :to="{name:'BoardAdminDemandNotice',params:{id:businessProfile} }"><span class="dropdown-items__link-icon">
                                                             <svg class="icon-icon-settings">
                                                                 <use xlink:href="#icon-settings"></use>
                                                             </svg>

@@ -2,7 +2,48 @@
     <div>
    
 <div class="container">
-         <h2>Assessment for {{businessProfile.businessName}}</h2>
+        
+
+          <div class="page-header">
+                    <h1 class="page-header__title">Assessment for {{businessProfile.businessName}}</h1>
+                </div>
+                <div class="page-tools">
+                    <div class="page-tools__breadcrumbs">
+                        <div class="breadcrumbs">
+                            <div class="breadcrumbs__container">
+                                <ol class="breadcrumbs__list">
+                                    <li class="breadcrumbs__item">
+                                        <a class="breadcrumbs__link" href="index.html">
+                                            <svg class="icon-icon-home breadcrumbs__icon">
+                                                <use xlink:href="#icon-home"></use>
+                                            </svg>
+                                            <svg class="icon-icon-keyboard-right breadcrumbs__arrow">
+                                                <use xlink:href="#icon-keyboard-right"></use>
+                                            </svg>
+                                        </a>
+                                    </li>
+                                    <li class="breadcrumbs__item disabled"><a class="breadcrumbs__link" href="#"><span>Assessment</span>
+                        <svg class="icon-icon-keyboard-right breadcrumbs__arrow">
+                          <use xlink:href="#icon-keyboard-right"></use>
+                        </svg></a>
+                                    </li>
+                                    <!-- <li class="breadcrumbs__item active"><span class="breadcrumbs__link">Orders</span>
+                                    </li> -->
+                                </ol>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="page-tools__right">
+                        <div class="page-tools__right-row">
+                            <div class="page-tools__right-item"><a class="button-icon" href="#"><span class="button-icon__icon">
+                      <svg class="icon-icon-print">
+                        <use xlink:href="#icon-print"></use>
+                      </svg></span></a>
+                            </div>
+                           
+                        </div>
+                    </div>
+                </div>
 
         <div class="contianer table-responsive">
              <table class="table table-striped hover">
@@ -31,64 +72,83 @@
         </div>
 
         <div class="p-3"></div>
+         
     <div class="row">
-    <div class="col-3">
-        <h6>Equipment:</h6>
-        <div class="form-group">
-            <input type="text" class="form-control" value="Radio" disabled>
+        <div class="col-3">
+            <h6>Equipment:</h6>
+            <div class="form-group">
+                <input type="text" class="form-control" value="Radio" disabled>
+            </div>
+            <div class="form-group">
+                <input type="text" class="form-control" value="TV" disabled>
+            </div>
+            <div class="form-group">
+                <input type="text" class="form-control" value="Computer" disabled>
+            </div>
         </div>
-        <div class="form-group">
-            <input type="text" class="form-control" value="TV" disabled>
+
+        <div class="col-3">
+            <h6>Quantity:</h6>
+            <div class="form-group">
+                <input type="number" class="form-control" @keyup="calculate_radio_total(radio,radio_rate)" v-model="radio">
+            </div>
+            <div class="form-group">
+                <input type="number" class="form-control" @keyup="calculate_tv_total(tv,tv_rate)" v-model="tv">
+            </div>
+            <div class="form-group">
+                <input type="number" class="form-control" @keyup="calculate_computer_total(computer,computer_rate)" v-model="computer">
+            </div>
         </div>
-        <div class="form-group">
-            <input type="text" class="form-control" value="Computer" disabled>
+
+        
+        <div class="col-3">
+            <h6>Rate</h6>
+            <div class="form-group">
+                <input type="number" class="form-control" v-model="radio_rate" disabled>
+            </div>
+            <div class="form-group">
+                <input type="number" class="form-control" v-model="tv_rate" disabled>
+            </div>
+            <div class="form-group">
+                <input type="number" class="form-control" v-model="computer_rate" disabled>
+            </div>
+        </div>
+
+        <div class="col-3">
+            <h6>Total</h6>
+            <div class="form-group">
+                <input type="number" class="form-control" v-model="radio_total">
+            </div>
+            <div class="form-group">
+                <input type="number" class="form-control" v-model="tv_total">
+            </div>
+            <div class="form-group">
+                <input type="number" class="form-control" v-model="computer_total">
+            </div>
         </div>
     </div>
 
-    <div class="col-3">
-        <h6>Quantity:</h6>
-        <div class="form-group">
-            <input type="number" class="form-control" @keyup="calculate_radio_total(radio,radio_rate)" v-model="radio">
+     <div class="c">
+            <h4 class="text-right">Total Bill: N {{total_bill}} </h4>
         </div>
-        <div class="form-group">
-            <input type="number" class="form-control" @keyup="calculate_tv_total(tv,tv_rate)" v-model="tv">
-        </div>
-        <div class="form-group">
-            <input type="number" class="form-control" @keyup="calculate_computer_total(computer,computer_rate)" v-model="computer">
-        </div>
-    </div>
 
-    
-    <div class="col-3">
-        <h6>Rate</h6>
-        <div class="form-group">
-            <input type="number" class="form-control" v-model="radio_rate" disabled>
-        </div>
-        <div class="form-group">
-            <input type="number" class="form-control" v-model="tv_rate" disabled>
-        </div>
-        <div class="form-group">
-            <input type="number" class="form-control" v-model="computer_rate" disabled>
-        </div>
-    </div>
-
-    <div class="col-3">
-        <h6>Total</h6>
-        <div class="form-group">
-            <input type="number" class="form-control" v-model="radio_total">
-        </div>
-        <div class="form-group">
-            <input type="number" class="form-control" v-model="tv_total">
-        </div>
-        <div class="form-group">
-            <input type="number" class="form-control" v-model="computer_total">
-        </div>
-    </div>
-</div>
+   
 </div>
 
 <div class="container text-center py-3">
-    <button class="btn btn-primary col-md-4"  @click="updateAssessment()"> Submit</button>
+    <div class="row">
+        <div class="col-md-6">
+             <button class="btn btn-primary col-md-4"  @click="updateAssessment()"> Update Assessment</button>
+        </div>
+        <div class="col-md-6">
+
+            <router-link class="btn btn-warning col-md-4" :to="{ name: 'BoardAdminDemandNotice',params:{id: this.$route.params.id}}"> View Demand Notice</router-link>
+             
+        </div>
+    </div>
+   
+
+   
 </div>
         
 
@@ -105,6 +165,7 @@
         data() {
             return {
                 businessProfile: [],
+                businessID: '',
                 enumeration: [],
 
                 radio: '',
@@ -117,7 +178,9 @@
 
                 radio_total: '',
                 tv_total: '',
-                computer_total:''
+                computer_total:'',
+
+                total_bill: ''
             }
         },
 
@@ -125,6 +188,7 @@
             calculate_radio_total(radio, radio_rate){
 
                 this.radio_total = parseInt(radio) * parseInt(radio_rate)
+
 
                 // alert(this.radio_rate)
 
@@ -157,6 +221,8 @@
                                         console.log(response.data['businessEnumerations'])
 
                                         this.businessProfile = response.data
+                                        this.businessID = response.data.businessID
+
 
                                         this.enumeration = response.data['businessEnumerations']
 
@@ -172,6 +238,12 @@
                                         this.computer = response.data['businessEnumerations'][2].totalItemCount
                                         this.computer_rate = response.data['businessEnumerations'][2].taxRate
                                         this.computer_enumeration_id = response.data['businessEnumerations'][2].businessEnumerationID
+
+                                        this.radio_total = this.radio * this.radio_rate
+                                        this.tv_total = this.tv * this.tv_rate
+                                        this.computer_total = this.computer * this.computer_rate
+
+                                        this.total_bill = this.radio_total + this.tv_total + this.computer_total
 
                                         console.log(this.tv)
 
@@ -233,6 +305,7 @@
                     headers: { "Content-Type": "multipart/form-data" },
                 })
                 .then((response)=>{
+                     this.total_bill = this.radio_total + this.tv_total + this.computer_total
                     toast.success('Assessment Updated');
                     console.log(response)
                     loader.hide()
@@ -241,11 +314,17 @@
                     console.log(response)
                 })
 
-            }
+            },
+          
         },
 
             mounted() {
                 this.getBusinessProfiles()
+               
+                // this.calculate_radio_total(this.tv, this.tv_rate)
+                // this.calculate_tv_total(this.tv, this.tv_rate)
+                // this.calculate_computer_total(this.tv, this.tv_rate)
+            
             },
         
     }

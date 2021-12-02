@@ -11,14 +11,14 @@
                                             <h3 class="widget__title">Revenue</h3>
                                             <div class="widget__status-title text-grey">Total revenue today</div>
                                             <div class="widget__trade">
-                                                <span class="widget__trade-count">N 4000</span><span class="trade-icon trade-icon--up">
+                                                <span class="widget__trade-count">N 0</span><span class="trade-icon trade-icon--up">
                                                 <svg class="icon-icon-trade-up">
                                                     <use xlink:href="#icon-trade-up"></use>
                                                 </svg>
                                             </span>
                                                 <span class="badge badge--sm badge--green">7%</span>
                                             </div>
-                                            <div class="widget__details"><a class="link-under text-grey" href="#">Detail</a>
+                                            <div class="widget__details"><a class="link-under text-grey" >Detail</a>
                                             </div>
                                         </div>
                                         
