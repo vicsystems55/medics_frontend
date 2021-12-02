@@ -9,7 +9,7 @@
                             <div class="breadcrumbs__container">
                                 <ol class="breadcrumbs__list">
                                     <li class="breadcrumbs__item">
-                                        <a class="breadcrumbs__link" href="index.html">
+                                        <a class="breadcrumbs__link" href="">
                                             <svg class="icon-icon-home breadcrumbs__icon">
                                                 <use xlink:href="#icon-home"></use>
                                             </svg>
@@ -18,10 +18,12 @@
                                             </svg>
                                         </a>
                                     </li>
-                                    <li class="breadcrumbs__item disabled"><a class="breadcrumbs__link" href="#"><span>Assessment</span>
-                        <svg class="icon-icon-keyboard-right breadcrumbs__arrow">
-                          <use xlink:href="#icon-keyboard-right"></use>
-                        </svg></a>
+                                    <li class="breadcrumbs__item ">
+                                        <router-link class="breadcrumbs__link active" :to="{name:'BoardAdminAssessment',params:{id:this.$route.params.id} }"><span>Assessment.</span>
+                                            <svg class="icon-icon-keyboard-right breadcrumbs__arrow">
+                                            <use xlink:href="#icon-keyboard-right"></use>
+                                            </svg>
+                                        </router-link>
                                     </li>
                                     <li class="breadcrumbs__item active"><span class="breadcrumbs__link">Demand Notice</span>
                                     </li>
@@ -31,10 +33,14 @@
                     </div>
                     <div class="page-tools__right">
                         <div class="page-tools__right-row">
-                            <div class="page-tools__right-item"><a class="button-icon" href="#"><span class="button-icon__icon">
-                      <svg class="icon-icon-print">
-                        <use xlink:href="#icon-print"></use>
-                      </svg></span></a>
+                            <div class="page-tools__right-item">
+                                <a class="button-icon" @click="print()">
+                                    <span class="button-icon__icon">
+                                        <svg class="icon-icon-print">
+                                            <use xlink:href="#icon-print"></use>
+                                        </svg>
+                                    </span>
+                                </a>
                             </div>
                            
                         </div>
