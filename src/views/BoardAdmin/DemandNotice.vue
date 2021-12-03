@@ -56,7 +56,10 @@
                     </div>
                 </div>
     
-        <div id="printMe" style="min-height: 312px; width: 730px;" class="container shadow bg-white py-5">
+        <div id="printMe" 
+        style="min-height: 312px; width: 730px; background-repeat: no-repeat; background-image:url('img/watermark.png'); background-size: contain; background-position: center top;" 
+        
+        class="container shadow bg-white py-5">
         <div class="container">
                 <div class="row">
                 <div class="col-3">
@@ -70,7 +73,7 @@
         </div>
    
             <div class="container">
-                <table class="table">
+                <table class="table ">
                  <tr class="">
                     <td class=" "><span class="font-weight-bold">Name</span></td>
                     <td class=" ">{{businessName}}</td>
