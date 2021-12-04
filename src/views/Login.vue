@@ -569,6 +569,9 @@ export default {
 
                         // alert('yes state')
                         localStorage.setItem('user_role', '5')
+                        console.log('here')
+                        localStorage.setItem('user_data', JSON.stringify(response.data))
+                        console.log('there')
                         
                         loader.hide()
                         toast.success('Login Successful');

@@ -4,7 +4,7 @@
                 <div class="page-header py-2">
                     <h1 class="page-header__title">Hi, {{userData.userFullName}}</h1>
                     <h6 class="font-italic">Username: {{userData.userName}}</h6>
-                    <h6 class="font-italic">Email: {{userData.userEmail}}</h6>
+                    <h6 class="font-italic">Email: {{userData.email}}</h6>
                 </div>
 
                  <div class="row">
