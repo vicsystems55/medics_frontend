@@ -140,9 +140,9 @@
         <div class="col-md-6">
              <button class="btn btn-primary col-md-4"  @click="updateAssessment()"> Update Assessment</button>
         </div>
-        <div class="col-md-6">
+        <div  class="col-md-6 ">
 
-            <router-link class="btn btn-warning col-md-4" :to="{ name: 'BoardAdminDemandNotice',params:{id: this.$route.params.id}}"> View Demand Notice</router-link>
+            <router-link :class="button_class" :to="{ name: 'BoardAdminDemandNotice',params:{id: this.$route.params.id}}"> View Demand Notice</router-link>
              
         </div>
     </div>
@@ -167,7 +167,7 @@
                 businessProfile: [],
                 businessID: '',
                 enumeration: [],
-
+                button_class:'btn btn-warning col-md-4',
                 radio: '',
                 tv: '',
                 computer:'',
@@ -280,7 +280,6 @@
 
                     bodyFormData.append('Qty_'+this.computer_enumeration_id, this.computer); 
 
-
                     bodyFormData.append('Rate_'+this.radio_enumeration_id, this.radio_rate); 
 
                     bodyFormData.append('Rate_'+this.tv_enumeration_id, this.tv_rate); 
@@ -307,6 +306,10 @@
                 .then((response)=>{
                      this.total_bill = this.radio_total + this.tv_total + this.computer_total
                     toast.success('Assessment Updated');
+                    
+                      if(this.total_bill){
+                        this.button_class = 'btn btn-warning col-md-4'
+                    }
                     console.log(response)
                     loader.hide()
                 })
@@ -320,7 +323,10 @@
 
             mounted() {
                 this.getBusinessProfiles()
-               
+
+                if(this.total_bill == 0){
+                    this.button_class = 'btn btn-warning col-md-4 d-none'
+                }
                 // this.calculate_radio_total(this.tv, this.tv_rate)
                 // this.calculate_tv_total(this.tv, this.tv_rate)
                 // this.calculate_computer_total(this.tv, this.tv_rate)

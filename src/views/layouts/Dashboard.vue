@@ -571,6 +571,7 @@ export default {
         logout(){
             alert('loggin out')
             localStorage.setItem('user_role', '')
+            localStorage.setItem('user_data', '')
 
             this.$router.push('/login');
         },
