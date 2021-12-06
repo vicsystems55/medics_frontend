@@ -3,7 +3,7 @@ import { createApp } from 'vue'
 import App from './App.vue'
 import router from './router'
 import store from './store'
-// import * as Vue from 'vue' // in Vue 3
+import Vue from 'vue' // in Vue 3
 import axios from 'axios'
 import VueAxios from 'vue-axios'
 
@@ -19,6 +19,11 @@ import VueLoading from 'vue-loading-overlay';
 import 'vue-loading-overlay/dist/vue-loading.css';
 
 import OtpInput from "@bachdgvn/vue-otp-input";
+
+
+// import moment from 'moment'
+
+// Vue.prototype.moment = moment
 
 // import VueHtmlToPaper from 'vue-html-to-paper';
 
@@ -79,6 +84,7 @@ createApp(App)
 .use(VueLoading)
 .use(VueAxios, axios)
 .use(Toast)
+// .use(moment)
 // .use(VueHtmlToPaper)
 .component("v-otp-input", OtpInput)
 .mount('#app')
