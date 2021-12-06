@@ -610,7 +610,13 @@ export default {
             if(localStorage.getItem('user_role') == '5'){
               
                 return this.is_board_admin = true
-            }else{
+                
+            }if(localStorage.getItem('user_role') == '9'){
+              
+                return this.is_board_admin = true
+            }
+            
+            else{
                 this.$router.push('/login')
                 toast.warning('Session Expired');
             }
