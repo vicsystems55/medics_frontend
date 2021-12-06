@@ -57,9 +57,11 @@
                 </div>
     
         <div id="printMe" 
-        style="min-height: 312px; width: 730px; background-repeat: no-repeat; background-image:url('img/watermark.png'); background-size: contain; background-position: center top;" 
-        
+
+                style="min-height: 312px; width: 730px; " 
         class="container shadow bg-white py-5">
+
+        <img style="position: absolute; opacity: 0.3; min-height: 700px; margin-left: 20px; min-height: 312px; width: 600px;" src="img/original.png" alt="">
         <div class="container">
                 <div class="row">
                 <div class="col-3">
@@ -101,7 +103,7 @@
         </p>
 
         <div class="container">
-            <h6 class="font-weight-bold px-5">Year 2020</h6>
+        
 
     
                 <table class="table ">
@@ -127,8 +129,8 @@
 
         </div>
 
-        <div class="container pt-5 table-responsive">
-            <h6 class="font-weight-bold px-5">Year 2021</h6>
+        <!-- <div class="container pt-5 table-responsive">
+       
 
     
                 <table class="table ">
@@ -152,7 +154,7 @@
                 
                 </table>
 
-        </div>
+        </div> -->
            
             <!-- <div class="container">
                  <h6 class="px-5">TELEVISION</h6>

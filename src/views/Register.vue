@@ -103,7 +103,7 @@
                                     </div>
                                 </div>
 
-                                 <div class="form-group">
+                                 <!-- <div class="form-group">
                                      <label for="">Account Type</label>
                                     <div class="input-group input-group--prepend">
                                     <span class="input-group__prepend">
@@ -122,9 +122,11 @@
                                             <option value="2">Enumerator</option>
                                         </select>
                                     </div>
-                                </div>
+                                </div> -->
 
-                                    <div class="form-group">
+                                <LGA/>
+
+                                    <!-- <div class="form-group">
                                         <label for="">State</label>
                                     <div class="input-group input-group--prepend">
                                     <span class="input-group__prepend">
@@ -173,7 +175,7 @@
                                             <option value="Zamfara">Zamfara</option>
                                         </select>
                                     </div>
-                                </div>
+                                    </div> -->
 
                                 <div class="form-group">
                                     <label class="checkbox">
@@ -204,11 +206,18 @@
 </template>
 
 <script>
+import LGA from '@/components/LGA.vue'
+
+
 import { useToast } from 'vue-toastification'
 
 const toast = useToast()
 
 export default {
+
+    components:{
+        LGA
+    },
 
     data() {
         return {
@@ -218,7 +227,7 @@ export default {
              UserPassword: '',
              UserName: '',
              UserFullName: '',
-             UserCategory: '',
+             UserCategory: 9,
              UserEmail: '',
             passwordAttribute: 'password'
         }
@@ -293,6 +302,10 @@ export default {
                                          localStorage.setItem('user_role', '5')
                                         toast.success('Registration Successful');
                                         return this.$router.push('/BoardAdmin/Dashboard')
+                                    }if(this.UserCategory == '9'){
+                                         localStorage.setItem('user_role', '9')
+                                        toast.success('Registration Successful');
+                                        return this.$router.push('/LGATaxOfficer/Dashboard')
                                     }
 
 

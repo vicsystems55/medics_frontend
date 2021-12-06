@@ -11,7 +11,7 @@ import ComingSoon from '../views/admin/ComingSoon.vue'
 import Dashboard from '../views/layouts/Dashboard.vue'
 import Fullwidth from '../views/layouts/Fullwidth.vue'
 
-// import LGATaxOfficer from '../router/LGATaxOfficer'
+import LGATaxOfficer from '../router/LGATaxOfficer'
 // import BoardTaxOfficer from '../router/BoardTaxOfficer'
 // import SystemSupport from '../router/SystemSupport'
 import BoardAdmin from '../router/BoardAdmin'
@@ -24,7 +24,7 @@ import Admin from '../router/Admin'
 
 const routes = [
 
-  // ...LGATaxOfficer,
+  ...LGATaxOfficer,
   // ...BoardTaxOfficer,
   // ...SystemSupport,
   ...BoardAdmin,
