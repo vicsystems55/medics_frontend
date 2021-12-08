@@ -15,7 +15,7 @@
                         <div style="height: 130px;" class="widget__wrapper">
 
                             <div class="">
-                                <h3 class="widget__title">Businesses</h3>
+                                <h3 class="widget__title">Assessments</h3>
                                 <div class="widget__status-title text-grey">Total businesses registered</div>
                                 <div class="widget__trade">
                                 <span class="widget__trade-count">{{businessProfiles.length}}</span>
@@ -38,7 +38,7 @@
                         <div style="height: 130px;" class="widget__wrapper">
 
                             <div class="">
-                                <h3 class="widget__title">Assessments</h3>
+                                <h3 class="widget__title">Demand Notices</h3>
                                 <div class="widget__status-title text-grey">Total states registered</div>
                                 <div class="widget__trade">
                                 <span class="widget__trade-count">3</span>
@@ -61,10 +61,10 @@
                         <div style="height: 130px;" class="widget__wrapper">
 
                             <div class="">
-                                <h3 class="widget__title">Demand Notices</h3>
-                                <div class="widget__status-title text-grey">Total demand notices raised</div>
+                                <h3 class="widget__title">Acknowledgements</h3>
+                                <div class="widget__status-title text-grey">Total acknowledgement uploaded</div>
                                 <div class="widget__trade">
-                                <span class="widget__trade-count">13</span>
+                                <span class="widget__trade-count">0</span>
                                 <span class="trade-icon trade-icon--up">
                                     <svg class="icon-icon-trade-up">
                                         <use xlink:href="#icon-trade-up"></use>

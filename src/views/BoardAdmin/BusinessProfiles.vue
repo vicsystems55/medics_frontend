@@ -95,7 +95,7 @@
                     </div>
                 </div>
                 <div class="table-wrapper tab-content">
-                    <div class="tab-pane fade" id="tab-grid">
+                    <div class="tab-pane fade show active" id="tab-grid">
                         <div class="table-wrapper__content table-collapse scrollbar-thin scrollbar-visible" data-simplebar>
                             <table class="table table--spaces">
                                 <colgroup>
@@ -120,8 +120,7 @@
                                         </th>
                                         <th class="table__th-sort mw-200"><span class="align-middle">Business Name</span><span class="sort sort--down"></span>
                                         </th>
-                                        <th class="table__th-sort"><span class="align-middle">Email</span><span class="sort sort--down"></span>
-                                        </th>
+                                     
                                         <th class="table__th-sort"><span class="align-middle">Location</span><span class="sort sort--down"></span>
                                         </th>
                                         <th class="table__th-sort"><span class="align-middle">Phone</span><span class="sort sort--down"></span>
@@ -153,8 +152,7 @@
                                                 </div>
                                             </div>
                                         </td>
-                                        <td class="table__td text-light-theme"><a href="mailto:#">{{businessProfile.businessEmail}}</a>
-                                        </td>
+                                   
                                         <td class="table__td text-dark-theme">{{businessProfile.businessAddress}}</td>
                                         <td class="table__td text-light-theme text-nowrap"><a href="tel:#">{{businessProfile.businessPhoneNo}}</a>
                                         </td>
@@ -168,15 +166,18 @@
                                                 <div class="dropdown-items dropdown-items--right">
                                                     <div class="dropdown-items__container">
                                                         <ul class="dropdown-items__list">
-                                                            <li class="dropdown-items__item"><a class="dropdown-items__link" href="order-details.html"><span class="dropdown-items__link-icon">
-                                      <svg class="icon-icon-view">
-                                        <use xlink:href="#icon-view"></use>
-                                      </svg></span>Assessments</a>
+                                                            <li class="dropdown-items__item"><router-link class="dropdown-items__link" :to="{name:'BoardAdminAssessment',params:{id:businessProfile.businessID} }"><span class="dropdown-items__link-icon">
+                                                                <svg class="icon-icon-view">
+                                                                    <use xlink:href="#icon-view"></use>
+                                                                </svg></span>Assessments
+                                                            </router-link>
                                                             </li>
-                                                            <li class="dropdown-items__item"><a class="dropdown-items__link"><span class="dropdown-items__link-icon">
-                                      <svg class="icon-icon-duplicate">
-                                        <use xlink:href="#icon-duplicate"></use>
-                                      </svg></span>Notice</a>
+                                                            <li class="dropdown-items__item">
+                                                                <router-link :to="{name:'BoardAdminDemandNotice',params:{id:businessProfile} }" class="dropdown-items__link"><span class="dropdown-items__link-icon">
+                                                                    <svg class="icon-icon-duplicate">
+                                                                        <use xlink:href="#icon-duplicate"></use>
+                                                                    </svg></span>Notice
+                                                                </router-link>
                                                             </li>
                                                            
                                                             
@@ -193,7 +194,7 @@
                             </table>
                         </div>
                     </div>
-                    <div class="tab-pane fade show active" id="tab-list">
+                    <div class="tab-pane fade " id="tab-list">
                         <div class="contacts-grid">
                             <div v-for="businessProfile in businessProfiles" :key="businessProfile.id" class="contact-card card">
                                 <div class="card__wrapper">

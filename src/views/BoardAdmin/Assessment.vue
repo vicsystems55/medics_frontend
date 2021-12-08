@@ -51,14 +51,14 @@
                  <th>Business Name:</th>
                  <td>{{businessProfile.businessName}}</td>
 
-                <th>TIN:</th>
+                <th></th>
                  <td></td>
              </tr>
               <tr>
                  <th>Address</th>
                  <td>{{businessProfile.businessAddress}}</td>
 
-                  <th>TIN:</th>
+                  <th></th>
                  <td></td>
              </tr>
              <tr>
@@ -129,7 +129,7 @@
     </div>
 
      <div class="c">
-            <h4 class="text-right">Total Bill: N {{total_bill}} </h4>
+            <h4 class="text-right">Total Bill: N {{formatDigit(total_bill)}} </h4>
         </div>
 
    
@@ -185,6 +185,15 @@
         },
 
         methods: {
+
+            
+        formatDigit(digits){
+     
+            return new Intl.NumberFormat('en-IN',{
+            minimumFractionDigits: 2,
+            maximumFractionDigits: 2,
+            } ).format(digits)
+        },
             calculate_radio_total(radio, radio_rate){
 
                 this.radio_total = parseInt(radio) * parseInt(radio_rate)

@@ -4,6 +4,7 @@ import Login from '../views/Login.vue'
 import EmailReset from '../views/EmailReset.vue'
 import Register from '../views/Register.vue'
 import EmailOTP from '../views/EmailOTP.vue'
+import Enumeration from '../views/Enumeration.vue'
 
 
 import ComingSoon from '../views/admin/ComingSoon.vue'
@@ -41,6 +42,18 @@ const routes = [
         {
           path: '',
           component: Login,
+        }
+      ]
+  },
+
+  {
+    path: '/enumeration',
+    name: 'Enumeration',
+    component: Fullwidth,
+      children: [
+        {
+          path: '',
+          component: Enumeration,
         }
       ]
   },
