@@ -89,7 +89,7 @@
                                             <use xlink:href="#icon-user"></use>
                                             </svg>
                                         </span>
-                                        <input class="input shadow" type="text" v-model="contact_person_phone" placeholder="Enter name of contact person " required>
+                                        <input class="input shadow" type="text" v-model="contact_person_phone" placeholder="Enter name of contact person phone " required>
                                     </div>
                                 </div>
 
@@ -101,7 +101,7 @@
                                             <use xlink:href="#icon-user"></use>
                                             </svg>
                                         </span>
-                                        <input class="input shadow" type="text" v-model="contact_person_email" placeholder="Enter name of contact person " required>
+                                        <input class="input shadow" type="text" v-model="contact_person_email" placeholder="Enter name of contact person email" required>
                                     </div>
                                 </div>
 
@@ -114,7 +114,7 @@
                                             <use xlink:href="#icon-user"></use>
                                             </svg>
                                         </span>
-                                        <input class="input shadow" type="text" v-model="hotel_manager" placeholder="Enter name of contact person " required>
+                                        <input class="input shadow" type="text" v-model="hotel_manager" placeholder="Enter name of hotel managers name " required>
                                     </div>
                                 </div>
 
@@ -126,7 +126,7 @@
                                             <use xlink:href="#icon-user"></use>
                                             </svg>
                                         </span>
-                                        <input class="input shadow" type="text" v-model="hotel_manager_phone" placeholder="Enter name of contact person " required>
+                                        <input class="input shadow" type="text" v-model="hotel_manager_phone" placeholder="Enter name of hotel managers phone " required>
                                     </div>
                                 </div>
 
@@ -138,7 +138,19 @@
                                             <use xlink:href="#icon-user"></use>
                                             </svg>
                                         </span>
-                                        <input class="input shadow" type="text" v-model="hotel_manager_email" placeholder="Enter name of contact person " required>
+                                        <input class="input shadow" type="text" v-model="hotel_manager_email" placeholder="Enter name of hotel managers email " required>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label>Enter your email</label>
+                                    <div class="input-group input-group--prepend">
+                                        <span class="input-group__prepend">
+                                            <svg class="icon-icon-user">
+                                            <use xlink:href="#icon-user"></use>
+                                            </svg>
+                                        </span>
+                                        <input class="input shadow" type="text" v-model="reporters_email" placeholder="Enter the email assigned to you " required>
                                     </div>
                                 </div>
 
@@ -272,6 +284,8 @@ export default {
             bar: '',
             lounge:'',
 
+            reporters_email: '',
+
 
         
         }
@@ -302,9 +316,25 @@ export default {
                         // let self = this;
                                 this.axios({
                                 method: "post",
-                                url: " https://micro.rtvrs.com.ng/api/UserRegister",
+                                url: " http://localhost/phoenixgn_backend/public/api/create_enumeration",
                                 data: {
-
+                                    state : this.state,
+                                    lga : this.lga,
+                                    town : this.town,
+                                    hotel_name : this.hotel_name,
+                                    hotel_address : this.hotel_address,
+                                    contact_person : this.contact_person,
+                                    contact_person_phone : this.contact_person_phone,
+                                    contact_person_email : this.contact_person_email,
+                                    hotel_manager : this.hotel_manager,
+                                    hotel_manager_phone : this.hotel_manager_phone,
+                                    hotel_manager_email : this.hotel_manager_email,
+                                    number_of_rooms : this.number_of_rooms,
+                                    swimming_pools : this.swimming_pools,
+                                    reception : this.reception,
+                                    bar : this.bar,
+                                    lounge : this.lounge,
+                                    reporters_email : this.reporters_email,
                                 },
                                
                                 })
@@ -312,12 +342,12 @@ export default {
                                     //handle success
 
 
-                                    console.log(this.UserCategory)
+                                    console.log(response)
 
-                                      this.$router.push('/BoardAdmin')
+                                      this.$router.push('/enumeration_success')
 
 
-                                    localStorage.setItem('user_data', JSON.stringify(response.data)) 
+                                    // localStorage.setItem('user_data', JSON.stringify(response.data)) 
 
                                     loader.hide()
 

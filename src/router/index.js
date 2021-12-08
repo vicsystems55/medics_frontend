@@ -5,6 +5,7 @@ import EmailReset from '../views/EmailReset.vue'
 import Register from '../views/Register.vue'
 import EmailOTP from '../views/EmailOTP.vue'
 import Enumeration from '../views/Enumeration.vue'
+import EnumerationSuccess from '../views/EnumerationSuccess.vue'
 
 
 import ComingSoon from '../views/admin/ComingSoon.vue'
@@ -57,6 +58,20 @@ const routes = [
         }
       ]
   },
+
+  {
+    path: '/enumeration_success',
+    name: 'EnumerationSuccess',
+    component: Fullwidth,
+      children: [
+        {
+          path: '',
+          component: EnumerationSuccess,
+        }
+      ]
+  },
+
+
 
   {
     path: '/register',
