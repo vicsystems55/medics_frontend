@@ -316,7 +316,7 @@ export default {
                         // let self = this;
                                 this.axios({
                                 method: "post",
-                                url: " http://localhost/phoenixgn_backend/public/api/create_enumeration",
+                                url: " https://dev.phoenixgn.com/api/create_enumeration",
                                 data: {
                                     state : this.state,
                                     lga : this.lga,
