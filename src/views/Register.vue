@@ -227,7 +227,7 @@ export default {
              UserPassword: '',
              UserName: '',
              UserFullName: '',
-             UserCategory: 9,
+             UserCategory: 5,
              UserEmail: '',
             passwordAttribute: 'password'
         }
@@ -283,11 +283,11 @@ export default {
                                 })
                                 .then( (response)=> {
                                     //handle success
-
-
+                                   
+                                    console.log(response)
                                     console.log(this.UserCategory)
 
-                                      this.$router.push('/BoardAdmin')
+                                    //   this.$router.push('/BoardAdmin')
 
 
                                     localStorage.setItem('user_data', JSON.stringify(response.data)) 

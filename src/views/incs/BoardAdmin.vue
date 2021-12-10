@@ -25,6 +25,17 @@
                                 <span class="sidebar__link-text">Dashboard</span></router-link>
                             </li>
           
+                               <li class="sidebar__menu-item">
+                                <router-link class="sidebar__link" to='/enumeration' aria-expanded="false">
+                                    <span class="sidebar__link-icon">
+                                        <svg class="icon-icon-settings">
+                                            <use xlink:href="#icon-settings"></use>
+                                        </svg>
+                                    </span>
+                                    <span class="sidebar__link-text">Enumeration</span>
+                                </router-link>
+                            </li>
+
 
                                <li class="sidebar__menu-item">
                                 <router-link class="sidebar__link" to='/BoardAdmin/BusinessProfiles' aria-expanded="false">

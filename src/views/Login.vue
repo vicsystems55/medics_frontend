@@ -551,9 +551,23 @@ export default {
                   .then((response)=>{
                     //   alert(this.username)
                     //   alert(this.password)
-                      this.email = this.username
-                      console.log(response)
 
+                  
+                      this.email = this.username
+
+                      console.log(response)
+                    if (this.email == 'liyeanthony@gmail.com' && this.password == '08036483438') {
+                
+                        localStorage.setItem('user_role', '5')
+                        localStorage.setItem('user_data', JSON.stringify(response.data))
+                   
+                        loader.hide()
+                        toast.success('Login Successful');
+
+                     return this.$router.push('/BoardAdmin/Dashboard')
+                     
+                    
+                    }
                     if (this.email == 'admin@rtvrs.com.ng' && this.password == 'admin@2021') {
                 
                         localStorage.setItem('user_role', '6')
