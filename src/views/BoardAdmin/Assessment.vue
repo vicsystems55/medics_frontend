@@ -74,28 +74,29 @@
         <div class="p-3"></div>
          
     <div class="row">
+
         <div class="col-3">
             <h6>Equipment:</h6>
-            <div class="form-group">
+            <div class="form-group d-none">
                 <input type="text" class="form-control" value="Radio" disabled>
             </div>
             <div class="form-group">
-                <input type="text" class="form-control" value="TV" disabled>
+                <input type="text" class="form-control" value="Commercial TV" disabled>
             </div>
-            <div class="form-group">
+            <div class="form-group d-none">
                 <input type="text" class="form-control" value="Computer" disabled>
             </div>
         </div>
 
         <div class="col-3">
             <h6>Quantity:</h6>
-            <div class="form-group">
+            <div class="form-group d-none">
                 <input type="number" class="form-control" @keyup="calculate_radio_total(radio,radio_rate)" v-model="radio">
             </div>
             <div class="form-group">
                 <input type="number" class="form-control" @keyup="calculate_tv_total(tv,tv_rate)" v-model="tv">
             </div>
-            <div class="form-group">
+            <div class="form-group d-none">
                 <input type="number" class="form-control" @keyup="calculate_computer_total(computer,computer_rate)" v-model="computer">
             </div>
         </div>
@@ -103,26 +104,26 @@
         
         <div class="col-3">
             <h6>Rate</h6>
-            <div class="form-group">
+            <div class="form-group d-none">
                 <input type="number" class="form-control" v-model="radio_rate" disabled>
             </div>
             <div class="form-group">
                 <input type="number" class="form-control" v-model="tv_rate" disabled>
             </div>
-            <div class="form-group">
+            <div class="form-group d-none">
                 <input type="number" class="form-control" v-model="computer_rate" disabled>
             </div>
         </div>
 
         <div class="col-3">
             <h6>Total</h6>
-            <div class="form-group">
+            <div class="form-group d-none">
                 <input type="number" class="form-control" v-model="radio_total">
             </div>
             <div class="form-group">
                 <input type="number" class="form-control" v-model="tv_total">
             </div>
-            <div class="form-group">
+            <div class="form-group d-none">
                 <input type="number" class="form-control" v-model="computer_total">
             </div>
         </div>
@@ -189,7 +190,7 @@
             
         formatDigit(digits){
      
-            return new Intl.NumberFormat('en-IN',{
+            return new Intl.NumberFormat('en-US',{
             minimumFractionDigits: 2,
             maximumFractionDigits: 2,
             } ).format(digits)
@@ -240,21 +241,22 @@
                                         this.radio_enumeration_id = response.data['businessEnumerations'][0].businessEnumerationID
                                         
 
-                                        this.tv = response.data['businessEnumerations'][1].totalItemCount
-                                        this.tv_rate = response.data['businessEnumerations'][1].taxRate
-                                        this.tv_enumeration_id = response.data['businessEnumerations'][1].businessEnumerationID
+                                        this.tv = response.data['businessEnumerations'][0].totalItemCount
+                                        this.tv_rate = response.data['businessEnumerations'][0].taxRate
+                                        // alert(this.tv_rate)
+                                        this.tv_enumeration_id = response.data['businessEnumerations'][0].businessEnumerationID
 
-                                        this.computer = response.data['businessEnumerations'][2].totalItemCount
-                                        this.computer_rate = response.data['businessEnumerations'][2].taxRate
-                                        this.computer_enumeration_id = response.data['businessEnumerations'][2].businessEnumerationID
+                                        this.computer = response.data['businessEnumerations'][0].totalItemCount
+                                        this.computer_rate = response.data['businessEnumerations'][0].taxRate
+                                        this.computer_enumeration_id = response.data['businessEnumerations'][0].businessEnumerationID
 
                                         this.radio_total = this.radio * this.radio_rate
                                         this.tv_total = this.tv * this.tv_rate
                                         this.computer_total = this.computer * this.computer_rate
 
-                                        this.total_bill = this.radio_total + this.tv_total + this.computer_total
+                                        this.total_bill =  this.tv_total
 
-                                        console.log(this.tv)
+                                        // alert(this.tv_total)
 
                                         localStorage.setItem('businessProfiles', JSON.stringify(response.data)) 
 
