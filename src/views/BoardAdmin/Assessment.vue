@@ -256,7 +256,9 @@
 
                                         this.total_bill =  this.tv_total
 
-                                        // alert(this.tv_total)
+                                          if(this.total_bill == 0){
+                                                this.button_class = 'btn btn-warning col-md-4 d-none'
+                                            }
 
                                         localStorage.setItem('businessProfiles', JSON.stringify(response.data)) 
 
@@ -335,9 +337,7 @@
             mounted() {
                 this.getBusinessProfiles()
 
-                if(this.total_bill == 0){
-                    this.button_class = 'btn btn-warning col-md-4 d-none'
-                }
+              
                 // this.calculate_radio_total(this.tv, this.tv_rate)
                 // this.calculate_tv_total(this.tv, this.tv_rate)
                 // this.calculate_computer_total(this.tv, this.tv_rate)

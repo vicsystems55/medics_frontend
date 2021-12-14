@@ -123,11 +123,11 @@
                 </tr>
                 <tr class="table__row">
                     <td class="table__td border"> <span class="font-weight-bold">Annual Rate per Device</span> </td>
-                    <td v-for="device in demandNoticeDetails2020" :key="device.id" class="table__td border">{{device.applicabeRate}}</td>
+                    <td v-for="device in demandNoticeDetails2020" :key="device.id" class="table__td border">₦ {{formatDigit(3600)}}</td>
                 </tr>
                 <tr class="table__row">
                     <td class="table__td border"> <span class="font-weight-bold">Total Tax Due</span> </td>
-                    <td v-for="device in demandNoticeDetails2020" :key="device.id" class="table__td border">₦ {{formatDigit(device.demandedAmount)}}</td>
+                    <td v-for="device in demandNoticeDetails2020" :key="device.id" class="table__td border">₦ {{formatDigit((device.totalDeviceCount) * 3600)}}</td>
                 </tr>
 
                 
@@ -139,7 +139,7 @@
              
 
         <p class="px-5 pt-3">
-            You are kindly requested to pay the tax due totaling ₦ {{formatDigit(TotalDemandedAmount)}} to Kaduna State IGR account in any bank using the Payment ID 100001 within seven (7) days from the date of service of this notice.
+            You are kindly requested to pay the tax due totaling ₦ {{formatDigit((TotalDemandedAmount) * 3600)}} to Kaduna State IGR account in any bank using the Payment ID <span class="font-weight-bold">{{demandNoticeData}}</span> within seven (7) days from the date of service of this notice.
         </p>
 
        <div class="px-5">
@@ -282,11 +282,13 @@
                 </tr>
                 <tr class="table__row">
                     <td class="table__td border"> <span class="font-weight-bold">Annual Rate per Device</span> </td>
-                    <td v-for="device in demandNoticeDetails2020" :key="device.id" class="table__td border">{{device.applicabeRate}}</td>
+                    <!-- <td v-for="device in demandNoticeDetails2020" :key="device.id" class="table__td border">{{device.applicabeRate}}</td> -->
+                     <td v-for="device in demandNoticeDetails2020" :key="device.id" class="table__td border">₦ {{formatDigit(3600)}}</td>
+                    
                 </tr>
                 <tr class="table__row">
                     <td class="table__td border"> <span class="font-weight-bold">Total Tax Due</span> </td>
-                    <td v-for="device in demandNoticeDetails2020" :key="device.id" class="table__td border">₦ {{formatDigit(device.demandedAmount)}}</td>
+                    <td v-for="device in demandNoticeDetails2020" :key="device.id" class="table__td border">₦ {{formatDigit((device.totalDeviceCount) * 3600)}}</td>
                 </tr>
 
                 
@@ -298,7 +300,7 @@
              
 
         <p class="px-5 pt-3">
-            You are kindly requested to pay the tax due totaling ₦ {{formatDigit(TotalDemandedAmount)}} to Kaduna State IGR account in any bank using the Payment ID 100001 within seven (7) days from the date of service of this notice.
+            You are kindly requested to pay the tax due totaling ₦ {{formatDigit((TotalDemandedAmount) * 3600)}} to Kaduna State IGR account in any bank using the Payment ID <span class="font-weight-bold">{{demandNoticeData}}</span> within seven (7) days from the date of service of this notice.
         </p>
 
        <div class="px-5">
@@ -396,7 +398,7 @@ export default {
             })
             .then((response)=>{
                 this.demandNoticeDetails = response.data.demandNoticeDetails
-                this.demandNoticeData = (response.data.currentDemandNotice.businessDemandNoticeID) * 1002
+                this.demandNoticeData = (response.data.currentDemandNotice.businessDemandNoticeCode)
                 this.dateGenerated = response.data.currentDemandNotice.dateGenerated
 
 
@@ -419,12 +421,12 @@ export default {
                     this.demandNoticeDetails2020 = this.demandNoticeDetails
                     .filter(element => 
                     (element.taxItemDescription
-                    =='TV Set'))
+                    =='Commercial TV'))
 
-                    this.TotalDemandedAmount = this.demandNoticeDetails2020[0].demandedAmount + this.demandNoticeDetails2020[1].demandedAmount
+                    this.TotalDemandedAmount = this.demandNoticeDetails2020[0].totalDeviceCount + this.demandNoticeDetails2020[1].totalDeviceCount
         
+                    // alert(this.TotalDemandedAmount)
 
-        
 
            
                     this.demandNoticeDetails2021 = this.demandNoticeDetails
