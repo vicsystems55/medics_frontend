@@ -2,9 +2,9 @@
     <div class="">
         <div class="">
             <div class="form-group">
-                <label for="state" class="form-labe">State of Origin</label>
+                <label for="state" class="form-labe">State</label>
                 <select type="text1" id="state" v-model="origin" class="input shadow" @change="selectState()">
-                    <option :value="null" disabled selected>� Select State �</option>
+                    <option :value="null" disabled selected>- Select State -</option>
                     <option value='Abia'>Abia</option>
                     <option value='Adamawa'>Adamawa</option>
                     <option value='AkwaIbom'>AkwaIbom</option>
@@ -44,7 +44,7 @@
                     <option value='Zamfara'>Zamafara</option>
                 </select>
             </div>
-            <div class="form-group ">
+            <div class="form-group d-none">
                 <label for="lga" class="form-labe">Local Government Area</label>
                 <select name="lga" v-model="lga" id="lga" class="input shadow" required>
                     <option :value="null" selected>-- Select L.G.A. --</option>

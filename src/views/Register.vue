@@ -284,7 +284,7 @@ export default {
                                 .then( (response)=> {
                                     //handle success
                                    
-                                    console.log(response)
+                                    console.log(response.data)
                                     console.log(this.UserCategory)
 
                                     //   this.$router.push('/BoardAdmin')
