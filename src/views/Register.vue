@@ -283,6 +283,8 @@ export default {
                                 })
                                 .then( (response)=> {
                                     //handle success
+
+                                    alert('successful')
                                    
                                     console.log(response.data)
                                     console.log(this.UserCategory)

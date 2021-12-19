@@ -12,17 +12,24 @@
                         <h4 class="py-5 text-center">Enumeration</h4>
                         <div class="row">
                             <div class="col-md-6">
-                                <!-- <div class="form-group">
-                                    <label>Username</label>
+                                <div class="form-group">
+                                    <label>Category</label>
                                     <div class="input-group input-group--prepend">
                                         <span class="input-group__prepend">
                                             <svg class="icon-icon-user">
                                             <use xlink:href="#icon-user"></use>
                                             </svg>
                                         </span>
-                                        <input class="input shadow" type="text" v-model="username" placeholder="Enter Username" required>
+                                        <select v-model="category" id="" class="input shadow">
+                                            <option value="">- Select Type -</option>
+                                            <option value="Hotel">Hotel</option>
+                                            <option value="Banks">Banks</option>
+                                            <option value="Offices">Offices</option>
+                                            <option value="Recreation Centers">Recreation Center</option>
+                                        </select>
+                                      
                                     </div>
-                                </div> -->
+                                </div>
                                 
                                 <LGA/>
 
@@ -39,7 +46,7 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <label>Hotel Name:</label>
+                                    <label>Organization Name:</label>
                                     <div class="input-group input-group--prepend">
                                         <span class="input-group__prepend">
                                             <svg class="icon-icon-user">
@@ -52,7 +59,7 @@
 
 
                                 <div class="form-group">
-                                    <label>Hotel Address</label>
+                                    <label>Organization Address</label>
                                     <div class="input-group input-group--prepend">
                                         <span class="input-group__prepend">
                                             <svg class="icon-icon-user">
@@ -70,7 +77,7 @@
 
                                 <div class="form-group">
                            
-                                    <label>Contact Person (MD)</label>
+                                    <label>Contact Person </label>
                                     <div class="input-group input-group--prepend">
                                         <span class="input-group__prepend">
                                             <svg class="icon-icon-user">
@@ -106,7 +113,7 @@
                                 </div>
 
 
-                                <div class="form-group">
+                                <div class="form-group d-none">
                                     <label>Hotel Manager</label>
                                     <div class="input-group input-group--prepend">
                                         <span class="input-group__prepend">
@@ -118,7 +125,7 @@
                                     </div>
                                 </div>
 
-                                <div class="form-group">
+                                <div class="form-group d-none">
                                     <label>Hotel Manager Phone</label>
                                     <div class="input-group input-group--prepend">
                                         <span class="input-group__prepend">
@@ -130,7 +137,7 @@
                                     </div>
                                 </div>
 
-                                <div class="form-group">
+                                <div class="form-group d-none">
                                     <label>Hotel Manager Email</label>
                                     <div class="input-group input-group--prepend">
                                         <span class="input-group__prepend">
@@ -265,6 +272,7 @@ export default {
             state: '',
             lga: '',
             town: '',
+            category: '',
 
             hotel_name: '',
             hotel_address: '',
@@ -321,6 +329,7 @@ export default {
                                     state : this.state,
                                     lga : this.lga,
                                     town : this.town,
+                                    category: this.category,
                                     hotel_name : this.hotel_name,
                                     hotel_address : this.hotel_address,
                                     contact_person : this.contact_person,
@@ -344,26 +353,26 @@ export default {
 
                                     console.log(response)
 
-                                      this.$router.push('/enumeration_success')
+                                     return  this.$router.push('/enumeration_success')
 
 
                                     // localStorage.setItem('user_data', JSON.stringify(response.data)) 
 
                                     loader.hide()
 
-                                    if(this.UserCategory == '6'){
-                                        localStorage.setItem('user_role', '6')
-                                        toast.success('Registration Successful');
-                                        return this.$router.push('/Admin/Dashboard');
-                                    }if(this.UserCategory == '5'){
-                                         localStorage.setItem('user_role', '5')
-                                        toast.success('Registration Successful');
-                                        return this.$router.push('/BoardAdmin/Dashboard')
-                                    }if(this.UserCategory == '9'){
-                                         localStorage.setItem('user_role', '9')
-                                        toast.success('Registration Successful');
-                                        return this.$router.push('/LGATaxOfficer/Dashboard')
-                                    }
+                                    // if(this.UserCategory == '6'){
+                                    //     localStorage.setItem('user_role', '6')
+                                    //     toast.success('Registration Successful');
+                                    //     return this.$router.push('/Admin/Dashboard');
+                                    // }if(this.UserCategory == '5'){
+                                    //      localStorage.setItem('user_role', '5')
+                                    //     toast.success('Registration Successful');
+                                    //     return this.$router.push('/BoardAdmin/Dashboard')
+                                    // }if(this.UserCategory == '9'){
+                                    //      localStorage.setItem('user_role', '9')
+                                    //     toast.success('Registration Successful');
+                                    //     return this.$router.push('/LGATaxOfficer/Dashboard')
+                                    // }
 
 
                             
