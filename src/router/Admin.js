@@ -5,7 +5,9 @@ import AdminBusinessProfiles from '../views/admin/BusinessProfiles'
 import AdminBusinessProfile from '../views/admin/BusinessProfile'
 import AdminDemandNotice from '../views/admin/DemandNotice'
 import AdminAssessment from '../views/admin/Assessment'
-import AdminDemandNotices from '../views/admin/DemandNotices'
+// import AdminDemandNotices from '../views/admin/DemandNotices'
+import DemandNotices from '../views/admin/DemandNotices'
+import Acknowledgements from '../views/admin/Acknowledgements'
 import AdminStates from '../views/admin/States'
 import Dashboard from '../views/layouts/Dashboard.vue'
 
@@ -67,8 +69,15 @@ export default [
 
         
         {   
+            name: 'AdminDemandNotices',
             path: 'DemandNotices',
-            component: AdminDemandNotices
+            component: DemandNotices
+        },
+
+        {   
+            name: 'AdminAcknowledgement',
+            path: 'Acknowledgements',
+            component: Acknowledgements
         },
 
         

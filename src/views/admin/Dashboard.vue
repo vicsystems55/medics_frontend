@@ -1,12 +1,44 @@
-<template >
-    <div class="container">
-            <div class="row">
-                <div class="col-md-4 p-2 mx-auto">
-                    <div style="min-width:330px;" class="widget">
+<template>
+   <div>
+         <div class="container">
+                <div class="page-header py-2">
+                    <h1 class="page-header__title">Hi, {{userData.userFullName}}</h1>
+                    <h6 class="font-italic">Username: {{userData.userName}}</h6>
+                    <h6 class="font-italic">Email: {{userData.email}}</h6>
+                </div>
+
+                 <div class="row">
+                
+
+                 <div class="col-md-4 p-2">
+                    <div class="widget">
                         <div style="height: 130px;" class="widget__wrapper">
 
                             <div class="">
-                                <h3 class="widget__title">States</h3>
+                                <h3 class="widget__title">Assessments</h3>
+                                <div class="widget__status-title text-grey">Total businesses registered</div>
+                                <div class="widget__trade">
+                                <span class="widget__trade-count">{{businessProfiles.length}}</span>
+                                <span class="trade-icon trade-icon--up">
+                                    <svg class="icon-icon-trade-up">
+                                        <use xlink:href="#icon-trade-up"></use>
+                                    </svg>
+                                </span>
+                                <span class="badge badge--sm badge--green"></span>
+                            </div>
+                                <div class="widget__details"><router-link class="link-under text-grey" to="/BoardAdmin/BusinessProfiles">Detail</router-link>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4 p-2">
+                    <div class="widget">
+                        <div style="height: 130px;" class="widget__wrapper">
+
+                            <div class="">
+                                <h3 class="widget__title">Demand Notices</h3>
                                 <div class="widget__status-title text-grey">Total states registered</div>
                                 <div class="widget__trade">
                                 <span class="widget__trade-count">3</span>
@@ -17,23 +49,22 @@
                                 </span>
                                 <span class="badge badge--sm badge--green"></span>
                             </div>
-                                <div class="widget__details">
-                                    <router-link class="link-under text-grey" to="/Admin/States">Detail</router-link>
+                                <div class="widget__details"><a class="link-under text-grey">Detail</a>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                 <div class="col-md-4 p-2 mx-auto">
-                    <div style="min-width: 330px;" class="widget">
+                 <div class="col-md-4 p-2">
+                    <div class="widget">
                         <div style="height: 130px;" class="widget__wrapper">
 
                             <div class="">
-                                <h3 class="widget__title">Businesses</h3>
-                                <div class="widget__status-title text-grey">Total businesses onboarded</div>
+                                <h3 class="widget__title">Acknowledgements</h3>
+                                <div class="widget__status-title text-grey">Total acknowledgement uploaded</div>
                                 <div class="widget__trade">
-                                <span class="widget__trade-count">{{businessProfiles.length}}</span>
+                                <span class="widget__trade-count">0</span>
                                 <span class="trade-icon trade-icon--up">
                                     <svg class="icon-icon-trade-up">
                                         <use xlink:href="#icon-trade-up"></use>
@@ -41,32 +72,7 @@
                                 </span>
                                 <span class="badge badge--sm badge--green"></span>
                             </div>
-                                <div class="widget__details">
-                                    <router-link class="link-under text-grey" to="/Admin/Businesses">Detail</router-link>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                 <div class="col-md-4 p-2 mx-auto">
-                    <div style="min-width: 330px;" class="widget">
-                        <div style="height: 130px;" class="widget__wrapper">
-
-                            <div class="">
-                                <h3 class="widget__title">Demand Notices</h3>
-                                <div class="widget__status-title text-grey">Total demand notices raised</div>
-                                <div class="widget__trade">
-                                <span class="widget__trade-count">13</span>
-                                <span class="trade-icon trade-icon--up">
-                                    <svg class="icon-icon-trade-up">
-                                        <use xlink:href="#icon-trade-up"></use>
-                                    </svg>
-                                </span>
-                                <span class="badge badge--sm badge--green"></span>
-                            </div>
-                                <div class="widget__details">
-                                    <router-link class="link-under text-grey" to="/Admin/DemandNotices">Detail</router-link>
+                                <div class="widget__details"><a class="link-under text-grey" >Detail</a>
                                 </div>
                             </div>
                         </div>
@@ -77,70 +83,58 @@
 
                
             </div>
+
+
+                
+            </div>
     </div>
 </template>
 
 <script>
-    import { useToast } from 'vue-toastification'
+export default {
+    data() {
+        return {
+            businessProfiles: [],
+            userData: []
+        }
+    },
+    methods: {
+        getUserData(){
+            
 
-    const toast = useToast()
-    export default {
+           this.userData = JSON.parse(localStorage.getItem('user_data'));
 
-        data() {
-            return {
-                businessProfiles: []
-            }
+        //    alert(this.userData.userFullName)
         },
+        getBusinessProfiles(){
+            let loader = this.$loading.show({
+                // Optional parameters
+                container: this.fullPage ? null : this.$refs.formContainer,
+                canCancel: true,
+                onCancel: this.onCancel,
+                color: '#6CC3EC',
+            });
 
-        methods: {
-            getBusinessProfiles(){
-                
-                            let loader = this.$loading.show({
-                                // Optional parameters
-                                container: this.fullPage ? null : this.$refs.formContainer,
-                                canCancel: true,
-                                onCancel: this.onCancel,
-                                color: '#6CC3EC',
-                            });
-                            // let self = this;
-                                    this.axios({
-                                    method: "get",
-                                    url: " https://micro.rtvrs.com.ng/api/BusinessProfiles",
-                        
-                                    })
-                                    .then( (response)=> {
-                                        //handle success
+            this.axios({
+                method: 'get',
+                url:'https://micro.rtvrs.com.ng/api/BusinessProfiles/KADUNA',
 
+            })
+            .then((response)=>{
 
-                                        console.log(response)
-                                        this.businessProfiles = response.data
+                this.businessProfiles = response.data
+                loader.hide()
+            })
+            .catch((response)=>{
 
-                                        localStorage.setItem('businessProfiles', JSON.stringify(response.data)) 
-
-                                        loader.hide()
-
-
-                                        
-                                        // toast.success('Registration Successful');
-
-                                        // this.$router.push('/'+response['data']['UserCategory'])
-                                        
-                                        
-                                    })
-                                    .catch(function (response) {
-
-                                    
-                                        //handle error
-                                        console.log(response);
-                                        toast.error(response);
-                                        loader.hide()
-                                    });
-            }
-        },
-
-            mounted() {
-                this.getBusinessProfiles()
-            },
-        
-    }
+                console.log(response)
+                loader.hide()
+            })
+        }
+    },
+    mounted() {
+        this.getBusinessProfiles()
+        this.getUserData()
+    },
+}
 </script>
