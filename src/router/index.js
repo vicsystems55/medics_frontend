@@ -50,7 +50,7 @@ const routes = [
   {
     path: '/enumeration',
     name: 'Enumeration',
-    component: Fullwidth,
+    component: Dashboard,
       children: [
         {
           path: '',
@@ -62,7 +62,7 @@ const routes = [
   {
     path: '/enumeration_success',
     name: 'EnumerationSuccess',
-    component: Fullwidth,
+    component: Dashboard,
       children: [
         {
           path: '',
