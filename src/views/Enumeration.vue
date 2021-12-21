@@ -46,14 +46,32 @@
                                 </div>
 
                                   <div class="form-group">
-                                    <label>Area Offfice: *</label>
+                                    <label>Area Tax Offfice: *</label>
                                     <div class="input-group input-group--prepend">
                                         <span class="input-group__prepend">
                                             <svg class="icon-icon-user">
                                             <use xlink:href="#icon-user"></use>
                                             </svg>
                                         </span>
-                                        <input class="input shadow" type="text" v-model="AreaOffice" placeholder="Enter Area Office Name" required>
+
+                                        <select v-model="AreaOffice" id="" class="input shadow">
+                                            <!-- <option value="-Select0-">--Select Area Tax Office--</option> -->
+                                            <option value="DOKA EAST">DOKA EAST</option>
+                                            <option value="DOKA WEST">DOKA WEST</option>
+                                            <option value="KAKURI EAST">KAKURI EAST</option>
+                                            <option value="KAKURI EAST">KAKURI EAST</option>
+                                            <option value="KAKURI EAST">KAKURI EAST</option>
+                                            <option value="KAKURI WEST">KAKURI WEST</option>
+                                            <option value="KAKURI WEST">KAKURI WEST</option>
+                                            <option value="KAWO">KAWO</option>
+                                            <option value="KAWO">KAWO</option>
+                                            <option value="RIGASA">RIGASA</option>
+                                            <option value="SABO">SABO</option>
+                                            <option value="SABO">SABO</option>
+                                            <option value="KADUNA NORTH">KADUNA NORTH</option>
+                                            <option value=""></option>
+                                        </select>
+                                        <!-- <input class="input shadow" type="text" v-model="AreaOffice" placeholder="Enter Area Office Name" required> -->
                                     </div>
                                 </div>
 
