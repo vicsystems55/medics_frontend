@@ -12,11 +12,11 @@
 
                         <h4 class="text-center">Enumeration Submitted Successfully</h4>  
 
-
+<!-- 
                         <div class="text-center">
                                 <router-link v-if="user_role == '5'" class="button button--primary col-md-5 mx-auto" to="/BoardAdmin/Dashboard ">Return to Dashboard</router-link>
                                  <router-link v-else class="button button--primary col-md-5 mx-auto" to="/Admin/Dashboard">Return to Dashboard</router-link>
-                            </div>                    
+                            </div>                     -->
                    
                 
               

@@ -5,7 +5,7 @@
                 <label for="state" class="">State </label>
                 <select type="text1" id="state" v-model="origin" class="input shadow gaminators" @change="selectState()">
                     <option :value="null" disabled selected>- Select State -</option>
-                    <option value='Abia'>Abia</option>
+                    <!-- <option value='Abia'>Abia</option>
                     <option value='Adamawa'>Adamawa</option>
                     <option value='AkwaIbom'>AkwaIbom</option>
                     <option value='Anambra'>Anambra</option>
@@ -22,9 +22,9 @@
                     <option value='FCT'>FCT</option>
                     <option value='Gombe'>Gombe</option>
                     <option value='Imo'>Imo</option>
-                    <option value='Jigawa'>Jigawa</option>
+                    <option value='Jigawa'>Jigawa</option> -->
                     <option value='Kaduna'>Kaduna</option>
-                    <option value='Kano'>Kano</option>
+                    <!-- <option value='Kano'>Kano</option>
                     <option value='Katsina'>Katsina</option>
                     <option value='Kebbi'>Kebbi</option>
                     <option value='Kogi'>Kogi</option>
@@ -41,7 +41,7 @@
                     <option value='Sokoto'>Sokoto</option>
                     <option value='Taraba'>Taraba</option>
                     <option value='Yobe'>Yobe</option>
-                    <option value='Zamfara'>Zamafara</option>
+                    <option value='Zamfara'>Zamafara</option> -->
                 </select>
             </div>
             <div class="form-group ">
