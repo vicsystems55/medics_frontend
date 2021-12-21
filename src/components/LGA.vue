@@ -278,6 +278,7 @@ export default {
            
         },
         getDetails(){
+            alert('we')
          this.$emit('name', "Raja Tamil");
         }
     },
