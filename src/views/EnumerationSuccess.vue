@@ -14,7 +14,8 @@
 
 
                         <div class="text-center">
-                                <router-link class="button button--primary col-md-5 mx-auto" to="/login">Return to Dashboard</router-link>
+                                <router-link v-if="user_role == '5'" class="button button--primary col-md-5 mx-auto" to="/BoardAdmin/Dashboard ">Return to Dashboard</router-link>
+                                 <router-link v-else class="button button--primary col-md-5 mx-auto" to="/Admin/Dashboard">Return to Dashboard</router-link>
                             </div>                    
                    
                 
@@ -38,6 +39,12 @@ const toast = useToast()
 
 export default {
 
+    data() {
+        return {
+            user_role: ''
+        }
+    },
+
 
      
 
@@ -57,6 +64,10 @@ export default {
      
 
                
+    },
+
+    mounted() {
+        this.user_role = localStorage.getItem('user_role')
     },
     
 }

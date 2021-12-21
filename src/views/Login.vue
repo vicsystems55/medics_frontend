@@ -549,10 +549,10 @@ export default {
                       data: bodyFormData
                   })
                   .then((response)=>{
-                      alert(this.username)
-                      alert(this.password)
+                    //   alert(this.username)
+                    //   alert(this.password)
 
-                  
+                   loader.hide()
                       this.email = this.username
 
                       console.log(response)
@@ -571,7 +571,7 @@ export default {
                     if (this.email == 'admin@rtvrs.com.ng' && this.password == 'admin@2021') {
                 
                         localStorage.setItem('user_role', '6')
-                    
+                    localStorage.setItem('user_data', JSON.stringify(response.data))
                    
                         loader.hide()
                         toast.success('Login Successful');

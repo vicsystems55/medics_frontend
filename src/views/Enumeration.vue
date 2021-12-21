@@ -41,7 +41,7 @@
                                             <use xlink:href="#icon-user"></use>
                                             </svg>
                                         </span>
-                                        <input class="input shadow" type="text" v-model="town" placeholder="Enter town hotel is located" required>
+                                        <input class="input shadow" type="text" v-model="town" placeholder="Town/Location (Optional)" required>
                                     </div>
                                 </div>
 
@@ -53,7 +53,7 @@
                                             <use xlink:href="#icon-user"></use>
                                             </svg>
                                         </span>
-                                        <input class="input shadow" type="text" v-model="hotel_name" placeholder="Enter name of hotel" required>
+                                        <input class="input shadow" type="text" v-model="hotel_name" placeholder="Enter organization name" required>
                                     </div>
                                 </div>
 
@@ -66,7 +66,7 @@
                                             <use xlink:href="#icon-user"></use>
                                             </svg>
                                         </span>
-                                        <input class="input shadow" type="text" v-model="hotel_address" placeholder="Enter address of the hotel" required>
+                                        <input class="input shadow" type="text" v-model="hotel_address" placeholder="Enter organization address" required>
                                     </div>
                                 </div>
 
@@ -168,15 +168,22 @@
 
                           
                         </div>
+                              <div class="col-md-12 py-5">
+                                    <h6>Supply Where Applicable:</h6>
+                                </div>
                      <div class="container py-5">
+
+                      
                             <div class="row">
+
+                          
 
                                 <div class="col-md-6">
 
                                 <div class="mb-3">
                                     <div class="row">
                                         <div class="col">
-                                            <h6>Number of Rooms:</h6>
+                                            <h6>Number of Rooms / Offices:</h6>
                                         </div>
                                         <div class="col">
                                             <input type="number" v-model="number_of_rooms" class="form-control">
@@ -272,6 +279,8 @@ export default {
             state: '',
             lga: '',
             town: '',
+            area_office:'',
+            busine
             category: '',
 
             hotel_name: '',
@@ -352,6 +361,8 @@ export default {
 
 
                                     console.log(response)
+
+                                       loader.hide()
 
                                      return  this.$router.push('/enumeration_success')
 

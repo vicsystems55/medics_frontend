@@ -2,7 +2,7 @@
     <div class="containe">
         <div class="ro">
             <div class="form-group ">
-                <label for="state" class="">State of Origin</label>
+                <label for="state" class="">State </label>
                 <select type="text1" id="state" v-model="origin" class="input shadow gaminators" @change="selectState()">
                     <option :value="null" disabled selected>- Select State -</option>
                     <option value='Abia'>Abia</option>
