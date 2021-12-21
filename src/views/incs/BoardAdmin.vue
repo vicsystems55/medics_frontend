@@ -48,7 +48,7 @@
                                 </router-link>
                             </li>
 
-                            <li class="sidebar__menu-item">
+                            <!-- <li class="sidebar__menu-item">
                                 <router-link class="sidebar__link" to='/BoardAdmin/Assessments' aria-expanded="false">
                                     <span class="sidebar__link-icon">
                                         <svg class="icon-icon-settings">
@@ -57,9 +57,9 @@
                                     </span>
                                     <span class="sidebar__link-text">Assessments</span>
                                 </router-link>
-                            </li>
+                            </li> -->
 
-                            <li class="sidebar__menu-item">
+                            <!-- <li class="sidebar__menu-item">
                                 <router-link class="sidebar__link" to='/BoardAdmin/DemandNotices' aria-expanded="false">
                                     <span class="sidebar__link-icon">
                                         <svg class="icon-icon-settings">
@@ -68,7 +68,7 @@
                                     </span>
                                     <span class="sidebar__link-text">Demand Notices</span>
                                 </router-link>
-                            </li>
+                            </li> -->
                             
                             <!-- <li class="sidebar__menu-item">
                                 <router-link class="sidebar__link" to='/BoardAdmin/AccountManagement' aria-expanded="false">

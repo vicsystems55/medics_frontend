@@ -503,7 +503,7 @@
             <div class="sidebar__container">
                 <div class="sidebar__top">
                     <div class="container container--sm">
-                        <a class="sidebar__logo" href="index.html">
+                        <a class="sidebar__logo" >
                       
                             <div class="sidebar__logo-text">RTVRS</div>
                         </a>
