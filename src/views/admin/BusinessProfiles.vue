@@ -19,7 +19,7 @@
                                             </svg>
                                         </a>
                                     </li>
-                                    <li class="breadcrumbs__item active"><span class="breadcrumbs__link">Contacts</span>
+                                    <li class="breadcrumbs__item active"><span class="breadcrumbs__link">Business Profiles</span>
                                     </li>
                                 </ol>
                             </div>
@@ -95,7 +95,7 @@
                     </div>
                 </div>
                 <div class="table-wrapper tab-content">
-                    <div class="tab-pane fade" id="tab-grid">
+                    <div class="tab-pane fade show active" id="tab-grid">
                         <div class="table-wrapper__content table-collapse scrollbar-thin scrollbar-visible" data-simplebar>
                             <table class="table table--spaces">
                                 <colgroup>
@@ -120,8 +120,7 @@
                                         </th>
                                         <th class="table__th-sort mw-200"><span class="align-middle">Business Name</span><span class="sort sort--down"></span>
                                         </th>
-                                        <th class="table__th-sort"><span class="align-middle">Email</span><span class="sort sort--down"></span>
-                                        </th>
+                                     
                                         <th class="table__th-sort"><span class="align-middle">Location</span><span class="sort sort--down"></span>
                                         </th>
                                         <th class="table__th-sort"><span class="align-middle">Phone</span><span class="sort sort--down"></span>
@@ -153,8 +152,7 @@
                                                 </div>
                                             </div>
                                         </td>
-                                        <td class="table__td text-light-theme"><a href="mailto:#">{{businessProfile.businessEmail}}</a>
-                                        </td>
+                                   
                                         <td class="table__td text-dark-theme">{{businessProfile.businessAddress}}</td>
                                         <td class="table__td text-light-theme text-nowrap"><a href="tel:#">{{businessProfile.businessPhoneNo}}</a>
                                         </td>
@@ -168,21 +166,21 @@
                                                 <div class="dropdown-items dropdown-items--right">
                                                     <div class="dropdown-items__container">
                                                         <ul class="dropdown-items__list">
-                                                            <li class="dropdown-items__item"><a class="dropdown-items__link" href="order-details.html"><span class="dropdown-items__link-icon">
-                                                            <svg class="icon-icon-view">
-                                                                <use xlink:href="#icon-view"></use>
-                                                            </svg>
-                                                            </span>Assessment</a>
-
+                                                            <li class="dropdown-items__item"><router-link class="dropdown-items__link" :to="{name:'AdminAssessment',params:{id:businessProfile.businessID} }"><span class="dropdown-items__link-icon">
+                                                                <svg class="icon-icon-view">
+                                                                    <use xlink:href="#icon-view"></use>
+                                                                </svg></span>Assessments
+                                                            </router-link>
                                                             </li>
-                                                            <li class="dropdown-items__item"><a class="dropdown-items__link"><span class="dropdown-items__link-icon">
-                                                                <svg class="icon-icon-duplicate">
-                                                                    <use xlink:href="#icon-duplicate"></use>
-                                                                </svg>
-                                                                </span>Notice</a>
-
+                                                            <li class="dropdown-items__item">
+                                                                <router-link :to="{name:'AdminDemandNotice',params:{id:businessProfile.businessID} }" class="dropdown-items__link"><span class="dropdown-items__link-icon">
+                                                                    <svg class="icon-icon-duplicate">
+                                                                        <use xlink:href="#icon-duplicate"></use>
+                                                                    </svg></span>Notice
+                                                                </router-link>
                                                             </li>
                                                            
+                                                            
                                                         </ul>
                                                     </div>
                                                 </div>
@@ -196,7 +194,7 @@
                             </table>
                         </div>
                     </div>
-                    <div class="tab-pane fade show active" id="tab-list">
+                    <div class="tab-pane fade " id="tab-list">
                         <div class="contacts-grid">
                             <div v-for="businessProfile in businessProfiles" :key="businessProfile.id" class="contact-card card">
                                 <div class="card__wrapper">
@@ -212,18 +210,18 @@
                                                     <div class="dropdown-items__container">
                                                         <ul class="dropdown-items__list">
                                                             <li class="dropdown-items__item">
-                                                                <router-link :to="{name:'AdminAssessment',params:{id:businessProfile.businessID} }" class="dropdown-items__link"><span class="dropdown-items__link-icon">
-                                                                    <svg class="icon-icon-download">
-                                                                        <use xlink:href="#icon-download"></use>
-                                                                    </svg></span>Assessment
-                                                                </router-link>
+                                                                <router-link class="dropdown-items__link" :to="{name:'AdminAssessment',params:{id:businessProfile.businessID} }"><span class="dropdown-items__link-icon">
+                                                                <svg class="icon-icon-refresh">
+                                                                    <use xlink:href="#icon-refresh"></use>
+                                                                </svg>
+                                                            </span>Assessments</router-link>
                                                             </li>
                                                             <li class="dropdown-items__item">
-                                                                <router-link :to="{name:'AdminDemandNotice',params:{id:businessProfile.businessID} }" class="dropdown-items__link"><span class="dropdown-items__link-icon">
-                                                                    <svg class="icon-icon-download">
-                                                                        <use xlink:href="#icon-download"></use>
-                                                                    </svg></span>D.Notice
-                                                                </router-link>
+                                                                <router-link class="dropdown-items__link" :to="{name:'AdminDemandNotice',params:{id:businessProfile} }"><span class="dropdown-items__link-icon">
+                                                            <svg class="icon-icon-settings">
+                                                                <use xlink:href="#icon-settings"></use>
+                                                            </svg>
+                                                            </span>Notice.</router-link>
                                                             </li>
                                                             
                                                         </ul>
@@ -362,66 +360,66 @@
     </div>
 </template>
 <script>
-    import { useToast } from 'vue-toastification'
+import { useToast } from 'vue-toastification'
 
-    const toast = useToast()
-    export default {
+const toast = useToast()
+export default {
 
-        data() {
-            return {
-                businessProfiles: []
-            }
-        },
+    data() {
+        return {
+            businessProfiles: []
+        }
+    },
 
-        methods: {
-            getBusinessProfiles(){
-                
-                            let loader = this.$loading.show({
-                                // Optional parameters
-                                container: this.fullPage ? null : this.$refs.formContainer,
-                                canCancel: true,
-                                onCancel: this.onCancel,
-                                color: '#6CC3EC',
-                            });
-                            // let self = this;
-                                    this.axios({
-                                    method: "get",
-                                    url: " https://micro.rtvrs.com.ng/api/BusinessProfiles",
-                        
-                                    })
-                                    .then( (response)=> {
-                                        //handle success
-
-
-                                        console.log(response)
-                                        this.businessProfiles = response.data
-
-                                        localStorage.setItem('businessProfiles', JSON.stringify(response.data)) 
-
-                                        loader.hide()
+    methods: {
+        getBusinessProfiles(){
+            
+                        let loader = this.$loading.show({
+                            // Optional parameters
+                            container: this.fullPage ? null : this.$refs.formContainer,
+                            canCancel: true,
+                            onCancel: this.onCancel,
+                            color: '#6CC3EC',
+                        });
+                        // let self = this;
+                                this.axios({
+                                method: "get",
+                                url: " https://micro.rtvrs.com.ng/api/BusinessProfiles/KADUNA",
+                    
+                                })
+                                .then( (response)=> {
+                                    //handle success
 
 
-                                        
-                                        // toast.success('Registration Successful');
+                                    console.log(response)
+                                    this.businessProfiles = response.data
 
-                                        // this.$router.push('/'+response['data']['UserCategory'])
-                                        
-                                        
-                                    })
-                                    .catch(function (response) {
+                                    localStorage.setItem('businessProfiles', JSON.stringify(response.data)) 
+
+                                    loader.hide()
+
 
                                     
-                                        //handle error
-                                        console.log(response);
-                                        toast.error(response);
-                                        loader.hide()
-                                    });
-            }
-        },
+                                    // toast.success('Registration Successful');
 
-            mounted() {
-                this.getBusinessProfiles()
-            },
-        
-    }
+                                    // this.$router.push('/'+response['data']['UserCategory'])
+                                      
+                                    
+                                })
+                                .catch(function (response) {
+
+                                  
+                                    //handle error
+                                    console.log(response);
+                                    toast.error(response);
+                                    loader.hide()
+                                });
+        }
+    },
+
+    mounted() {
+        this.getBusinessProfiles()
+    },
+    
+}
 </script>

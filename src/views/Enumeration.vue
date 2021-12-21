@@ -20,7 +20,7 @@
                                             <use xlink:href="#icon-user"></use>
                                             </svg>
                                         </span>
-                                        <select v-model="category" id="" class="input shadow">
+                                        <select v-model="category" id="" @change="applicable(category)" class="input shadow">
                                             <option value="">- Select Type -</option>
                                             <option value="Hotel">Hotel</option>
                                             <option value="Banks">Banks</option>
@@ -218,10 +218,10 @@
 
                           
                         </div>
-                              <div class="col-md-12 py-5">
+                              <!-- <div class="col-md-12 py-5">
                                     <h6>Supply Where Applicable:</h6>
-                                </div>
-                     <div class="container py-5">
+                                </div> -->
+                     <div v-if="others" class="container-fluid py-5">
 
                       
                             <div class="row">
@@ -230,24 +230,18 @@
 
                                 <div class="col-md-6">
 
-                                <div class="mb-3">
-                                    <div class="row">
-                                        <div class="col">
-                                            <h6>Number of Rooms / Offices:</h6>
-                                        </div>
-                                        <div class="col">
-                                            <input type="number" v-model="number_of_rooms" class="form-control">
+                                    <div class="mb-3">
+                                        <div class="row">
+                                            <div class="col">
+                                                <h6>Number of Rooms:</h6>
+                                            </div>
+                                            <div class="col">
+                                                <input type="number" v-model="number_of_rooms" class="form-control">
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
 
-
-                                </div>
-                              <div class="col-md-6">
-
-
-
-                                <div class="mb-3">
+                                     <div class="mb-3">
                                     <div class="row">
                                         <div class="col">
                                             <h6>Swimming Pool</h6>
@@ -258,7 +252,7 @@
                                     </div>
                                 </div>
 
-                                <div class="mb-3">
+                                 <div class="mb-3">
                                     <div class="row">
                                         <div class="col">
                                             <h6>Reception</h6>
@@ -268,6 +262,16 @@
                                         </div>
                                     </div>
                                 </div>
+
+
+                                </div>
+                              <div class="col-md-6">
+
+
+
+                               
+
+                               
 
                                 <div class="mb-3">
                                     <div class="row">
@@ -294,6 +298,85 @@
                             </div>
                         </div>
                      </div>
+                    <div v-else class="container-fluid py-5">
+
+                      
+                            <div class="row">
+
+                          
+
+                                <div class="col-md-6">
+
+                                    <div class="mb-3">
+                                        <div class="row">
+                                            <div class="col">
+                                                <h6>Number of Devices:</h6>
+                                            </div>
+                                            <div class="col">
+                                                <input type="number" v-model="number_of_rooms" class="form-control">
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                     <div class="mb-3 d-none">
+                                    <div class="row">
+                                        <div class="col">
+                                            <h6>Swimming Pool</h6>
+                                        </div>
+                                        <div class="col">
+                                            <input type="number" v-model="swimming_pools" class="form-control">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                 <div class="mb-3 d-none">
+                                    <div class="row">
+                                        <div class="col">
+                                            <h6>Reception</h6>
+                                        </div>
+                                        <div class="col">
+                                            <input type="number" v-model="reception" class="form-control">
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                </div>
+                              <div class="col-md-6">
+
+
+
+                               
+
+                               
+
+                                <div class="mb-3 d-none">
+                                    <div class="row">
+                                        <div class="col">
+                                            <h6>Bar</h6>
+                                        </div>
+                                        <div class="col">
+                                            <input type="number" v-model="bar" class="form-control">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="mb-3 d-none">
+                                    <div class="row">
+                                        <div class="col">
+                                            <h6>Lounge</h6>
+                                        </div>
+                                        <div class="col">
+                                            <input type="number" v-model="lounge" class="form-control">
+                                        </div>
+                                    </div>
+                                </div>
+                              
+                            </div>
+                        </div>
+                     </div>
+
+
                     </div>
                 
                     <div class="text-center" >
@@ -328,6 +411,9 @@ export default {
 
     data() {
         return {
+
+            others: true,
+
             state: '',
             lga: '',
             town: '',
@@ -352,12 +438,12 @@ export default {
             hotel_manager_phone: '',
             hotel_manager_email: '',
 
-            number_of_rooms: '',
+            number_of_rooms: '1',
 
-            swimming_pools: '',
-            reception: '',
-            bar: '',
-            lounge:'',
+            swimming_pools: '0',
+            reception: '0',
+            bar: '0',
+            lounge:'0',
 
             reporters_email: '',
 
@@ -501,6 +587,19 @@ export default {
                       getLga(value) {
                           this.lga = value
                         console.log(this.lga); // Raja Tamil
+                    },
+
+                    applicable(category){
+
+                        // alert('yes');
+
+                       if(category == 'Banks'){
+                           this.others = false
+                       }
+
+                        if(category == 'Offices'){
+                           this.others = false
+                       }
                     },
 
                     onCancel() {

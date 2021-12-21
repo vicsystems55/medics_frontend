@@ -76,17 +76,17 @@
                             </li> -->
 
                             <li class="sidebar__menu-item">
-                                <router-link class="sidebar__link" to='/Admin/DemandNotices' aria-expanded="false">
+                                <router-link class="sidebar__link" to='/Admin/BusinessProfiles' aria-expanded="false">
                                     <span class="sidebar__link-icon">
                                         <svg class="icon-icon-settings">
                                             <use xlink:href="#icon-settings"></use>
                                         </svg>
                                     </span>
-                                    <span class="sidebar__link-text">Demand Notices</span>
+                                    <span class="sidebar__link-text">Business Profiles</span>
                                 </router-link>
                             </li>
 
-                                <li class="sidebar__menu-item">
+                                <!-- <li class="sidebar__menu-item">
                                 <router-link class="sidebar__link" to='/Admin/Acknowledgements' aria-expanded="false">
                                     <span class="sidebar__link-icon">
                                         <svg class="icon-icon-settings">
@@ -95,7 +95,7 @@
                                     </span>
                                     <span class="sidebar__link-text">Acknowledgements</span>
                                 </router-link>
-                            </li>
+                            </li> -->
                             
                             <!-- <li class="sidebar__menu-item">
                                 <a class="sidebar__link" to='/Admin/AccountManagement' aria-expanded="false">

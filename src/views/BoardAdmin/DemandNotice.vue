@@ -43,13 +43,13 @@
                                 </a>
                             </div>
                              <div class="page-tools__right-item">
-                                <a class="button-icon shadow" @click="email()">
+                                <!-- <a class="button-icon shadow" @click="email()">
                                     <span class="button-icon__icon">
                                         <svg class="icon-icon-email">
                                             <use xlink:href="#icon-email"></use>
                                         </svg>
                                     </span>
-                                </a>
+                                </a> -->
                             </div>
                            
                         </div>
@@ -58,7 +58,7 @@
     
         <div id="printMe2" 
 
-                style="min-height: 312px; width: 730px; " 
+                style="min-height: 312px; width: 800px; " 
         class="container shadow bg-white py-5">
 
         <img style="position: absolute; opacity: 0.3; min-height: 700px; margin-left: 20px; min-height: 312px; width: 600px;" src="img/original.png" alt="">
@@ -202,13 +202,13 @@
                                 </a>
                             </div>
                              <div class="page-tools__right-item">
-                                <a class="button-icon shadow" @click="email()">
+                                <!-- <a class="button-icon shadow" @click="email()">
                                     <span class="button-icon__icon">
                                         <svg class="icon-icon-email">
                                             <use xlink:href="#icon-email"></use>
                                         </svg>
                                     </span>
-                                </a>
+                                </a> -->
                             </div>
                            
                         </div>
@@ -217,7 +217,7 @@
     
         <div id="printMe" 
 
-                style="min-height: 312px; width: 730px; " 
+                style="min-height: 312px; width: 800px; " 
         class="container shadow bg-white py-5">
 
       
