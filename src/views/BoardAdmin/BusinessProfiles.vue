@@ -173,7 +173,7 @@
                                                             </router-link>
                                                             </li>
                                                             <li class="dropdown-items__item">
-                                                                <router-link :to="{name:'BoardAdminDemandNotice',params:{id:businessProfile} }" class="dropdown-items__link"><span class="dropdown-items__link-icon">
+                                                                <router-link :to="{name:'BoardAdminDemandNotice',params:{id:businessProfile.businessID} }" class="dropdown-items__link"><span class="dropdown-items__link-icon">
                                                                     <svg class="icon-icon-duplicate">
                                                                         <use xlink:href="#icon-duplicate"></use>
                                                                     </svg></span>Notice
