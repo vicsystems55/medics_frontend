@@ -31,7 +31,7 @@
                                     </div>
                                 </div>
                                 
-                                <LGA/>
+                                <LGA @name="getDetails" />
 
                                 <div class="form-group">
                                     <label>Town</label>
@@ -45,28 +45,40 @@
                                     </div>
                                 </div>
 
-                                <div class="form-group">
-                                    <label>Organization Name:</label>
+                                  <div class="form-group">
+                                    <label>Area Offfice: *</label>
                                     <div class="input-group input-group--prepend">
                                         <span class="input-group__prepend">
                                             <svg class="icon-icon-user">
                                             <use xlink:href="#icon-user"></use>
                                             </svg>
                                         </span>
-                                        <input class="input shadow" type="text" v-model="hotel_name" placeholder="Enter organization name" required>
+                                        <input class="input shadow" type="text" v-model="AreaOffice" placeholder="Enter Area Office Name" required>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label>Business Name:</label>
+                                    <div class="input-group input-group--prepend">
+                                        <span class="input-group__prepend">
+                                            <svg class="icon-icon-user">
+                                            <use xlink:href="#icon-user"></use>
+                                            </svg>
+                                        </span>
+                                        <input class="input shadow" type="text" v-model="BusinessName" placeholder="Enter Business Name" required>
                                     </div>
                                 </div>
 
 
                                 <div class="form-group">
-                                    <label>Organization Address</label>
+                                    <label>Business Address</label>
                                     <div class="input-group input-group--prepend">
                                         <span class="input-group__prepend">
                                             <svg class="icon-icon-user">
                                             <use xlink:href="#icon-user"></use>
                                             </svg>
                                         </span>
-                                        <input class="input shadow" type="text" v-model="hotel_address" placeholder="Enter organization address" required>
+                                        <input class="input shadow" type="text" v-model="BusinessAddress" placeholder="Enter organization address" required>
                                     </div>
                                 </div>
 
@@ -74,6 +86,44 @@
                             </div>  
 
                             <div class="col-md-6">
+
+                                <div class="form-group">
+                                    <label>Business Owner Name:</label>
+                                    <div class="input-group input-group--prepend">
+                                        <span class="input-group__prepend">
+                                            <svg class="icon-icon-user">
+                                            <use xlink:href="#icon-user"></use>
+                                            </svg>
+                                        </span>
+                                        <input class="input shadow" type="text" v-model="BusinessOwnerName" placeholder="Enter Business Owner Name" required>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label>Business Owner Email:</label>
+                                    <div class="input-group input-group--prepend">
+                                        <span class="input-group__prepend">
+                                            <svg class="icon-icon-user">
+                                            <use xlink:href="#icon-user"></use>
+                                            </svg>
+                                        </span>
+                                        <input class="input shadow" type="text" v-model="BusinessOwnerEmail" placeholder="Enter Business Owner Email" required>
+                                    </div>
+                                </div>
+
+
+                                <div class="form-group">
+                                    <label>Business Owner Phone:</label>
+                                    <div class="input-group input-group--prepend">
+                                        <span class="input-group__prepend">
+                                            <svg class="icon-icon-user">
+                                            <use xlink:href="#icon-user"></use>
+                                            </svg>
+                                        </span>
+                                        <input class="input shadow" type="text" v-model="BusinessOwnerPhone" placeholder="Enter Business Owner Phone" required>
+                                    </div>
+                                </div>
+
 
                                 <div class="form-group">
                            
@@ -274,13 +324,21 @@ export default {
         LGA
     },
 
+
+
     data() {
         return {
-            state: '',
-            lga: '',
+            // state: '',
+            // lga: '',
             town: '',
-            area_office:'',
-            busine
+
+            AreaRevenueOffice:'',
+            BusinessName: '', 
+            BusinessOwnerEmail : '',
+            BusinessOwnerName: '', 
+            BusinessOwnerPhoneNo : '',
+            BusinessAddress: '',
+
             category: '',
 
             hotel_name: '',
@@ -321,6 +379,32 @@ export default {
         },
                 submit() {
 
+                    alert(this.lga)
+
+                     var bodyFormData = new FormData();
+
+                    bodyFormData.append('state', this.origin );
+                    bodyFormData.append('lga', this.lga );
+                    bodyFormData.append('AreaRevenueOffice', this.AreaRevenueOffice );
+                    bodyFormData.append('BusinessName', this.BusinessName );
+                    bodyFormData.append('BusinessOwnerEmail', this.BusinessOwnerEmail );
+                    bodyFormData.append('BusinessOwnerName', this.BusinessOwnerName );
+                    bodyFormData.append('BusinessOwnerPhoneNo', this.BusinessOwnerPhoneNo );
+                    bodyFormData.append('BusinessAddress', this.BusinessAddress );
+                    bodyFormData.append('town', this.town );
+                    bodyFormData.append('category', this.category );
+                    bodyFormData.append('contact_person', this.contact_person );
+                    bodyFormData.append('contact_person_phone', this.contact_person_phone );
+                    bodyFormData.append('contact_person_email', this.contact_person_email );
+                    bodyFormData.append('number_of_rooms', this.number_of_rooms );
+                    bodyFormData.append('swimming_pools', this.swimming_pools );
+                    bodyFormData.append('reception', this.reception );
+                    bodyFormData.append('bar', this.bar );
+                    bodyFormData.append('lounge', this.lounge );
+                    bodyFormData.append('reporters_email', this.reporters_email);
+
+
+
 
 
                         let loader = this.$loading.show({
@@ -333,27 +417,9 @@ export default {
                         // let self = this;
                                 this.axios({
                                 method: "post",
-                                url: " https://dev.phoenixgn.com/api/create_enumeration",
-                                data: {
-                                    state : this.state,
-                                    lga : this.lga,
-                                    town : this.town,
-                                    category: this.category,
-                                    hotel_name : this.hotel_name,
-                                    hotel_address : this.hotel_address,
-                                    contact_person : this.contact_person,
-                                    contact_person_phone : this.contact_person_phone,
-                                    contact_person_email : this.contact_person_email,
-                                    hotel_manager : this.hotel_manager,
-                                    hotel_manager_phone : this.hotel_manager_phone,
-                                    hotel_manager_email : this.hotel_manager_email,
-                                    number_of_rooms : this.number_of_rooms,
-                                    swimming_pools : this.swimming_pools,
-                                    reception : this.reception,
-                                    bar : this.bar,
-                                    lounge : this.lounge,
-                                    reporters_email : this.reporters_email,
-                                },
+                                url: "https://micro.rtvrs.com.ng/api/Enumerations",
+
+                                data: bodyFormData,
                                
                                 })
                                 .then( (response)=> {
@@ -425,6 +491,10 @@ export default {
                     //     });
 
                   
+                    },
+
+                    getDetails(value) {
+                        console.log(value); // Raja Tamil
                     },
 
                     onCancel() {

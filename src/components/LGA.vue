@@ -46,7 +46,7 @@
             </div>
             <div class="form-group ">
                 <label for="lga" class="">Local Government Area</label>
-                <select name="lga" v-model="lga" id="lga" class="input shadow gaminators" required>
+                <select name="lga" v-model="lga" id="lga" @change="getDetails()" class="input shadow gaminators" required>
                     <option :value="null" selected>-- Select L.G.A. --</option>
                 </select>
             </div>
@@ -62,8 +62,11 @@ export default {
             lga:null
         }
     },
+
+
     methods: {
         selectState(){
+           
             var select = document.getElementById("lga");
             var length = select.options.length;
             for (i = 0; i < length; i++) {
@@ -268,7 +271,19 @@ export default {
             //add the option values to the select list with an id of lga
             document.getElementById("lga").innerHTML = html.join('');
             document.getElementById("geo").value = geo;
+
+  
+          
+
+           
+        },
+        getDetails(){
+         this.$emit('name', "Raja Tamil");
         }
+    },
+
+    mounted() {
+       
     },
 }
 </script>
