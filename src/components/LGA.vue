@@ -278,8 +278,10 @@ export default {
            
         },
         getDetails(){
-            alert('we')
-         this.$emit('name', "Raja Tamil");
+            // alert(this.origin)
+            // alert(this.lga)
+         this.$emit('state', this.origin);
+         this.$emit('lga', this.lga);
         }
     },
 

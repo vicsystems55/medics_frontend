@@ -31,7 +31,7 @@
                                     </div>
                                 </div>
                                 
-                                <LGA @name="getDetails" />
+                                <LGA @state="getState"  @lga="getLga" />
 
                                 <div class="form-group">
                                     <label>Town</label>
@@ -328,11 +328,11 @@ export default {
 
     data() {
         return {
-            // state: '',
-            // lga: '',
+            state: '',
+            lga: '',
             town: '',
 
-            AreaRevenueOffice:'',
+            AreaRevenueOffice:'lagos',
             BusinessName: '', 
             BusinessOwnerEmail : '',
             BusinessOwnerName: '', 
@@ -379,11 +379,12 @@ export default {
         },
                 submit() {
 
-                    alert(this.lga)
+                    // alert(this.lga)
+                    //    alert(this.state)
 
                      var bodyFormData = new FormData();
 
-                    bodyFormData.append('state', this.origin );
+                    bodyFormData.append('state', this.state );
                     bodyFormData.append('lga', this.lga );
                     bodyFormData.append('AreaRevenueOffice', this.AreaRevenueOffice );
                     bodyFormData.append('BusinessName', this.BusinessName );
@@ -493,8 +494,13 @@ export default {
                   
                     },
 
-                    getDetails(value) {
-                        console.log(value); // Raja Tamil
+                    getState(value) {
+                            this.state = value
+                        console.log(this.state); // Raja Tamil
+                    },
+                      getLga(value) {
+                          this.lga = value
+                        console.log(this.lga); // Raja Tamil
                     },
 
                     onCancel() {
