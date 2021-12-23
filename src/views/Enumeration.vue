@@ -59,17 +59,14 @@
                                             <option value="DOKA EAST">DOKA EAST</option>
                                             <option value="DOKA WEST">DOKA WEST</option>
                                             <option value="KAKURI EAST">KAKURI EAST</option>
-                                            <option value="KAKURI EAST">KAKURI EAST</option>
-                                            <option value="KAKURI EAST">KAKURI EAST</option>
-                                            <option value="KAKURI WEST">KAKURI WEST</option>
                                             <option value="KAKURI WEST">KAKURI WEST</option>
                                             <option value="KAWO">KAWO</option>
-                                            <option value="KAWO">KAWO</option>
+                                            
                                             <option value="RIGASA">RIGASA</option>
                                             <option value="SABO">SABO</option>
-                                            <option value="SABO">SABO</option>
+                                           
                                             <option value="KADUNA NORTH">KADUNA NORTH</option>
-                                            <option value=""></option>
+                                            
                                         </select>
                                         <!-- <input class="input shadow" type="text" v-model="AreaOffice" placeholder="Enter Area Office Name" required> -->
                                     </div>
