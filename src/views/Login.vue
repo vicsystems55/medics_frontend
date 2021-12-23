@@ -526,7 +526,7 @@ export default {
                 let loader = this.$loading.show({
                     // Optional parameters
                     container: this.fullPage ? null : this.$refs.formContainer,
-                    canCancel: true,
+                    canCancel: false,
                     onCancel: this.onCancel,
                     color: '#6CC3EC',
                 });

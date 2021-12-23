@@ -214,7 +214,7 @@
                                     </div>
                                 </div>
 
-                                <div class="form-group">
+                                <div class="form-group d-none">
                                     <label>Enter your email</label>
                                     <div class="input-group input-group--prepend">
                                         <span class="input-group__prepend">
