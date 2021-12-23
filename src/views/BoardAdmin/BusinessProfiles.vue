@@ -40,7 +40,7 @@
                         </ul>
                     </div>
                 </div>
-                <div class="toolbox">
+                <div class="toolbox d-none">
                     <div class="toolbox__row row gutter-bottom-xs">
                         <div class="toolbox__left col-12 col-lg">
                             <div class="toolbox__left-row row row--xs gutter-bottom-xs">
