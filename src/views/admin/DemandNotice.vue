@@ -201,8 +201,8 @@
                                     </span>
                                 </a>
                             </div>
-                             <div class="page-tools__right-item">
-                                <a class="button-icon shadow" @click="email()">
+                             <div class="page-tools__right-item d-none">
+                                <a class="button-icon shadow" @click="download()">
                                     <span class="button-icon__icon">
                                         <svg class="icon-icon-email">
                                             <use xlink:href="#icon-email"></use>
