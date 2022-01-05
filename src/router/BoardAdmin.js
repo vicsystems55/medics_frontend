@@ -10,6 +10,8 @@ import BoardAdminSettings from '../views/BoardAdmin/Settings'
 import BoardAdminAssessment from '../views/BoardAdmin/Assessment'
 import BoardAdminDemandNotice from '../views/BoardAdmin/DemandNotice'
 
+import BoardAdminUpload from '../views/BoardAdmin/Upload'
+
 
 
 import xDashboard from '../views/layouts/Dashboard.vue'
@@ -70,6 +72,11 @@ export default [
             path: 'DemandNotices',
             component: BoardAdminDemandNotices
         },
+
+        {
+            path: 'Upload',
+            component: BoardAdminUpload
+        },,
 
         {
             path: 'Settings',
