@@ -76,7 +76,7 @@ export default [
         {
             path: 'Upload',
             component: BoardAdminUpload
-        },,
+        },
 
         {
             path: 'Settings',
