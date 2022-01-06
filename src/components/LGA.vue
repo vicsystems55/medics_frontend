@@ -13,9 +13,9 @@
                     <option value='Bayelsa'>Bayelsa</option>
                     <option value='Benue'>Benue</option>
                     <option value='Borno'>Borno</option>
-                    <option value='Cross River'>Cross River</option>
+                    <option value='Cross River'>Cross River</option> -->
                     <option value='Delta'>Delta</option>
-                    <option value='Ebonyi'>Ebonyi</option>
+                    <!--<option value='Ebonyi'>Ebonyi</option>
                     <option value='Edo'>Edo</option>
                     <option value='Ekiti'>Ekiti</option>
                     <option value='Enugu'>Enugu</option>

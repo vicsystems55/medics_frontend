@@ -277,7 +277,7 @@ export default {
                         // let self = this;
                                 this.axios({
                                 method: "post",
-                                url: " https://micro.rtvrs.com.ng/api/UserRegister",
+                                url: "https://micro.rtvrs.com.ng/api/UserRegister",
                                 data: bodyFormData,
                                 headers: { "Content-Type": "multipart/form-data" },
                                 })

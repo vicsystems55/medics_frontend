@@ -317,7 +317,15 @@
                     headers: { "Content-Type": "multipart/form-data" },
                 })
                 .then((response)=>{
+
+                    alert(this.tv)
+
+                    console.log(bodyFormData)
+
+                    console.log(response)
                      this.total_bill = this.radio_total + this.tv_total + this.computer_total
+
+                     this.getBusinessProfiles()
                     toast.success('Assessment Updated');
                     
                       if(this.total_bill){
