@@ -371,11 +371,14 @@ export default {
             userData: [],
             stateName: '',
             states: [],
+            url: 'https://micro.rtvrs.com.ng/api/BusinessProfiles/'
         }
     },
 
     methods: {
         getBusinessProfiles(){
+
+           
             
                         let loader = this.$loading.show({
                             // Optional parameters
@@ -384,15 +387,51 @@ export default {
                             onCancel: this.onCancel,
                             color: '#6CC3EC',
                         });
+
+                        this.userData = JSON.parse(localStorage.getItem('user_data'));
+
+                        this.axios({
+
+                                method: 'get',
+                                url:'https://micro.rtvrs.com.ng/api/States',
+
+                        })
+                        .then((response)=>{
+
+                                this.states = response.data
+                                this.stateName = this.states.filter(element => 
+                                    (element.stateID
+                                    == this.userData.stateID))
+
+                                    this.stateName = this.stateName[0]['stateName']
+
+                                    localStorage.setItem('stateName', this.stateName)
+
+                               
+                                
+                            console.log(response.data)
+
+                            // return this.stateName
+
+                        })
+
+                        // alert(this.stateName)
                         // let self = this;
+
+                            alert('holla' +localStorage.getItem('stateName'))
+
+                            this.url = this.url +localStorage.getItem('stateName')
+
+                            alert(this.url)
+
                                 this.axios({
                                 method: "get",
-                                url:'https://micro.rtvrs.com.ng/api/BusinessProfiles/'+this.stateName
+                                url: this.url 
                     
                                 })
                                 .then( (response)=> {
                                     //handle success
-
+                                  
 
                                     console.log(response)
                                     this.businessProfiles = response.data
@@ -440,9 +479,11 @@ export default {
 
                     this.stateName = this.stateName[0]['stateName']
 
-                   alert(this.stateName)
+                //    alert(this.stateName)
                    
                console.log(response.data)
+
+               return this.stateName
 
            })
            .catch((response)=>{
@@ -455,7 +496,7 @@ export default {
     },
 
     mounted() {
-         this.getUserData()
+        
         this.getBusinessProfiles()
         
     },
