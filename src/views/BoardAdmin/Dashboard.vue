@@ -124,7 +124,9 @@ export default {
 
                     this.stateName = this.stateName[0]['stateName']
 
-                   alert(this.stateName)
+                //    alert(this.stateName)
+
+                 localStorage.setItem('stateName', this.stateName)
                    
                console.log(response.data)
 
@@ -145,9 +147,12 @@ export default {
                 color: '#6CC3EC',
             });
 
+
+            // alert("https://micro.rtvrs.com.ng/api/BusinessProfiles/"+localStorage.getItem('stateName'))
+
             this.axios({
                 method: 'get',
-                url:'https://micro.rtvrs.com.ng/api/BusinessProfiles/'+this.stateName,
+                url:'https://micro.rtvrs.com.ng/api/BusinessProfiles/'+localStorage.getItem('stateName'),
 
             })
             .then((response)=>{

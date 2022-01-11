@@ -418,7 +418,7 @@ export default {
                         // alert(this.stateName)
                         // let self = this;
 
-                            alert('holla' +localStorage.getItem('stateName'))
+                            // alert('holla' +localStorage.getItem('stateName'))
 
                             this.url = this.url +localStorage.getItem('stateName')
 
