@@ -367,7 +367,10 @@ export default {
 
     data() {
         return {
-            businessProfiles: []
+            businessProfiles: [],
+            userData: [],
+            stateName: '',
+            states: [],
         }
     },
 
@@ -384,7 +387,7 @@ export default {
                         // let self = this;
                                 this.axios({
                                 method: "get",
-                                url: " https://micro.rtvrs.com.ng/api/BusinessProfiles/KADUNA",
+                                url:'https://micro.rtvrs.com.ng/api/BusinessProfiles/'+this.stateName
                     
                                 })
                                 .then( (response)=> {
@@ -414,11 +417,47 @@ export default {
                                     toast.error(response);
                                     loader.hide()
                                 });
-        }
+        },
+        getUserData(){
+
+
+            
+
+           this.userData = JSON.parse(localStorage.getItem('user_data'));
+
+           this.axios({
+
+                method: 'get',
+                url:'https://micro.rtvrs.com.ng/api/States',
+
+           })
+           .then((response)=>{
+
+                this.states = response.data
+                this.stateName = this.states.filter(element => 
+                    (element.stateID
+                    == this.userData.stateID))
+
+                    this.stateName = this.stateName[0]['stateName']
+
+                   alert(this.stateName)
+                   
+               console.log(response.data)
+
+           })
+           .catch((response)=>{
+
+               console.log(response)
+           })
+
+        //    alert(this.userData.userFullName)
+        },
     },
 
     mounted() {
+         this.getUserData()
         this.getBusinessProfiles()
+        
     },
     
 }
