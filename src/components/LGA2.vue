@@ -1,7 +1,7 @@
 <template>
     <div class="containe">
         <div class="ro">
-            <div class="form-group d-none ">
+            <div class="form-group ">
                 <label for="state" class="">State </label>
                 <select type="text1" id="state" v-model="origin" class="input shadow gaminators" @change="selectState()">
                     <option :value="null" disabled selected >- Select State -</option>
@@ -9,12 +9,12 @@
                     <option value='Adamawa'>Adamawa</option>
                     <option value='AkwaIbom'>AkwaIbom</option>
                     <option value='Anambra'>Anambra</option> -->
-                    <option value='BAUCHI'>BAUCHI</option>
+                    <option value='Bauchi'>Bauchi</option>
                     <!--<option value='Bayelsa'>Bayelsa</option>
                     <option value='Benue'>Benue</option>
                     <option value='Borno'>Borno</option>
                     <option value='Cross River'>Cross River</option> -->
-                    <option value='DELTA' selected>DELTA</option>
+                    <option value='Delta'>Delta</option>
                     <!--
                     <option value='Ebonyi'>Ebonyi</option>
                     <option value='Edo'>Edo</option>
@@ -24,7 +24,7 @@
                     <option value='Gombe'>Gombe</option>
                     <option value='Imo'>Imo</option>
                     <option value='Jigawa'>Jigawa</option> -->
-                    <option value='KADUNA'>KADUNA</option>
+                    <option value='Kaduna'>Kaduna</option>
                     <!-- <option value='Kano'>Kano</option>
                     <option value='Katsina'>Katsina</option>
                     <option value='Kebbi'>Kebbi</option>
@@ -45,7 +45,7 @@
                     <option value='Zamfara'>Zamafara</option> -->
                 </select>
             </div>
-            <div class="form-group ">
+            <div class="form-group d-none ">
                 <label for="lga" class="">Local Government Area</label>
                 <select name="lga" v-model="lga" id="lga" @change="getDetails()" class="input shadow gaminators" required>
                     <option :value="null" selected>-- Select L.G.A. --</option>
@@ -97,7 +97,7 @@ export default {
             var geo = "South East"
             break;
 
-            case "BAUCHI":
+            case "Bauchi":
             var data = ['Alkaleri', 'Bauchi', 'Bogoro', 'Damban', 'Darazo', 'Dass', 'Gamawa', 'Ganjuwa', 'Giade', 'Itas-Gadau', 'Jama are', 'Katagum', 'Kirfi', 'Misau', 'Ningi', 'Shira', 'Tafawa Balewa', ' Toro', ' Warji', ' Zaki'];
             var geo = "North East"
             break;
@@ -122,7 +122,7 @@ export default {
             var geo = "South South"
             break;
             
-            case "DELTA":
+            case "Delta":
             var data =  ['Aniocha North', 'Aniocha South', 'Bomadi', 'Burutu', 'Ethiope East', 'Ethiope West', 'Ika North East', 'Ika South', 'Isoko North', 'Isoko South', 'Ndokwa East', 'Ndokwa West', 'Okpe', 'Oshimili North', 'Oshimili South', 'Patani', 'Sapele', 'Udu', 'Ughelli North', 'Ughelli South', 'Ukwuani', 'Uvwie', 'Warri North', 'Warri South', 'Warri South West'];
             var geo = "South South"
             break;
@@ -172,7 +172,7 @@ export default {
             var geo = "North West"
             break;
 
-            case "KADUNA":
+            case "Kaduna":
             var data =  ['Birnin Gwari', 'Chikun', 'Giwa', 'Igabi', 'Ikara', 'Jaba', 'Jema a', 'Kachia', 'Kaduna North', 'Kaduna South', 'Kagarko', 'Kajuru', 'Kaura', 'Kauru', 'Kubau', 'Kudan', 'Lere', 'Makarfi', 'Sabon Gari', 'Sanga', 'Soba', 'Zangon Kataf', 'Zaria'];
             var geo = "North West"
             break;
@@ -271,7 +271,7 @@ export default {
 
             //add the option values to the select list with an id of lga
             document.getElementById("lga").innerHTML = html.join('');
-            // document.getElementById("geo").value = geo;
+            document.getElementById("geo").value = geo;
 
   
           
@@ -288,11 +288,8 @@ export default {
 
     mounted() {
         
-       this.origin = localStorage.getItem('stateName')
 
-       alert(this.origin)
-
-       this.selectState(this.origin)
+  
     },
 }
 </script>

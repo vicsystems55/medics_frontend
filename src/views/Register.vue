@@ -124,7 +124,7 @@
                                     </div>
                                 </div> -->
 
-                                <LGA/>
+                                <LGA2/>
 
                                     <!-- <div class="form-group">
                                         <label for="">State</label>
@@ -206,7 +206,7 @@
 </template>
 
 <script>
-import LGA from '@/components/LGA.vue'
+import LGA2 from '@/components/LGA2.vue'
 
 
 import { useToast } from 'vue-toastification'
@@ -216,7 +216,7 @@ const toast = useToast()
 export default {
 
     components:{
-        LGA
+        LGA2
     },
 
     data() {

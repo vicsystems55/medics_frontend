@@ -56,8 +56,8 @@
 
                                         <select v-model="AreaOffice" id="" class="input shadow">
                                             <!-- <option value="-Select0-">--Select Area Tax Office--</option> -->
-                                            <option value="DOKA EAST">DOKA EAST</option>
-                                            <option value="DOKA WEST">DOKA WEST</option>
+                                            <option v-for="area_tax_office in tax_area_offices" :key="area_tax_office.index" >{{area_tax_office.zonalTaxAreaName}}</option>
+                                            <!-- <option value="DOKA WEST">DOKA WEST</option>
                                             <option value="KAKURI EAST">KAKURI EAST</option>
                                             <option value="KAKURI WEST">KAKURI WEST</option>
                                             <option value="KAWO">KAWO</option>
@@ -65,7 +65,7 @@
                                             <option value="RIGASA">RIGASA</option>
                                             <option value="SABO">SABO</option>
                                            
-                                            <option value="KADUNA NORTH">KADUNA NORTH</option>
+                                            <option value="KADUNA NORTH">KADUNA NORTH</option> -->
                                             
                                         </select>
                                         <!-- <input class="input shadow" type="text" v-model="AreaOffice" placeholder="Enter Area Office Name" required> -->
@@ -433,6 +433,8 @@ export default {
             lga: '',
             town: '',
 
+            tax_area_offices : [],
+
             AreaRevenueOffice:'lagos',
             BusinessName: '', 
             BusinessOwnerEmail : '',
@@ -535,31 +537,6 @@ export default {
                                      return  this.$router.push('/enumeration_success')
 
 
-                                    // localStorage.setItem('user_data', JSON.stringify(response.data)) 
-
-                                    loader.hide()
-
-                                    // if(this.UserCategory == '6'){
-                                    //     localStorage.setItem('user_role', '6')
-                                    //     toast.success('Registration Successful');
-                                    //     return this.$router.push('/Admin/Dashboard');
-                                    // }if(this.UserCategory == '5'){
-                                    //      localStorage.setItem('user_role', '5')
-                                    //     toast.success('Registration Successful');
-                                    //     return this.$router.push('/BoardAdmin/Dashboard')
-                                    // }if(this.UserCategory == '9'){
-                                    //      localStorage.setItem('user_role', '9')
-                                    //     toast.success('Registration Successful');
-                                    //     return this.$router.push('/LGATaxOfficer/Dashboard')
-                                    // }
-
-
-                            
-
-                                    
-
-                                    // this.$router.push('/'+response['data']['UserCategory'])
-                                        // alert('stop');
                                     
                                 })
                                 .catch(function (response) {
@@ -571,26 +548,6 @@ export default {
                                     loader.hide()
                                 });
 
-                    //    this.axios.post('http://www.rtvrs.com.ng/api/VistorTests ', {
-
-                    //         StateCode: this.state_code,
-                    //         BusinessName: this.business_name
-
-                    //     })
-                    //     .then(function (response) {
-
-                    //         console.log(response);
-                    //         toast.success('Successful');
-                    //         loader.hide()
-                    //     })
-                    //     .catch(function (error) {
-
-                    //         console.log(error);
-
-                    //         toast.error('error');
-
-                    //         loader.hide()
-                    //     });
 
                   
                     },
@@ -601,7 +558,11 @@ export default {
                     },
                       getLga(value) {
                           this.lga = value
+                      
                         console.log(this.lga); // Raja Tamil
+
+                        
+     
                     },
 
                     applicable(category){
@@ -622,6 +583,25 @@ export default {
                     },
 
                
+    },
+
+    mounted() {
+
+
+        var stateID = JSON.parse(localStorage.getItem('user_data'))
+        alert(stateID.stateID)
+
+        this.axios({
+            url: 'https://micro.rtvrs.com.ng/api/ZonalTaxAreas/'+stateID.stateID,
+            method: 'GET'
+        })
+        .then((response)=>{
+            this.tax_area_offices = response.data
+            console.log(this.tax_area_offices)
+        })
+        .catch((response)=>{
+            console.log(response)
+        })
     },
     
 }
