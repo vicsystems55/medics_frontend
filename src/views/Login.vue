@@ -506,7 +506,10 @@ export default {
              username: '',
              password: '',
              role: '',
-             passwordAttribute: 'password'
+             passwordAttribute: 'password',
+             userData: '',
+             states: [],
+             stateName: '',
         }
     },
 
@@ -526,7 +529,7 @@ export default {
                 let loader = this.$loading.show({
                     // Optional parameters
                     container: this.fullPage ? null : this.$refs.formContainer,
-                    canCancel: true,
+                    canCancel: false,
                     onCancel: this.onCancel,
                     color: '#6CC3EC',
                 });
@@ -556,22 +559,22 @@ export default {
                       this.email = this.username
 
                       console.log(response)
-                    if (this.email == 'liyeanthony@gmail.com' && this.password == '08036483438') {
+                    // if (this.email == 'liyeanthony@gmail.com' && this.password == '08036483438') {
                 
-                        localStorage.setItem('user_role', '5')
-                        localStorage.setItem('user_data', JSON.stringify(response.data))
+                    //     localStorage.setItem('user_role', '5')
+                    //     localStorage.setItem('user_data', JSON.stringify(response.data))
                    
-                        loader.hide()
-                        toast.success('Login Successful');
+                    //     loader.hide()
+                    //     toast.success('Login Successful');
 
-                     return this.$router.push('/BoardAdmin/Dashboard')
+                    //     return this.$router.push('/BoardAdmin/Dashboard')
                      
                     
-                    }
+                    // }
                     if (this.email == 'admin@rtvrs.com.ng' && this.password == 'admin@2021') {
                 
                         localStorage.setItem('user_role', '6')
-                    localStorage.setItem('user_data', JSON.stringify(response.data))
+                        localStorage.setItem('user_data', JSON.stringify(response.data))
                    
                         loader.hide()
                         toast.success('Login Successful');
@@ -583,12 +586,15 @@ export default {
 
                         // alert('yes state')
                         localStorage.setItem('user_role', '5')
-                        console.log('here')
+                        
                         localStorage.setItem('user_data', JSON.stringify(response.data))
-                        console.log('there')
+                 
                         
                         loader.hide()
                         toast.success('Login Successful');
+
+
+                        this.userData = JSON.parse(localStorage.getItem('user_data'));
 
                         return this.$router.push('/BoardAdmin/Dashboard')
                         
@@ -605,38 +611,6 @@ export default {
                   })  
 
 
-
-                // if (this.email == 'admin@rtvrs.com.ng' && this.password == 'admin@2021') {
-                
-                //     localStorage.setItem('user_role', '6')
-                    
-                   
-                //      loader.hide()
-                //      toast.success('Login Successful');
-
-                //       return this.$router.push('/Admin/Dashboard');
-                     
-                    
-                // }if(this.email == 'kadunastate@rtvrs.com.ng' && this.password == 'kadunastate@2021'){
-                //     localStorage.setItem('user_role', '5')
-                //     this.$router.push('/BoardAdmin/Dashboard')
-                //     loader.hide()
-                //     toast.success('Login Successful');
-                    
-                // }else{
-
-                //     this.$router.push('/login');
-                //     toast.error('Invalid Credentials');
-
-                // }
-
-
-                // simulate AJAX
-                // setTimeout(() => {
-                //     loader.hide()
-
-                //     this.$router.push('/userx')
-                // }, 5000)
             },
             onCancel() {
                 console.log('User cancelled the loader.')

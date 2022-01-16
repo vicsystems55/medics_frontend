@@ -573,6 +573,7 @@ export default {
             localStorage.setItem('user_role', '')
             localStorage.setItem('user_data', '')
             localStorage.setItem('stateName', '')
+            localStorage.setItem('businessProfiles', '')
 
             this.$router.push('/login');
         },

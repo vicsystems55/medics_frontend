@@ -108,7 +108,7 @@ export default {
             
 
            this.userData = JSON.parse(localStorage.getItem('user_data'));
-alert('oya_start')
+// alert('oya_start')
            this.axios({
 
                 method: 'get',
@@ -139,6 +139,34 @@ alert('oya_start')
         //    alert(this.userData.userFullName)
         },
         getBusinessProfiles(){
+
+             this.userData = JSON.parse(localStorage.getItem('user_data'));
+// alert('oya_start')
+           this.axios({
+
+                method: 'get',
+                async: false,
+                url:'https://micro.rtvrs.com.ng/api/States',
+
+           })
+           .then((response)=>{
+
+                this.states = response.data
+                this.stateName = this.states.filter(element => 
+                    (element.stateID
+                    == this.userData.stateID))
+
+                    this.stateName = this.stateName[0]['stateName']
+
+                   alert(this.stateName)
+
+                 return localStorage.setItem('stateName', this.stateName)
+                   
+               console.log(response.data)
+
+           })
+
+          
             let loader = this.$loading.show({
                 // Optional parameters
                 container: this.fullPage ? null : this.$refs.formContainer,
@@ -148,17 +176,21 @@ alert('oya_start')
             });
 
 
-            // alert("https://micro.rtvrs.com.ng/api/BusinessProfiles/"+localStorage.getItem('stateName'))
+            console.log("https://micro.rtvrs.com.ng/api/BusinessProfiles/"+localStorage.getItem('stateName'))
 
             this.axios({
                 method: 'get',
+                async: false,
                 url:'https://micro.rtvrs.com.ng/api/BusinessProfiles/'+localStorage.getItem('stateName'),
 
             })
             .then((response)=>{
-
+                
                 this.businessProfiles = response.data
+                console.log(this.businessProfiles)
                 loader.hide()
+
+              
             })
             .catch((response)=>{
 
@@ -168,10 +200,11 @@ alert('oya_start')
         }
     },
     mounted() {
+           this.getUserData()
         this.getBusinessProfiles()
-        this.getUserData()
+     
 
-        alert('helloo dashboard')
+        // alert('helloo dashboard')
     },
 }
 </script>

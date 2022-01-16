@@ -5,6 +5,10 @@ import AdminBusinessProfiles from '../views/admin/BusinessProfiles'
 import AdminBusinessProfile from '../views/admin/BusinessProfile'
 import AdminDemandNotice from '../views/admin/DemandNotice'
 import AdminAssessment from '../views/admin/Assessment'
+
+import Accounts from '../views/admin/AccountManagement'
+import Account from '../views/admin/Account'
+
 // import AdminDemandNotices from '../views/admin/DemandNotices'
 import DemandNotices from '../views/admin/DemandNotices'
 import Acknowledgements from '../views/admin/Acknowledgements'
@@ -53,6 +57,17 @@ export default [
             name: 'AdminBusinessProfile',
             path: 'BusinessProfile/:id',
             component: AdminBusinessProfile
+        },
+
+        {
+            path: 'Accounts',
+            component: Accounts
+        },
+
+        {
+            name: 'AccountManagement',
+            path: 'Account/:id',
+            component: Account
         },
 
         {
