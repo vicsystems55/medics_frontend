@@ -15,17 +15,28 @@
             <div class="container">
 
                <div class="form-group mx-auto text-center">
-                        <img id="previewImg" style="height: 200px; width: 200px; object-fit: cover; border-radius: 20px;" class="shadow" src="{{asset('featured_images/2.jpg')}}" >
+                        <img 
+                        onclick="document.getElementById('customFile').click()" 
+                        id="previewImg" 
+                        style="height: 250px; width: 200px; object-fit: cover; border-radius: 20px;" 
+                        class="shadow" 
+                        src="https://www.lifewire.com/thmb/8MhWKwi4GEGiYRT6P56TBvyrkYA=/1326x1326/smart/filters:no_upscale()/cloud-upload-a30f385a928e44e199a62210d578375a.jpg" >
 
                     </div> 
 
-                    <div class="c text-center">
-                        <button class="btn btn-primary">Select File</button>
-                    </div>
+                
                         
-                    <div class="custom-file mb-5 mt-3 text-center ">
-                        <input onchange="previewFile4(this.id);" type="file" name="file" class="custom-file-input col-md-4" id="customFile">
-                        <label class="custom-file-label" for="customFile">Book cover</label>
+                    <div class="text-center d-none">
+                        <input @change="previewFile4" type="file" id="customFile"  >
+                        
+                    </div>
+
+                    <div class="form-group text-center">
+
+                        <button @click="uploadFile" class="btn btn-primary">
+                            Upload
+                        </button>
+
                     </div>
 
 
@@ -37,6 +48,24 @@
 </template>
 <script>
 export default {
+    methods: {
+         previewFile4(event){
+
+
+            console.log(event)
+
+               if(event.target.files.length > 0){
+                var src = URL.createObjectURL(event.target.files[0]);
+                var preview = document.getElementById("previewImg");
+                preview.src = src;
+                // preview.style.display = "block";
+            }
+
+        },
+        uploadFile(){
+            
+        }
+    },
     
 }
 </script>

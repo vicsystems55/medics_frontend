@@ -119,6 +119,18 @@
                                 </router-link>
                             </li>
 
+                                      
+                            <li class="sidebar__menu-item">
+                                <router-link class="sidebar__link" to='/Admin/Upload' aria-expanded="false">
+                                    <span class="sidebar__link-icon">
+                                        <svg class="icon-icon-settings">
+                                            <use xlink:href="#icon-settings"></use>
+                                        </svg>
+                                    </span>
+                                    <span class="sidebar__link-text">Uploads</span>
+                                </router-link>
+                            </li>
+
                            
                      
 

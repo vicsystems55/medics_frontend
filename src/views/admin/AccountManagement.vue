@@ -63,6 +63,7 @@
 
                         <div class="form-group">
                             <select v-model="userCategory" id="" class="input shadow">
+                                 <option value="" selected="selected">- Select Account Type -</option>
                                 <option value="9">LGA Tax Officer</option>
                                 <option value="8">Board Tax Officer</option>
                                 <option value="7">System Support</option>
@@ -79,7 +80,7 @@
                         </div>
 
                         <div class="form-group">
-                             <select v-model="userState" id="" class="input shadow">
+                             <select v-model="userState"  class="input shadow">
                                  <option value="" selected="selected">- Select -</option>
                                 <option value="Abuja FCT">Abuja FCT</option>
                                 <option value="Abia">Abia</option>
@@ -140,6 +141,7 @@
                                 <th>Fullname</th>
                                 <th>Email</th>
                                 <th>Role</th>
+                                <th>Assigned State</th>
                                 
                             </tr>
                         </thead>
@@ -149,6 +151,52 @@
                                 <td>{{account.userFullName}}</td>
                                 <td>{{account.userEmail}}</td>
                                 <td>{{account.userCategory}}</td>
+                                <td>
+                                    <div class="form-group">
+                                        
+                             <select v-model="userState"  id="" class="input shadow">
+                                 <option value="" selected="selected">- Select State -</option>
+                                <option value="Abuja FCT">Abuja FCT</option>
+                                <option value="Abia">Abia</option>
+                                <option value="Adamawa">Adamawa</option>
+                                <option value="Akwa Ibom">Akwa Ibom</option>
+                                <option value="Anambra">Anambra</option>
+                                <option value="Bauchi">Bauchi</option>
+                                <option value="Bayelsa">Bayelsa</option>
+                                <option value="Benue">Benue</option>
+                                <option value="Borno">Borno</option>
+                                <option value="Cross River">Cross River</option>
+                                <option value="Delta">Delta</option>
+                                <option value="Ebonyi">Ebonyi</option>
+                                <option value="Edo">Edo</option>
+                                <option value="Ekiti">Ekiti</option>
+                                <option value="Enugu">Enugu</option>
+                                <option value="Gombe">Gombe</option>
+                                <option value="Imo">Imo</option>
+                                <option value="Jigawa">Jigawa</option>
+                                <option value="Kaduna">Kaduna</option>
+                                <option value="Kano">Kano</option>
+                                <option value="Katsina">Katsina</option>
+                                <option value="Kebbi">Kebbi</option>
+                                <option value="Kogi">Kogi</option>
+                                <option value="Kwara">Kwara</option>
+                                <option value="Lagos">Lagos</option>
+                                <option value="Nassarawa">Nassarawa</option>
+                                <option value="Niger">Niger</option>
+                                <option value="Ogun">Ogun</option>
+                                <option value="Ondo">Ondo</option>
+                                <option value="Osun">Osun</option>
+                                <option value="Oyo">Oyo</option>
+                                <option value="Plateau">Plateau</option>
+                                <option value="Rivers">Rivers</option>
+                                <option value="Sokoto">Sokoto</option>
+                                <option value="Taraba">Taraba</option>
+                                <option value="Yobe">Yobe</option>
+                                <option value="Zamfara">Zamfara</option>
+                            </select>
+                        </div> 
+                                    
+                                </td>
                             </tr>
                         </tbody>
                     </table>
@@ -165,6 +213,10 @@
 
 
 <script>
+import { useToast } from 'vue-toastification'
+
+const toast = useToast()
+
 export default {
     data() {
         return {
@@ -197,28 +249,53 @@ export default {
 
         },
         create_account(){
+
+                  var bodyFormData = new FormData();
+
+                    bodyFormData.append('UserState', this.UserState); 
+
+                    bodyFormData.append('UserPhoneNumber', this.UserPhoneNumber); 
+
+                    bodyFormData.append('UserPassword', this.UserPassword); 
+
+                    bodyFormData.append('UserName', this.UserName); 
+
+                    bodyFormData.append('UserFullName', this.UserFullName); 
+
+                    bodyFormData.append('UserCategory', this.UserCategory);
+                    
+                    bodyFormData.append('UserEmail', this.UserEmail);
+
+
+             let loader = this.$loading.show({
+                    // Optional parameters
+                    container: this.fullPage ? null : this.$refs.formContainer,
+                    canCancel: false,
+                    onCancel: this.onCancel,
+                    color: '#6CC3EC',
+                });
+              
             this.axios({
                 url: 'https://micro.rtvrs.com.ng/api/UserRegister',
                 method: 'post',
-                data:{
-                    userPhoneNumber: this.userPhoneNumber,
-                    userPassword: this.userPassword,
-                    userCategory: this.userCategory,
-                    userEmail: this.userEmail,
-                    userState: this.userState,
-                    userFullName: this.userFullName,
-                    userName: this.userName,
-
-                }
+                data:bodyFormData
 
             })
             .then((response)=>{
+
+                console.log(response)
+
+                loader.hide()
+                toast.success('Account created successfully');
+
+
                 console.log(response.data)
                 this.get_accounts()
                 
 
             })
             .catch((e)=>{
+                 loader.hide()
                 console.log(e)
 
             })

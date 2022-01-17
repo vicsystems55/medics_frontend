@@ -142,12 +142,12 @@
                                         </td>
                                         <td class="table__td">
                                             <div class="media-item media-item--medium">
-                                                <a class="media-item__icon color-red" href="customer-account.html">
+                                                <a class="media-item__icon color-red" >
                                                     <div class="media-item__icon-text">FB</div>
                                                     <img class="media-item__thumb" src="img/content/humans/item-1.jpg" alt="#">
                                                 </a>
                                                 <div class="media-item__right">
-                                                    <h5 class="media-item__title"><a href="customer-account.html">{{businessProfile.businessName}}</a></h5>
+                                                    <h5 class="media-item__title"><a >{{businessProfile.businessName}}</a></h5>
                                                     <div class="text-sm text-grey">Founder & CEO</div>
                                                 </div>
                                             </div>

@@ -15,6 +15,8 @@ import Acknowledgements from '../views/admin/Acknowledgements'
 import AdminStates from '../views/admin/States'
 import Dashboard from '../views/layouts/Dashboard.vue'
 
+import AdminUpload from '../views/BoardAdmin/Upload'
+
 
 import router from '../router'
 
@@ -99,6 +101,11 @@ export default [
         {
             path: 'States',
             component: AdminStates
+        },
+
+        {
+            path: 'Upload',
+            component: AdminUpload
         },
     ],
     beforeEnter: () => {
