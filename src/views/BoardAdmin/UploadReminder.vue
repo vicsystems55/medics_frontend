@@ -2,14 +2,9 @@
    <div>
          <div class="container">
                 <div class="page-header">
-                    <h1 class="page-header__title">Upload Acknowledgement</h1>
+                    <h1 class="page-header__title">Upload Reminder</h1>
                 </div>
-
-
-
-
-                
-                
+       
             </div>
 
             <div class="container">
@@ -23,11 +18,6 @@
                         src="https://www.lifewire.com/thmb/8MhWKwi4GEGiYRT6P56TBvyrkYA=/1326x1326/smart/filters:no_upscale()/cloud-upload-a30f385a928e44e199a62210d578375a.jpg" >
 
                     </div> 
-
-
-                    <div class="form-group">
-                        <select v-model="document_type" id=""></select>
-                    </div>
 
 
                     <div class="form-group text-center">

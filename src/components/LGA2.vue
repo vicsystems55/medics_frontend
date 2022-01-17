@@ -29,9 +29,11 @@
                     <option value='Katsina'>Katsina</option>
                     <option value='Kebbi'>Kebbi</option>
                     <option value='Kogi'>Kogi</option>
-                    <option value='Kwara'>Kwara</option>
-                    <option value='Lagos'>Lagos</option>
+                    <option value='Kwara'>Kwara</option> 
+                    <option value='Lagos'>Lagos</option> -->
+                    
                     <option value='Nasarawa'>Nasarawa</option>
+                    <!--
                     <option value='Niger'>Niger</option>
                     <option value='Ogun'>Ogun</option>
                     <option value='Ondo'>Ondo</option>

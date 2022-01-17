@@ -96,7 +96,7 @@
                 </div>
                 <div class="table-wrapper tab-content">
                     <div class="tab-pane fade show active" id="tab-grid">
-                        <div class="table-wrapper__content table-collapse scrollbar-thin scrollbar-visible" data-simplebar>
+                        <div class="table-wrapper__content table-collapse scrollbar-thin scrollbar-visible" >
                             <table class="table table--spaces">
                                 <colgroup>
                                     <col width="70px">
@@ -157,7 +157,7 @@
                                         <td class="table__td text-light-theme text-nowrap"><a href="tel:#">{{businessProfile.businessPhoneNo}}</a>
                                         </td>
                                         <td class="table__td table__actions">
-                                            <div class="items-more">
+                                            <div style="z-index: 999;" class="items-more">
                                                 <button class="items-more__button">
                                                     <svg class="icon-icon-more">
                                                         <use xlink:href="#icon-more"></use>
@@ -177,6 +177,22 @@
                                                                     <svg class="icon-icon-duplicate">
                                                                         <use xlink:href="#icon-duplicate"></use>
                                                                     </svg></span>Notice
+                                                                </router-link>
+                                                            </li>
+
+                                                            <li class="dropdown-items__item">
+                                                                <router-link :to="{name:'BoardAdminAcknowledgement',params:{id:businessProfile.businessID} }" class="dropdown-items__link"><span class="dropdown-items__link-icon">
+                                                                    <svg class="icon-icon-duplicate">
+                                                                        <use xlink:href="#icon-duplicate"></use>
+                                                                    </svg></span> Acknowledgement
+                                                                </router-link>
+                                                            </li>
+
+                                                            <li class="dropdown-items__item">
+                                                                <router-link :to="{name:'BoardAdminReminder',params:{id:businessProfile.businessID} }" class="dropdown-items__link"><span class="dropdown-items__link-icon">
+                                                                    <svg class="icon-icon-duplicate">
+                                                                        <use xlink:href="#icon-duplicate"></use>
+                                                                    </svg></span> Reminder
                                                                 </router-link>
                                                             </li>
                                                            
@@ -200,7 +216,7 @@
                                 <div class="card__wrapper">
                                     <div class="card__container">
                                         <div class="card__body">
-                                            <div class="card__tools-more">
+                                            <div style="z-index: 999;" class="card__tools-more">
                                                 <button class="items-more__button">
                                                     <svg class="icon-icon-more">
                                                         <use xlink:href="#icon-more"></use>
@@ -321,7 +337,7 @@
                            
                         </div>
                     </div>
-                    <div class="table-wrapper__footer">
+                    <div class="table-wrapper__footer d-none">
                         <div class="row">
                             <div class="table-wrapper__show-result col text-grey"><span class="d-none d-sm-inline-block">Showing</span> 1 to 10 <span class="d-none d-sm-inline-block">of 50 items</span>
                             </div>
@@ -422,7 +438,7 @@ export default {
 
                             this.url = this.url +localStorage.getItem('stateName')
 
-                            alert(this.url)
+                            // alert(this.url)
 
                                 this.axios({
                                 method: "get",

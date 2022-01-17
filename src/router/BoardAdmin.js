@@ -13,6 +13,10 @@ import BoardAdminDemandNotice from '../views/BoardAdmin/DemandNotice'
 import BoardAdminUpload from '../views/BoardAdmin/Upload'
 
 
+import BoardAdminAcknowledgement from '../views/BoardAdmin/UploadAcknowledgement'
+
+import BoardAdminReminder from '../views/BoardAdmin/UploadReminder'
+
 
 import xDashboard from '../views/layouts/Dashboard.vue'
 import { useToast } from 'vue-toastification'
@@ -61,6 +65,18 @@ export default [
             name: 'BoardAdminDemandNotice',
             path: 'DemandNotice/:id',
             component: BoardAdminDemandNotice
+        },
+
+        {
+            name: 'BoardAdminAcknowledgement',
+            path: 'BoardAdminAcknowledgement/:id',
+            component: BoardAdminAcknowledgement
+        },
+
+        {
+            name: 'BoardAdminReminder',
+            path: 'BoardAdminReminder/:id',
+            component: BoardAdminReminder
         },
 
         {

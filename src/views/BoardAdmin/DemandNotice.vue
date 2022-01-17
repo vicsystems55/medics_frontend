@@ -55,6 +55,12 @@
                         </div>
                     </div>
                 </div>
+
+                <div class="container">
+                    <div class="form-group text-center">
+                        <button class="btn btn-primary btn-lg" @click="print('printMe2')">PRINT</button>
+                    </div>
+                </div>
     
         <div id="printMe2" 
 
@@ -65,11 +71,16 @@
         <div class="container">
                 <div class="row">
                 <div class="col-3">
-                    <img src="state_logo/kaduna.jpg" style="height: 120px;" alt="">
+
+                   
+                    <img v-if="stateName=='BAUCHI'" src="state_logo/bauchilogo.png" style="height: 100px;" alt="">
+                    <img v-if="stateName=='KADUNA'" src="state_logo/kaduna.jpg" style="height: 100px;" alt="">
+                    <img v-if="stateName=='DELTA'" src="state_logo/deltalogo.png" style="height: 100px;" alt="">
+
                 </div>
                 <div class="col-9 pt-3">
-                    <h4 class="text-cente">KADUNA STATE INTERNAL REVENUE SERVICE</h4>
-                    <h6 class="text-centr">HEAD OFFICE: OBASANJO HOUSE, YAKUBU GOWON WAY, KADUNA</h6>
+                    <h4 class="text-cente">{{stateName}} STATE INTERNAL REVENUE SERVICE</h4>
+                    <h6 class="text-centr">HEAD OFFICE: OBASANJO HOUSE, YAKUBU GOWON WAY, {{stateName}}</h6>
                 </div>
             </div>
         </div>
@@ -99,7 +110,7 @@
             </table>
             </div>
         <p class=" px-5">
-            In pursuance of Section 7(4th Schedule of the 1999 constitution), Section 98 and Section 99 (a, b, and c) of the Kaduna State Tax (codification and Consolidation) Law, 2020 which impose a tax on ownership of device or equipment capable of receiving and transmitting   radio and television broadcast content in the state. A notice of assessment is hereby served on you in respect of the device(s) usage for the year(s) stated below;
+            In pursuance of Section 7(4th Schedule of the 1999 constitution), Section 98 and Section 99 (a, b, and c) of the {{stateName}} State Tax (codification and Consolidation) Law, 2020 which impose a tax on ownership of device or equipment capable of receiving and transmitting   radio and television broadcast content in the state. A notice of assessment is hereby served on you in respect of the device(s) usage for the year(s) stated below;
         </p>
 
         <div class="container">
@@ -139,11 +150,16 @@
              
 
         <p class="px-5 pt-3">
-            You are kindly requested to pay the tax due totaling ₦ {{formatDigit((TotalDemandedAmount) * 3600)}} to Kaduna State IGR account in any bank using the Payment ID <span class="font-weight-bold">{{demandNoticeData}}</span> within seven (7) days from the date of service of this notice.
+            You are kindly requested to pay the tax due totaling ₦ {{formatDigit((TotalDemandedAmount) * 3600)}} to {{stateName}} State IGR account in any bank using the Payment ID <span class="font-weight-bold">{{demandNoticeData}}</span> within seven (7) days from the date of service of this notice.
         </p>
 
        <div class="px-5">
             <p>Thank you</p>
+
+
+                  
+                    <img v-if="stateName=='KADUNA'" src="state_logo/signature2.png" style="height: 100px;" alt="">
+                    <img v-if="stateName=='DELTA'" src="state_logo/signature1.png" style="height: 100px;" alt="">
 
         <p>Executive Chairman</p>
        </div>
@@ -214,6 +230,12 @@
                         </div>
                     </div>
                 </div>
+
+                <div class="container">
+                    <div class="form-group text-center">
+                        <button class="btn btn-primary btn-lg" @click="print('printMe')">PRINT</button>
+                    </div>
+                </div>
     
         <div id="printMe" 
 
@@ -224,11 +246,15 @@
         <div class="container">
                 <div class="row">
                 <div class="col-3">
-                    <img src="state_logo/kaduna.jpg" style="height: 120px;" alt="">
+
+                     <img v-if="stateName=='BAUCHI'" src="state_logo/bauchilogo.png" style="height: 100px;" alt="">
+                    <img v-if="stateName=='KADUNA'" src="state_logo/kaduna.jpg" style="height: 100px;" alt="">
+                    <img v-if="stateName=='DELTA'" src="state_logo/deltalogo.png" style="height: 100px;" alt="">
+
                 </div>
                 <div class="col-9 pt-3">
-                    <h4 class="text-cente">KADUNA STATE INTERNAL REVENUE SERVICE</h4>
-                    <h6 class="text-centr">HEAD OFFICE: OBASANJO HOUSE, YAKUBU GOWON WAY, KADUNA</h6>
+                    <h4 class="text-cente">{{stateName}} STATE INTERNAL REVENUE SERVICE</h4>
+                    <h6 class="text-centr">HEAD OFFICE: OBASANJO HOUSE, YAKUBU GOWON WAY, {{stateName}}</h6>
                 </div>
             </div>
         </div>
@@ -258,7 +284,7 @@
             </table>
             </div>
         <p class=" px-5">
-            In pursuance of Section 7(4th Schedule of the 1999 constitution), Section 98 and Section 99 (a, b, and c) of the Kaduna State Tax (codification and Consolidation) Law, 2020 which impose a tax on ownership of device or equipment capable of receiving and transmitting   radio and television broadcast content in the state. A notice of assessment is hereby served on you in respect of the device(s) usage for the year(s) stated below;
+            In pursuance of Section 7(4th Schedule of the 1999 constitution), Section 98 and Section 99 (a, b, and c) of the {{stateName}} State Tax (codification and Consolidation) Law, 2020 which impose a tax on ownership of device or equipment capable of receiving and transmitting   radio and television broadcast content in the state. A notice of assessment is hereby served on you in respect of the device(s) usage for the year(s) stated below;
         </p>
 
         <div class="container">
@@ -300,35 +326,22 @@
              
 
         <p class="px-5 pt-3">
-            You are kindly requested to pay the tax due totaling ₦ {{formatDigit((TotalDemandedAmount) * 3600)}} to Kaduna State IGR account in any bank using the Payment ID <span class="font-weight-bold">{{demandNoticeData}}</span> within seven (7) days from the date of service of this notice.
+            You are kindly requested to pay the tax due totaling ₦ {{formatDigit((TotalDemandedAmount) * 3600)}} to {{stateName}} State IGR account in any bank using the Payment ID <span class="font-weight-bold">{{demandNoticeData}}</span> within seven (7) days from the date of service of this notice.
         </p>
 
        <div class="px-5">
-            <p>Thank you</p>
+            <p>Thank you..</p>
+
+                    <img v-if="stateName=='KADUNA'" src="state_logo/signature2.png" style="height: 100px;" alt="">
+                    <img v-if="stateName=='DELTA'" src="state_logo/signature1.png" style="height: 100px;" alt="">
+
+
+            
 
         <p>Executive Chairman</p>
        </div>
 
-        <div class="container">
-           <div class="row">
-               <div class="col-md-6">
-
-               </div>
-               <div class="col-md-6">
-                   <hr class="border border-dark">
-                   <h6 class="mb-5">Name</h6>
-
-                   <hr class="border border-dark">
-                   <h6>Signature and Date</h6>
-               </div>
-           </div>
-       </div>
-   
-    
-
-
-
-        
+ 
     </div>
    </div>
 
@@ -350,7 +363,9 @@ export default {
             businessPhoneNo: '',
             output: null,
             dateGenerated:'',
-            TotalDemandedAmount: ''
+            TotalDemandedAmount: '',
+            stateName: '',
+            userDatax: []
          
         }
     },
@@ -443,10 +458,15 @@ export default {
             .catch((response)=>{
                 console.log(response)
             })
-        }
+        },
+
+
     },
     mounted() {
         this.getDemandNotice()
+        this.stateName = localStorage.getItem('stateName')
+        this.userDatax = JSON.parse(localStorage.getItem('user_data'));
+
     },
 }
 </script>

@@ -250,21 +250,23 @@ export default {
         },
         create_account(){
 
+       
+
                   var bodyFormData = new FormData();
 
-                    bodyFormData.append('UserState', this.UserState); 
+                    bodyFormData.append('UserState', this.userState); 
 
-                    bodyFormData.append('UserPhoneNumber', this.UserPhoneNumber); 
+                    bodyFormData.append('UserPhoneNumber', this.userPhoneNumber); 
 
-                    bodyFormData.append('UserPassword', this.UserPassword); 
+                    bodyFormData.append('UserPassword', this.userPassword); 
 
-                    bodyFormData.append('UserName', this.UserName); 
+                    bodyFormData.append('UserName', this.userName); 
 
-                    bodyFormData.append('UserFullName', this.UserFullName); 
+                    bodyFormData.append('UserFullName', this.userFullName); 
 
-                    bodyFormData.append('UserCategory', this.UserCategory);
+                    bodyFormData.append('UserCategory', this.userCategory);
                     
-                    bodyFormData.append('UserEmail', this.UserEmail);
+                    bodyFormData.append('UserEmail', this.userEmail);
 
 
              let loader = this.$loading.show({
@@ -278,7 +280,7 @@ export default {
             this.axios({
                 url: 'https://micro.rtvrs.com.ng/api/UserRegister',
                 method: 'post',
-                data:bodyFormData
+                data: bodyFormData
 
             })
             .then((response)=>{
