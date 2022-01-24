@@ -20,7 +20,7 @@
                     </div> 
 
 
-                    <div class="form-group text-center">
+                    <div class="form-group text-center d-none">
                         
                         <input type="date" name="" class="col-md-4 mx-auto shadow input" id="">
 

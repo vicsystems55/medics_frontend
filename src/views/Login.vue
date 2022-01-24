@@ -534,10 +534,7 @@ export default {
                     color: '#6CC3EC',
                 });
 
-                    setTimeout(() => {
-                        loader.hide()
-                    }, 5000)
-
+          
 
                     var bodyFormData = new FormData();
 
@@ -556,7 +553,7 @@ export default {
                     //   alert(this.password)
 
                    loader.hide()
-                      this.email = this.username
+                    //   this.email = this.username
 
                       console.log(response)
                     // if (this.email == 'liyeanthony@gmail.com' && this.password == '08036483438') {
@@ -571,7 +568,8 @@ export default {
                      
                     
                     // }
-                    if (this.email == 'admin@rtvrs.com.ng' && this.password == 'admin@2021') {
+                    
+                    if (this.username == 'admin@rtvrs.com.ng' && this.password == 'admin@2021') {
                 
                         localStorage.setItem('user_role', '6')
                         localStorage.setItem('user_data', JSON.stringify(response.data))
@@ -589,8 +587,8 @@ export default {
                         
                         localStorage.setItem('user_data', JSON.stringify(response.data))
                  
-                        
                         loader.hide()
+                        
                         toast.success('Login Successful');
 
 
@@ -598,7 +596,27 @@ export default {
 
                         return this.$router.push('/BoardAdmin/Dashboard')
                         
-                    }else{
+                    }
+
+                    if(response.data.defaultSystemRole == 6){
+
+                        // alert('yes state')
+                        localStorage.setItem('user_role', '6')
+                        
+                        localStorage.setItem('user_data', JSON.stringify(response.data))
+                 
+                        
+                        loader.hide()
+                        toast.success('Login Successful');
+
+
+                        this.userData = JSON.parse(localStorage.getItem('user_data'));
+
+                        return this.$router.push('/Admin/Dashboard')
+                        
+                    }
+                    
+                    else{
 
                         this.$router.push('/login');
                         toast.error('Invalid Credentials');

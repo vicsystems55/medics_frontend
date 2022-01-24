@@ -124,7 +124,7 @@ export default {
 
                     this.stateName = this.stateName[0]['stateName']
 
-                   alert(this.stateName)
+                //    alert(this.stateName)
 
                  localStorage.setItem('stateName', this.stateName)
                    
@@ -158,7 +158,7 @@ export default {
 
                     this.stateName = this.stateName[0]['stateName']
 
-                   alert(this.stateName)
+                //    alert(this.stateName)
 
                  return localStorage.setItem('stateName', this.stateName)
                    
