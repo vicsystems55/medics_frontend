@@ -12,7 +12,7 @@
                     <div class="col-md-4">
                         <div class="form-group">
 
-                            <button @click="switchState(18)" class="btn btn-primary btn-lg">KADUNA</button>
+                            <button @click="switchState(18, 'KADUNA')" class="btn btn-primary btn-lg">KADUNA</button>
                             
                             </div>
                     </div>
@@ -21,7 +21,7 @@
 
                         <div class="form-group">
 
-                            <button @click="switchState(5)" class="btn btn-primary btn-lg">BAUCHI</button>
+                            <button @click="switchState(5, 'BAUCHI')" class="btn btn-primary btn-lg">BAUCHI</button>
                             
                             </div>
                     </div>
@@ -30,7 +30,7 @@
                         
                         <div class="form-group">
 
-                            <button @click="switchState(10)" class="btn btn-primary btn-lg">DELTA
+                            <button @click="switchState(10, 'DELTA')" class="btn btn-primary btn-lg">DELTA
                                 
                             </button>
                             
@@ -60,7 +60,7 @@ export default {
              this.userDatax = JSON.parse(localStorage.getItem('user_data'));
         },
 
-        switchState(stateId){
+        switchState(stateId, stateName){
 
                 let loader = this.$loading.show({
                     // Optional parameters
@@ -76,6 +76,8 @@ export default {
 
                     bodyFormData.append('SelectedState', stateId); 
 
+                    localStorage.setItem('stateName', stateName)
+
              this.axios({
                 url: 'https://micro.rtvrs.com.ng/api/Supperadminswap',
                 method: 'post',
@@ -83,10 +85,10 @@ export default {
             })
             .then((response)=>{
                                   
-            localStorage.setItem('user_role', '')
-            localStorage.setItem('user_data', '')
-            localStorage.setItem('stateName', '')
-            localStorage.setItem('businessProfiles', '')
+            
+            // localStorage.setItem('user_data', '')
+            // localStorage.setItem('stateName', '')
+            // localStorage.setItem('businessProfiles', '')
 
             toast.success('State Switched');
 
@@ -97,7 +99,7 @@ export default {
 
             
 
-             this.$router.push('/login');
+            //  this.$router.push('/login');
 
             this.packages = response.data
 
