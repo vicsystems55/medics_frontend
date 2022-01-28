@@ -99,7 +99,7 @@ export default {
 
             
 
-            //  this.$router.push('/login');
+             this.$router.push('/BoardAdmin/BusinessProfiles');
 
             this.packages = response.data
 
