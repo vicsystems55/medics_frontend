@@ -17,6 +17,8 @@ import BoardAdminAcknowledgement from '../views/BoardAdmin/UploadAcknowledgement
 
 import BoardAdminReminder from '../views/BoardAdmin/UploadReminder'
 
+import SwitchState from '../views/BoardAdmin/SwitchState'
+
 
 import xDashboard from '../views/layouts/Dashboard.vue'
 import { useToast } from 'vue-toastification'
@@ -82,6 +84,11 @@ export default [
         {
             path: 'BusinessProfiles',
             component: BoardAdminBusinessProfiles
+        },
+
+        {
+            path: 'SwitchState',
+            component: SwitchState
         },
 
         {

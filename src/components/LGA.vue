@@ -290,7 +290,7 @@ export default {
         
        this.origin = localStorage.getItem('stateName')
 
-       alert(this.origin)
+       console.log(this.origin)
 
        this.selectState(this.origin)
     },

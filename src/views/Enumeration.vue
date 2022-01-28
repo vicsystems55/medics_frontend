@@ -589,7 +589,7 @@ export default {
 
 
         var stateID = JSON.parse(localStorage.getItem('user_data'))
-        alert(stateID.stateID)
+        //alert(stateID.stateID)
 
         this.axios({
             url: 'https://micro.rtvrs.com.ng/api/ZonalTaxAreas/'+stateID.stateID,

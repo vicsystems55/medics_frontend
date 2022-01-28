@@ -13,6 +13,8 @@
                                         </svg>
                                 </span>
                                 <span class="sidebar__link-text">State Board Admin</span>
+
+                                <span class="sidebar__link-text d-none">Admin</span>
                                 
                             </span>
                             </li>
@@ -50,7 +52,7 @@
                             </li>
 
                             
-                               <li class="sidebar__menu-item">
+                            <li class="sidebar__menu-item">
                                 <router-link class="sidebar__link" to='/BoardAdmin/Upload' aria-expanded="false">
                                     <span class="sidebar__link-icon">
                                         <svg class="icon-icon-settings">
@@ -58,6 +60,17 @@
                                         </svg>
                                     </span>
                                     <span class="sidebar__link-text">Upload Acknowledgement</span>
+                                </router-link>
+                            </li>
+
+                            <li v-if="timothy" class="sidebar__menu-item">
+                                <router-link class="sidebar__link" to='/BoardAdmin/SwitchState' aria-expanded="false">
+                                    <span class="sidebar__link-icon">
+                                        <svg class="icon-icon-settings">
+                                            <use xlink:href="#icon-settings"></use>
+                                        </svg>
+                                    </span>
+                                    <span class="sidebar__link-text">Switch State</span>
                                 </router-link>
                             </li>
 
@@ -131,6 +144,34 @@
 
 <script>
 export default {
-    name: 'BoardAdminSidebar'
+    name: 'BoardAdminSidebar',
+
+        data() {
+            return {
+                userDatax: [],
+                timothy: false
+            }
+        },
+
+        methods: {
+            getUserData(){
+                this.userDatax = JSON.parse(localStorage.getItem('user_data'));
+
+
+                // alert(this.userDatax.email)
+
+                if(this.userDatax.email == 'timothy@rtvrs.com.ng'){
+
+                   this.timothy = true;
+
+                //    alert(this.timothy)
+
+                }
+            },
+        },
+
+        mounted() {
+            this.getUserData()
+        },
 }
 </script>
