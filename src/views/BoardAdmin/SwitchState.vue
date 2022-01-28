@@ -90,7 +90,7 @@ export default {
             // localStorage.setItem('stateName', '')
             // localStorage.setItem('businessProfiles', '')
 
-            toast.success('State Switched');
+            toast.success('State Switched to ' + localStorage.getItem('stateName'));
 
              loader.hide()
                 this.packages = response.data
