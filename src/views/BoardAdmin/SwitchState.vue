@@ -61,6 +61,15 @@ export default {
         },
 
         switchState(stateId){
+
+                let loader = this.$loading.show({
+                    // Optional parameters
+                    container: this.fullPage ? null : this.$refs.formContainer,
+                    canCancel: false,
+                    onCancel: this.onCancel,
+                    color: '#6CC3EC',
+                });
+
                     var bodyFormData = new FormData();
 
                     bodyFormData.append('UserName', this.userDatax.userName); 
@@ -73,7 +82,7 @@ export default {
                 data: bodyFormData
             })
             .then((response)=>{
-
+                                  
             localStorage.setItem('user_role', '')
             localStorage.setItem('user_data', '')
             localStorage.setItem('stateName', '')
@@ -81,7 +90,7 @@ export default {
 
             toast.success('State Switched');
 
-            
+             loader.hide()
                 this.packages = response.data
 
                 console.log(response)
