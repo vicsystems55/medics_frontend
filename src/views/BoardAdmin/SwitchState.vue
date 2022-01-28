@@ -74,9 +74,23 @@ export default {
             })
             .then((response)=>{
 
-                 toast.success('State Switched');
+            localStorage.setItem('user_role', '')
+            localStorage.setItem('user_data', '')
+            localStorage.setItem('stateName', '')
+            localStorage.setItem('businessProfiles', '')
 
+            toast.success('State Switched');
+
+            
                 this.packages = response.data
+
+                console.log(response)
+
+            
+
+             this.$router.push('/login');
+
+            this.packages = response.data
 
                 console.log(response)
             })
