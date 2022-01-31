@@ -59,7 +59,7 @@
                                             <use xlink:href="#icon-settings"></use>
                                         </svg>
                                     </span>
-                                    <span class="sidebar__link-text">Upload Acknowledgement</span>
+                                    <span class="sidebar__link-text">Upload <br> Acknowledgement</span>
                                 </router-link>
                             </li>
 

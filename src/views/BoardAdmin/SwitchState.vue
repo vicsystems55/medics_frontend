@@ -6,31 +6,32 @@
               
             </div>
 
+                <div class="p-5"></div>
 
-            <div class="container">
+            <div class="container ">
                 <div class="row">
-                    <div class="col-md-4">
+                    <div class="col-md-4 p-2">
                         <div class="form-group">
 
-                            <button @click="switchState(18, 'KADUNA')" class="btn btn-primary btn-lg">KADUNA</button>
+                            <button @click="switchState(18, 'KADUNA')" class="btn btn-primary btn-lg p-5 btn-block shadow">KADUNA</button>
                             
                             </div>
                     </div>
 
-                    <div class="col-md-4">
+                    <div class="col-md-4 p-2">
 
                         <div class="form-group">
 
-                            <button @click="switchState(5, 'BAUCHI')" class="btn btn-primary btn-lg">BAUCHI</button>
+                            <button @click="switchState(5, 'BAUCHI')" class="btn btn-primary btn-lg p-5 btn-block shadow">BAUCHI</button>
                             
                             </div>
                     </div>
 
-                    <div class="col-md-4">
+                    <div class="col-md-4 p-2">
                         
                         <div class="form-group">
 
-                            <button @click="switchState(10, 'DELTA')" class="btn btn-primary btn-lg">DELTA
+                            <button @click="switchState(10, 'DELTA')" class="btn btn-primary btn-lg p-5 btn-block shadow">DELTA
                                 
                             </button>
                             
