@@ -41,6 +41,10 @@
 
                 </div>
             </div>
+
+            <div class="container text-center">
+                <router-link to='/BoardAdmin/BusinessProfiles' class="btn btn-primary btn-lg">View Business Profiles</router-link>
+            </div>
 </template>
 
 <script>
@@ -58,6 +62,23 @@ export default {
     methods: {
 
         getUserData(){
+
+            this.userDatax = JSON.parse(localStorage.getItem('user_data'));
+
+              this.axios({
+                      method: 'get',
+                      url: 'https://micro.rtvrs.com.ng/api/UserLogin/'+this.userDatax.userName,
+                     
+                  })
+                  .then((response)=>{
+           
+                      console.log(response)
+    
+                        localStorage.setItem('user_data', JSON.stringify(response.data))   
+                    })
+                  .catch((response)=>{
+                      console.log(response)
+                  }) 
              this.userDatax = JSON.parse(localStorage.getItem('user_data'));
         },
 
@@ -91,24 +112,43 @@ export default {
             // localStorage.setItem('stateName', '')
             // localStorage.setItem('businessProfiles', '')
 
-            toast.success('State Switched to ' + localStorage.getItem('stateName'));
+            this.axios({
+                      method: 'get',
+                      url: 'https://micro.rtvrs.com.ng/api/UserLogin/'+this.userDatax.userName,
+                     
+                  })
+                  .then((response)=>{
+           
+                      console.log(response)
 
-             loader.hide()
-                this.packages = response.data
+                      
+                        localStorage.setItem('user_data', JSON.stringify(response.data))   
 
-                console.log(response)
+                        // alert('change data')
+
+                        loader.hide()
+                         toast.success('State Switched to ' + localStorage.getItem('stateName'));
+                       
+                    })
+                  .catch((response)=>{
+                      console.log(response)
+                  }) 
+            
+    
+
+
 
             
 
-             this.$router.push('/BoardAdmin/BusinessProfiles');
+            //  this.$router.push('/BoardAdmin/BusinessProfiles');
 
-            this.packages = response.data
+             return location.reload();
 
-                console.log(response)
+
             })
             .catch((response)=>{
 
-                console.log(Response)
+                console.log(response)
             })
 
         }

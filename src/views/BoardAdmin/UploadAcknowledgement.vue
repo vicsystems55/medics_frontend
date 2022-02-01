@@ -20,7 +20,7 @@
                     </div> 
 
 
-                    <div class="form-group">
+                    <div class="form-group d-none">
                         <select v-model="document_type" id=""></select>
                     </div>
 
@@ -34,7 +34,7 @@
                 
                         
                     <div class="text-center d-none">
-                        <input @change="previewFile4" type="file" id="customFile"  >
+                        <input @change="previewFile4" ref="file" type="file" id="customFile"  >
                         
                     </div>
 
@@ -55,6 +55,11 @@
 </template>
 <script>
 export default {
+    data() {
+        return {
+            file: ''
+        }
+    },
     methods: {
          previewFile4(event){
 
@@ -68,8 +73,31 @@ export default {
                 // preview.style.display = "block";
             }
 
+             this.file = this.$refs.file.files[0];
+
         },
         uploadFile(){
+
+            let formData = new FormData();
+            formData.append('BusinessID', this.$route.params.id);
+            formData.append('BusinessDemandNoticeID', this.$route.params.id);
+            formData.append('DateIssued', Date.now());
+            formData.append('PictureData', this.file);
+            formData.append('PictureCategory', 1);
+
+            this.axios.post('https://micro.rtvrs.com.ng/api/ManageBusinessDemandNotices',
+                formData,
+                {
+                headers: {
+                    'Content-Type': 'multipart/form-data'
+                }
+              }
+            ).then(function(data){
+              console.log(data.data);
+            })
+            .catch(function(){
+              console.log('FAILURE!!');
+            });
 
         }
     },

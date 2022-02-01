@@ -160,7 +160,7 @@ export default {
 
                 // alert(this.userDatax.email)
 
-                if(this.userDatax.email == 'timothy@rtvrs.com.ng'){
+                if(this.userDatax.userEmail == 'timothy@rtvrs.com.ng'){
 
                    this.timothy = true;
 

@@ -502,12 +502,16 @@
             <div class="sidebar__backdrop" @click="collapseMenu()"></div>
             <div class="sidebar__container">
                 <div class="sidebar__top">
-                    <div class="container container--sm">
+                    <div class="container container--sm pt-3">
                         <a class="sidebar__logo" >
                       
                             <div class="sidebar__logo-text">RTVRS</div>
+
+                           
                         </a>
+                       <h6>{{this.CurrentState}}</h6>
                     </div>
+                      
                 </div>
                 <div class="sidebar__content " data-simplebar="data-simplebar">
                    
@@ -561,12 +565,14 @@ export default {
             sidebar_button: '',
             aside_class: '',
             sidebar_active: false,
-            userDatax: []
+            userDatax: [],
+            CurrentState: ''
         }
     },
     methods: {
         getUserData(){
              this.userDatax = JSON.parse(localStorage.getItem('user_data'));
+             this.CurrentState = localStorage.getItem('stateName')
         },
         logout(){
             alert('loggin out')
