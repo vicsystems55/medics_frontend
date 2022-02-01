@@ -167,6 +167,13 @@ export default {
                 //    alert(this.timothy)
 
                 }
+                if(this.userDatax.email == 'timothy@rtvrs.com.ng'){
+
+                   this.timothy = true;
+
+                //    alert(this.timothy)
+
+                }
             },
         },
 
