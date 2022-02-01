@@ -52,7 +52,7 @@
                             </li>
 
                             
-                            <li class="sidebar__menu-item">
+                            <li class="sidebar__menu-item d-none">
                                 <router-link class="sidebar__link" to='/BoardAdmin/Upload' aria-expanded="false">
                                     <span class="sidebar__link-icon">
                                         <svg class="icon-icon-settings">
