@@ -10,9 +10,15 @@
                     <option value='AkwaIbom'>AkwaIbom</option>
                     <option value='Anambra'>Anambra</option> -->
                     <option value='BAUCHI'>BAUCHI</option>
-                    <!--<option value='Bayelsa'>Bayelsa</option>
+                    <!--<option value='Bayelsa'>Bayelsa</option> -->
+
+
                     <option value='Benue'>Benue</option>
+
+                    <!--
                     <option value='Borno'>Borno</option>
+
+                    
                     <option value='Cross River'>Cross River</option> -->
                     <option value='DELTA' selected>DELTA</option>
                     <!--
@@ -25,19 +31,32 @@
                     <option value='Imo'>Imo</option>
                     <option value='Jigawa'>Jigawa</option> -->
                     <option value='KADUNA'>KADUNA</option>
+
                     <!-- <option value='Kano'>Kano</option>
                     <option value='Katsina'>Katsina</option>
-                    <option value='Kebbi'>Kebbi</option>
+                    <option value='Kebbi'>Kebbi</option> -->
+
                     <option value='Kogi'>Kogi</option>
+
+                    <!--
                     <option value='Kwara'>Kwara</option>
-                    <option value='Lagos'>Lagos</option>
-                    <option value='Nasarawa'>Nasarawa</option>
+                    <option value='Lagos'>Lagos</option> -->
+
+
+                    <option value='Nasarawa'>Nasarawa</option> 
+
+
                     <option value='Niger'>Niger</option>
+
+                    <!--
                     <option value='Ogun'>Ogun</option>
                     <option value='Ondo'>Ondo</option>
                     <option value='Osun'>Osun</option>
-                    <option value='Oyo'>Oyo</option>
+                    <option value='Oyo'>Oyo</option> -->
+
                     <option value='Plateau'>Plateau</option>
+
+                    <!--
                     <option value='Rivers'>Rivers</option>
                     <option value='Sokoto'>Sokoto</option>
                     <option value='Taraba'>Taraba</option>

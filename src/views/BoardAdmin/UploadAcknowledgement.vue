@@ -82,7 +82,7 @@ export default {
             formData.append('BusinessID', this.$route.params.id);
             formData.append('BusinessDemandNoticeID', this.$route.params.id);
             formData.append('DateIssued', Date.now());
-            formData.append('PictureData', this.file);
+            formData.append('PictureData','kkkkk');
             formData.append('PictureCategory', 1);
 
             this.axios.post('https://micro.rtvrs.com.ng/api/ManageBusinessDemandNotices',
