@@ -111,6 +111,7 @@
             </div>
         <p class=" px-5">
             In pursuance of Section 7(4th Schedule of the 1999 constitution), Section 98 and Section 99 (a, b, and c) of the {{stateName}} State Tax (codification and Consolidation) Law, 2020 which impose a tax on ownership of device or equipment capable of receiving and transmitting   radio and television broadcast content in the state. A notice of assessment is hereby served on you in respect of the device(s) usage for the year(s) stated below;
+            
         </p>
 
         <div class="container">
@@ -150,7 +151,8 @@
              
 
         <p class="px-5 pt-3">
-            You are kindly requested to pay the tax due totaling ₦ {{formatDigit((TotalDemandedAmount) * 3600)}} to {{stateName}} State IGR account in any bank using the Payment ID <span class="font-weight-bold">{{demandNoticeData}}</span> within seven (7) days from the date of service of this notice.
+
+            You are kindly requested to pay the tax due totaling ₦ {{formatDigit((TotalDemandedAmount) * 3600)}} to {{stateName}} State IGR account by texting KADPAY to 08039759925 via WhatsApp and quote the Payment ID 100121 within seven (7) days from the date of service of this notice.
         </p>
 
        <div class="px-5">

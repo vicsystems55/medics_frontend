@@ -8,8 +8,7 @@
             </div>
 
             <div class="container">
-
-               <div class="form-group mx-auto text-center">
+                    <div class="form-group mx-auto text-center">
                         <img 
                         onclick="document.getElementById('customFile').click()" 
                         id="previewImg" 
@@ -18,37 +17,20 @@
                         src="https://www.lifewire.com/thmb/8MhWKwi4GEGiYRT6P56TBvyrkYA=/1326x1326/smart/filters:no_upscale()/cloud-upload-a30f385a928e44e199a62210d578375a.jpg" >
 
                     </div> 
-
-
                     <div class="form-group d-none">
                         <select v-model="document_type" id=""></select>
                     </div>
-
-
                     <div class="form-group text-center d-none">
-                        
                         <input type="date" name="" class="col-md-4 mx-auto shadow input" id="">
-
-                    </div>
-
-                
-                        
+                    </div>   
                     <div class="text-center d-none">
-                        <input @change="previewFile4" ref="file" type="file" id="customFile"  >
-                        
+                        <input @change="previewFile4" ref="file" type="file" id="customFile"  > 
                     </div>
-
                     <div class="form-group text-center">
-
                         <button @click="uploadFile" class="btn btn-primary">
                             Upload
                         </button>
-
                     </div>
-
-
-
-
 
             </div>
     </div>
