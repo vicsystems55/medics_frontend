@@ -361,7 +361,8 @@ export default {
             businessPhoneNo: '',
             output: null,
             dateGenerated:'',
-            TotalDemandedAmount: ''
+            TotalDemandedAmount: '',
+            stateName: ''
          
         }
     },
@@ -458,6 +459,8 @@ export default {
     },
     mounted() {
         this.getDemandNotice()
+
+        this.stateName = localStorage.getItem('stateName')
     },
 }
 </script>
