@@ -141,12 +141,18 @@
         <p class="px-5 pt-3">
             <!-- You are kindly requested to pay the tax due totaling ₦ {{formatDigit((TotalDemandedAmount) * 3600)}} to Kaduna State IGR account in any bank using the Payment ID <span class="font-weight-bold">{{demandNoticeData}}</span> within seven (7) days from the date of service of this notice. -->
        
-            You are kindly requested to pay the tax due totaling ₦ {{formatDigit((TotalDemandedAmount) * 3600)}} to Kaduna State IGR account by texting KADPAY to 08039759925 via WhatsApp and quote the Payment ID 100121 within seven (7) days from the date of service of this notice.
+            You are kindly requested to pay the tax due totaling ₦ {{formatDigit((TotalDemandedAmount) * 3600)}} to Kaduna State IGR account by texting KADPAY to 08039759925 via WhatsApp and quote the Payment ID <span class="font-weight-bold">{{demandNoticeData}}</span> within seven (7) days from the date of service of this notice.
 
        </p>
 
        <div class="px-5">
             <p>Thank you</p>
+
+                            
+                    <img v-if="stateName=='KADUNA'" src="state_logo/signature2.png" style="height: 100px;" alt="">
+                    <img v-if="stateName=='DELTA'" src="state_logo/signature1.png" style="height: 100px;" alt="">
+
+
 
         <p>Executive Chairman</p>
        </div>
@@ -305,7 +311,7 @@
         <p class="px-5 pt-3">
             <!-- You are kindly requested to pay the tax due totaling ₦ {{formatDigit((TotalDemandedAmount) * 3600)}} to Kaduna State IGR account in any bank using the Payment ID <span class="font-weight-bold">{{demandNoticeData}}</span> within seven (7) days from the date of service of this notice. -->
         
-            You are kindly requested to pay the tax due totaling ₦ {{formatDigit((TotalDemandedAmount) * 3600)}} to Kaduna State IGR account by texting KADPAY to 08039759925 via WhatsApp and quote the Payment ID 100121 within seven (7) days from the date of service of this notice.
+            You are kindly requested to pay the tax due totaling ₦ {{formatDigit((TotalDemandedAmount) * 3600)}} to Kaduna State IGR account by texting KADPAY to 08039759925 via WhatsApp and quote the Payment ID <span class="font-weight-bold">{{demandNoticeData}}</span> within seven (7) days from the date of service of this notice.
         </p>
 
        <div class="px-5">
