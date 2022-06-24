@@ -109,6 +109,10 @@
                 </tr>
             </table>
             </div>
+
+            <h6 class="py-3 text-center">
+                RADIO AND TELEVISION TAX ACCESSMENT NOTICE
+            </h6>
         <p class=" px-5">
             In pursuance of Section 7(4th Schedule of the 1999 constitution), Section 98 and Section 99 (a, b, and c) of the {{stateName}} State Tax (codification and Consolidation) Law, 2020 which impose a tax on ownership of device or equipment capable of receiving and transmitting   radio and television broadcast content in the state. A notice of assessment is hereby served on you in respect of the device(s) usage for the year(s) stated below;
             
@@ -178,7 +182,7 @@
 
       <div class="container">
           <div class="page-header pt-5">
-                    <h1 class="page-header__title text-center">Acknoledgement for {{businessName}}</h1>
+                    <h1 class="page-header__title text-center">Acknowledgement for {{businessName}}</h1>
                 </div>
                 <div class="page-tools">
                     <div class="page-tools__breadcrumbs">
@@ -285,6 +289,10 @@
                 </tr>
             </table>
             </div>
+
+            <h6 class="py-3 text-center">
+                RADIO AND TELEVISION TAX ACCESSMENT NOTICE
+            </h6>
         <p class=" px-5">
             In pursuance of Section 7(4th Schedule of the 1999 constitution), Section 98 and Section 99 (a, b, and c) of the {{stateName}} State Tax (codification and Consolidation) Law, 2020 which impose a tax on ownership of device or equipment capable of receiving and transmitting   radio and television broadcast content in the state. A notice of assessment is hereby served on you in respect of the device(s) usage for the year(s) stated below;
         </p>

@@ -362,7 +362,7 @@ export default {
             output: null,
             dateGenerated:'',
             TotalDemandedAmount: '',
-            stateName: ''
+            stateName: 'KADUNA'
          
         }
     },
