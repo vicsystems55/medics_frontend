@@ -44,8 +44,28 @@
     <meta name="msapplication-TileColor" content="#ffffff" />
     <meta name="msapplication-TileImage" content="/ms-icon-144x144.pn" />
     <meta name="theme-color" content="#ffffff" />
+    <style>
+        @page {
+        size: A4;
+        margin: 0;
+        }
+
+        @media print {
+            .page {
+                margin: 0;
+                border: initial;
+                border-radius: initial;
+                width: initial;
+                min-height: initial;
+                box-shadow: initial;
+                background: initial;
+                page-break-after: always;
+            }
+        }
+    </style>
    
 </head>
+
 <div id="app">
 
 </div>
