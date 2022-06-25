@@ -62,27 +62,27 @@
                     </div>
                 </div>
     
-        <div id="printMe2" style="min-height: 297mm; width: 210mm; background-color: red;" class="container shadow  py-5">
+        <div id="printMe2" style="min-height: 297mm; width: 210mm;" class="container shadow  py-5 bg-white">
 
-        <img style="position: absolute; opacity: 0.3; min-height: 700px; margin-left: 20px; min-height: 312px; width: 600px;" src="img/original.png" alt="">
-        <div class="container">
-                <div class="row">
-                <div class="col-12 text-center">
+            <img style="position: absolute; opacity: 0.3; min-height: 700px; margin-left: 20px; min-height: 312px; width: 600px;" src="img/original.png" alt="">
+            <div class="container">
+                    <div class="row">
+                    <div class="col-12 text-center">
 
-                    <div class="py-5"></div>
+                        <div class="py-5"></div>
 
-                   
-                    <img v-if="stateName=='BAUCHI'" src="state_logo/bauchilogo.png" style="height: 100px;" alt="">
-                    <img v-if="stateName=='KADUNA'" src="state_logo/kaduna.jpg" style="height: 100px;" alt="">
-                    <img v-if="stateName=='DELTA'" src="state_logo/deltalogo.png" style="height: 100px;" alt="">
+                    
+                        <img v-if="stateName=='BAUCHI'" src="state_logo/bauchilogo.png" style="height: 100px;" alt="">
+                        <img v-if="stateName=='KADUNA'" src="state_logo/kaduna.jpg" style="height: 100px;" alt="">
+                        <img v-if="stateName=='DELTA'" src="state_logo/deltalogo.png" style="height: 100px;" alt="">
 
-                </div>
-                <div class="col-12 text-center pt-3">
-                    <h4 class="text-cente py-3">{{stateName}} STATE INTERNAL REVENUE SERVICE</h4>
-                    <h6 class="text-centr py-3">HEAD OFFICE: OBASANJO HOUSE, YAKUBU GOWON WAY, {{stateName}}</h6>
+                    </div>
+                    <div class="col-12 text-center pt-3">
+                    <h2 class="text-cente">{{stateName}} STATE INTERNAL REVENUE SERVICE</h2>
+                    <h3 class="text-centr">HEAD OFFICE: OBASANJO HOUSE, YAKUBU GOWON WAY, {{stateName}}</h3>
+                    </div>
                 </div>
             </div>
-        </div>
    
             <div class="container">
                 <table class="table ">
@@ -112,74 +112,74 @@
             <h3 class="py-3 text-center">
                 RADIO AND TELEVISION TAX ACCESSMENT NOTICE
             </h3>
-        <p class=" px-5">
-            In pursuance of Section 7(4th Schedule of the 1999 constitution), Section 98 and Section 99 (a, b, and c) of the {{stateName}} State Tax (codification and Consolidation) Law, 2020 which impose a tax on ownership of device or equipment capable of receiving and transmitting   radio and television broadcast content in the state. A notice of assessment is hereby served on you in respect of the device(s) usage for the year(s) stated below;
-            
-        </p>
-
-        <div class="container py-5">
-        
-
-    
-                <table class="table" >
-                <tr class="table__row">
-                    <td class="table__td border"> <span class="font-weight-bold">Assessment Period</span> </td>
-                     <th v-for="device in demandNoticeDetails2020" :key="device.id" class="table__td border">{{formatDate(device.yearsCharged)}}</th>
-                     
-                    <!-- <td v-for="device in demandNoticeDetails2020" :key="device.id" class="table__td border">{{device.taxItemDescription}}</td> -->
-                </tr>
-                  <tr class="table__row">
-                    <td class="table__td border"> <span class="font-weight-bold">Device Type</span> </td>
-                    <td v-for="device in demandNoticeDetails2020" :key="device.id" class="table__td border">{{device.taxItemDescription}}</td>
-                </tr>
-                 <tr class="table__row">
-                    <td class="table__td border"> <span class="font-weight-bold">Number of Devices</span> </td>
-                    <td v-for="device in demandNoticeDetails2020" :key="device.id" class="table__td border">{{device.totalDeviceCount}}</td>
-                </tr>
-                <tr class="table__row">
-                    <td class="table__td border"> <span class="font-weight-bold">Annual Rate per Device</span> </td>
-                    <td v-for="device in demandNoticeDetails2020" :key="device.id" class="table__td border">₦ {{formatDigit(3600)}}</td>
-                </tr>
-                <tr class="table__row">
-                    <td class="table__td border"> <span class="font-weight-bold">Total Tax Due</span> </td>
-                    <td v-for="device in demandNoticeDetails2020" :key="device.id" class="table__td border">₦ {{formatDigit((device.totalDeviceCount) * 3600)}}</td>
-                </tr>
-
+            <p class=" px-5">
+                In pursuance of Section 7(4th Schedule of the 1999 constitution), Section 98 and Section 99 (a, b, and c) of the {{stateName}} State Tax (codification and Consolidation) Law, 2020 which impose a tax on ownership of device or equipment capable of receiving and transmitting   radio and television broadcast content in the state. A notice of assessment is hereby served on you in respect of the device(s) usage for the year(s) stated below;
                 
-                </table>
+            </p>
 
-        </div>
+            <div class="container py-5">
+            
+
+        
+                    <table class="table" >
+                    <tr class="table__row">
+                        <td class="table__td border"> <span class="font-weight-bold">Assessment Period</span> </td>
+                        <th v-for="device in demandNoticeDetails2020" :key="device.id" class="table__td border">{{formatDate(device.yearsCharged)}}</th>
+                        
+                        <!-- <td v-for="device in demandNoticeDetails2020" :key="device.id" class="table__td border">{{device.taxItemDescription}}</td> -->
+                    </tr>
+                    <tr class="table__row">
+                        <td class="table__td border"> <span class="font-weight-bold">Device Type</span> </td>
+                        <td v-for="device in demandNoticeDetails2020" :key="device.id" class="table__td border">{{device.taxItemDescription}}</td>
+                    </tr>
+                    <tr class="table__row">
+                        <td class="table__td border"> <span class="font-weight-bold">Number of Devices</span> </td>
+                        <td v-for="device in demandNoticeDetails2020" :key="device.id" class="table__td border">{{device.totalDeviceCount}}</td>
+                    </tr>
+                    <tr class="table__row">
+                        <td class="table__td border"> <span class="font-weight-bold">Annual Rate per Device</span> </td>
+                        <td v-for="device in demandNoticeDetails2020" :key="device.id" class="table__td border">₦ {{formatDigit(3600)}}</td>
+                    </tr>
+                    <tr class="table__row">
+                        <td class="table__td border"> <span class="font-weight-bold">Total Tax Due</span> </td>
+                        <td v-for="device in demandNoticeDetails2020" :key="device.id" class="table__td border">₦ {{formatDigit((device.totalDeviceCount) * 3600)}}</td>
+                    </tr>
+
+                    
+                    </table>
+
+            </div>
 
       
              
 
-        <p class="px-5 pt-3">
-            <!-- You are kindly requested to pay the tax due totaling ₦ {{formatDigit((TotalDemandedAmount) * 3600)}} to {{stateName}} State IGR account in any bank using the Payment ID <span class="font-weight-bold">{{demandNoticeData}}</span> within seven (7) days from the date of service of this notice. -->
-            You are kindly requested to pay the tax due totaling ₦ {{formatDigit((TotalDemandedAmount) * 3600)}} to {{stateName}} State IGR account by texting KADPAY to 08039759925 via WhatsApp and quote the Payment ID <span class="font-weight-bold">{{demandNoticeData}}</span> within seven (7) days from the date of service of this notice.
-           
-           You are kindly requested to pay the tax due totaling ₦ {{formatDigit((TotalDemandedAmount) * 3600)}} to {{stateName}} State IGR account with the Payment ID <span class="font-weight-bold">{{demandNoticeData}}</span> within seven (7) days
-            from the date of service of this notice using any of the following payment options: <br>
-
-            <ul>
-                <li>Option 1. Cash or cheque deposit to <strong>any bank</strong> quoting the payment ID <span class="font-weight-bold">{{demandNoticeData}}</span> </li>
-                <li>Option 2. Text KADPAY to 08039759925 via WhatsApp and quote the Payment ID <span class="font-weight-bold">{{demandNoticeData}}</span>. </li>
-                
-            </ul>
-
-
+            <p class="px-5 pt-3">
+                <!-- You are kindly requested to pay the tax due totaling ₦ {{formatDigit((TotalDemandedAmount) * 3600)}} to {{stateName}} State IGR account in any bank using the Payment ID <span class="font-weight-bold">{{demandNoticeData}}</span> within seven (7) days from the date of service of this notice. -->
+                You are kindly requested to pay the tax due totaling ₦ {{formatDigit((TotalDemandedAmount) * 3600)}} to {{stateName}} State IGR account by texting KADPAY to 08039759925 via WhatsApp and quote the Payment ID <span class="font-weight-bold">{{demandNoticeData}}</span> within seven (7) days from the date of service of this notice.
             
-        </p>
+            You are kindly requested to pay the tax due totaling ₦ {{formatDigit((TotalDemandedAmount) * 3600)}} to {{stateName}} State IGR account with the Payment ID <span class="font-weight-bold">{{demandNoticeData}}</span> within seven (7) days
+                from the date of service of this notice using any of the following payment options: <br>
 
-       <div class="px-5">
-            <p>Thank you</p>
+                <ul>
+                    <li>Option 1. Cash or cheque deposit to <strong>any bank</strong> quoting the payment ID <span class="font-weight-bold">{{demandNoticeData}}</span> </li>
+                    <li>Option 2. Text KADPAY to 08039759925 via WhatsApp and quote the Payment ID <span class="font-weight-bold">{{demandNoticeData}}</span>. </li>
+                    
+                </ul>
 
 
-                  
-                    <img v-if="stateName=='KADUNA'" src="state_logo/signature2.png" style="height: 100px;" alt="">
-                    <img v-if="stateName=='DELTA'" src="state_logo/signature1.png" style="height: 100px;" alt="">
+                
+            </p>
 
-        <p>Executive Chairman</p>
-       </div>
+            <div class="px-5">
+                    <p>Thank you</p>
+
+
+                        
+                            <img v-if="stateName=='KADUNA'" src="state_logo/signature2.png" style="height: 100px;" alt="">
+                            <img v-if="stateName=='DELTA'" src="state_logo/signature1.png" style="height: 100px;" alt="">
+
+                    <p>Executive Chairman</p>
+            </div>
 
   
    
@@ -188,7 +188,7 @@
 
 
         
-    </div>
+        </div>
    </div>
 
       <div class="container">
@@ -254,15 +254,14 @@
                     </div>
                 </div>
     
-        <div id="printMe" 
-
-                style="min-height: 312px; width: 800px; " 
-        class="container shadow bg-white py-5">
+        <div id="printMe"  style="min-height: 297mm; width: 210mm;" class="container shadow bg-white py-5">
 
       
         <div class="container">
                 <div class="row">
                 <div class="col-12 text-center">
+
+                    <div class="py-5"></div>
 
                      <img v-if="stateName=='BAUCHI'" src="state_logo/bauchilogo.png" style="height: 100px;" alt="">
                     <img v-if="stateName=='KADUNA'" src="state_logo/kaduna.jpg" style="height: 100px;" alt="">
@@ -309,7 +308,7 @@
             In pursuance of Section 7(4th Schedule of the 1999 constitution), Section 98 and Section 99 (a, b, and c) of the {{stateName}} State Tax (codification and Consolidation) Law, 2020 which impose a tax on ownership of device or equipment capable of receiving and transmitting   radio and television broadcast content in the state. A notice of assessment is hereby served on you in respect of the device(s) usage for the year(s) stated below;
         </p>
 
-        <div class="container">
+        <div class="container py-5">
         
 
     
