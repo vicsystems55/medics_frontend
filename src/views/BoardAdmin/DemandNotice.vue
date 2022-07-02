@@ -79,7 +79,7 @@
                     </div>
                     <div class="col-12 text-center pt-3">
                     <h2 class="text-cente">{{stateName}} STATE INTERNAL REVENUE SERVICE</h2>
-                    <h3 class="text-centr">HEAD OFFICE: OBASANJO HOUSE, YAKUBU GOWON WAY, {{stateName}}</h3>
+                    <h3 class="text-centr">HEAD OFFICE: 8/9 BIMA ROAD, MARAFA {{stateName}}</h3>
                     </div>
                 </div>
             </div>
@@ -110,7 +110,7 @@
             </div>
 
             <h3 class="py-3 text-center">
-                RADIO AND TELEVISION TAX ACCESSMENT NOTICE
+                RADIO AND TELEVISION TAX ASSESSMENT NOTICE
             </h3>
             <p class=" px-5">
                 In pursuance of Section 7(4th Schedule of the 1999 constitution), Section 98 and Section 99 (a, b, and c) of the {{stateName}} State Tax (codification and Consolidation) Law, 2020 which impose a tax on ownership of device or equipment capable of receiving and transmitting   radio and television broadcast content in the state. A notice of assessment is hereby served on you in respect of the device(s) usage for the year(s) stated below;
@@ -140,6 +140,10 @@
                         <td class="table__td border"> <span class="font-weight-bold">Annual Rate per Device</span> </td>
                         <td v-for="device in demandNoticeDetails2020" :key="device.id" class="table__td border">₦ {{formatDigit(3600)}}</td>
                     </tr>
+
+
+
+                    
                     <tr class="table__row">
                         <td class="table__td border"> <span class="font-weight-bold">Total Tax Due</span> </td>
                         <td v-for="device in demandNoticeDetails2020" :key="device.id" class="table__td border">₦ {{formatDigit((device.totalDeviceCount) * 3600)}}</td>
@@ -154,10 +158,10 @@
              
 
             <p class="px-5 pt-3">
-                <!-- You are kindly requested to pay the tax due totaling ₦ {{formatDigit((TotalDemandedAmount) * 3600)}} to {{stateName}} State IGR account in any bank using the Payment ID <span class="font-weight-bold">{{demandNoticeData}}</span> within seven (7) days from the date of service of this notice. -->
-                You are kindly requested to pay the tax due totaling ₦ {{formatDigit((TotalDemandedAmount) * 3600)}} to {{stateName}} State IGR account by texting KADPAY to 08039759925 via WhatsApp and quote the Payment ID <span class="font-weight-bold">{{demandNoticeData}}</span> within seven (7) days from the date of service of this notice.
-            
-            You are kindly requested to pay the tax due totaling ₦ {{formatDigit((TotalDemandedAmount) * 3600)}} to {{stateName}} State IGR account with the Payment ID <span class="font-weight-bold">{{demandNoticeData}}</span> within seven (7) days
+                <!-- You are kindly requested to pay the tax due totalling ₦ {{formatDigit((TotalDemandedAmount) * 3600)}} to {{stateName}} State IGR account in any bank using the Payment ID <span class="font-weight-bold">{{demandNoticeData}}</span> within seven (7) days from the date of service of this notice. -->
+                <!-- You are kindly requested to pay the tax due totalling ₦ {{formatDigit((TotalDemandedAmount) * 3600)}} to {{stateName}} State IGR account by texting KADPAY to 08039759925 via WhatsApp and quote the Payment ID <span class="font-weight-bold">{{demandNoticeData}}</span> within seven (7) days from the date of service of this notice.
+             -->
+            You are kindly requested to pay the tax due totalling ₦ {{formatDigit((TotalDemandedAmount) * 3600)}} to {{stateName}} State IGR account with the Payment ID <span class="font-weight-bold">{{demandNoticeData}}</span> within seven (7) days
                 from the date of service of this notice using any of the following payment options: <br>
 
                 <ul>
@@ -270,7 +274,7 @@
                 </div>
                 <div class="col-12 text-center pt-3">
                     <h2 class="text-cente">{{stateName}} STATE INTERNAL REVENUE SERVICE</h2>
-                    <h3 class="text-centr">HEAD OFFICE: OBASANJO HOUSE, YAKUBU GOWON WAY, {{stateName}}</h3>
+                    <h3 class="text-centr">HEAD OFFICE: 8/9 BIMA ROAD, MARAFA {{stateName}}</h3>
                 </div>
             </div>
         </div>
@@ -302,7 +306,7 @@
 
 
             <h3 class="py-3 text-center">
-                RADIO AND TELEVISION TAX ACCESSMENT NOTICE
+                RADIO AND TELEVISION TAX ASSESSMENT NOTICE
             </h3>
         <p class=" px-5">
             In pursuance of Section 7(4th Schedule of the 1999 constitution), Section 98 and Section 99 (a, b, and c) of the {{stateName}} State Tax (codification and Consolidation) Law, 2020 which impose a tax on ownership of device or equipment capable of receiving and transmitting   radio and television broadcast content in the state. A notice of assessment is hereby served on you in respect of the device(s) usage for the year(s) stated below;
@@ -347,10 +351,10 @@
              
 
         <p class="px-5 pt-3">
-            <!-- You are kindly requested to pay the tax due totaling ₦ {{formatDigit((TotalDemandedAmount) * 3600)}} to {{stateName}} State IGR account in any bank using the Payment ID <span class="font-weight-bold">{{demandNoticeData}}</span> within seven (7) days from the date of service of this notice. -->
-            You are kindly requested to pay the tax due totaling ₦ {{formatDigit((TotalDemandedAmount) * 3600)}} to {{stateName}} State IGR account by texting KADPAY to 08039759925 via WhatsApp and quote the Payment ID <span class="font-weight-bold">{{demandNoticeData}}</span> within seven (7) days from the date of service of this notice.
-           
-           You are kindly requested to pay the tax due totaling ₦ {{formatDigit((TotalDemandedAmount) * 3600)}} to {{stateName}} State IGR account with the Payment ID <span class="font-weight-bold">{{demandNoticeData}}</span> within seven (7) days
+            <!-- You are kindly requested to pay the tax due totalling ₦ {{formatDigit((TotalDemandedAmount) * 3600)}} to {{stateName}} State IGR account in any bank using the Payment ID <span class="font-weight-bold">{{demandNoticeData}}</span> within seven (7) days from the date of service of this notice. -->
+            <!-- You are kindly requested to pay the tax due totalling ₦ {{formatDigit((TotalDemandedAmount) * 3600)}} to {{stateName}} State IGR account by texting KADPAY to 08039759925 via WhatsApp and quote the Payment ID <span class="font-weight-bold">{{demandNoticeData}}</span> within seven (7) days from the date of service of this notice.
+            -->
+           You are kindly requested to pay the tax due totalling ₦ {{formatDigit((TotalDemandedAmount) * 3600)}} to {{stateName}} State IGR account with the Payment ID <span class="font-weight-bold">{{demandNoticeData}}</span> within seven (7) days
             from the date of service of this notice using any of the following payment options: <br>
 
             <ul>
@@ -438,14 +442,17 @@ export default {
             
 
             var printContents = document.getElementById(id).innerHTML;
+
             var originalContents = document.getElementById(id).innerHTML;
 
             document.body.innerHTML = printContents;
             
-
             window.print();
 
             document.body.innerHTML = originalContents;
+
+
+            return this.$router.push('/BoardAdmin/BusinessProfiles');
           
         },
         getDemandNotice(){
@@ -461,6 +468,8 @@ export default {
                 url: 'https://micro.rtvrs.com.ng/api/BusinessDemandNotices/'+this.$route.params.id
             })
             .then((response)=>{
+
+                console.log(response);
                 this.demandNoticeDetails = response.data.demandNoticeDetails
                 this.demandNoticeData = (response.data.currentDemandNotice.businessDemandNoticeCode)
                 this.dateGenerated = response.data.currentDemandNotice.dateGenerated
@@ -487,7 +496,9 @@ export default {
                     (element.taxItemDescription
                     =='Commercial TV'))
 
-                    this.TotalDemandedAmount = this.demandNoticeDetails2020[0].totalDeviceCount + this.demandNoticeDetails2020[1].totalDeviceCount
+                    console.log(this.demandNoticeDetails2020)
+
+                    this.TotalDemandedAmount = this.demandNoticeDetails2020[0].totalDeviceCount + (this.demandNoticeDetails2020[1]?.totalDeviceCount??0)
         
                     // alert(this.TotalDemandedAmount)
 
