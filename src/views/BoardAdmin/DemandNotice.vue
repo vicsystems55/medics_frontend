@@ -452,7 +452,11 @@ export default {
             document.body.innerHTML = originalContents;
 
 
-            return this.$router.push('/BoardAdmin/BusinessProfiles');
+            return location.reload();
+
+
+
+            // return this.$router.push('/BoardAdmin/BusinessProfiles');
           
         },
         getDemandNotice(){
