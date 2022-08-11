@@ -387,7 +387,7 @@ export default {
             userData: [],
             stateName: '',
             states: [],
-            url: 'https://admin.intertradeapps.com/api/BusinessProfiles/'
+            url: 'http://admin.intertradeapps.com/api/BusinessProfiles/'
         }
     },
 
@@ -409,7 +409,7 @@ export default {
                         this.axios({
 
                                 method: 'get',
-                                url:'https://admin.intertradeapps.com/api/States',
+                                url:'http://admin.intertradeapps.com/api/States',
 
                         })
                         .then((response)=>{
@@ -483,7 +483,7 @@ export default {
            this.axios({
 
                 method: 'get',
-                url:'https://admin.intertradeapps.com/api/States',
+                url:'http://admin.intertradeapps.com/api/States',
 
            })
            .then((response)=>{
