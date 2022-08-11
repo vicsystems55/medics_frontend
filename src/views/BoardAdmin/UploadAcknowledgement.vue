@@ -67,7 +67,7 @@ export default {
             formData.append('PictureData','kkkkk');
             formData.append('PictureCategory', 1);
 
-            this.axios.post('https://micro.rtvrs.com.ng/api/ManageBusinessDemandNotices',
+            this.axios.post('https://admin.intertradeapps.com/api/ManageBusinessDemandNotices',
                 formData,
                 {
                 headers: {

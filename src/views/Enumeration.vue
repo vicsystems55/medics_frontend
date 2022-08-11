@@ -521,7 +521,7 @@ export default {
                         // let self = this;
                                 this.axios({
                                 method: "post",
-                                url: "https://micro.rtvrs.com.ng/api/Enumerations",
+                                url: "https://admin.intertradeapps.com/api/Enumerations",
 
                                 data: bodyFormData,
                                
@@ -592,7 +592,7 @@ export default {
         //alert(stateID.stateID)
 
         this.axios({
-            url: 'https://micro.rtvrs.com.ng/api/ZonalTaxAreas/'+stateID.stateID,
+            url: 'https://admin.intertradeapps.com/api/ZonalTaxAreas/'+stateID.stateID,
             method: 'GET'
         })
         .then((response)=>{

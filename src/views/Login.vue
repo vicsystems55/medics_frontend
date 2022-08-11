@@ -545,7 +545,7 @@ export default {
                   
                   this.axios({
                       method: 'post',
-                      url: 'https://micro.rtvrs.com.ng/api/UserLogin',
+                      url: 'https://admin.intertradeapps.com/api/UserLogin',
                       data: bodyFormData
                   })
                   .then((response)=>{

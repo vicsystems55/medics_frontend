@@ -238,7 +238,7 @@ export default {
         get_accounts(){
 
             this.axios({
-                url: 'https://micro.rtvrs.com.ng/api/UserRegister',
+                url: 'https://admin.intertradeapps.com/api/UserRegister',
                 method: 'get'
             })
             .then((response)=>{
@@ -278,7 +278,7 @@ export default {
                 });
               
             this.axios({
-                url: 'https://micro.rtvrs.com.ng/api/UserRegister',
+                url: 'https://admin.intertradeapps.com/api/UserRegister',
                 method: 'post',
                 data: bodyFormData
 

@@ -387,7 +387,7 @@ export default {
                         // let self = this;
                                 this.axios({
                                 method: "get",
-                                url:'https://micro.rtvrs.com.ng/api/BusinessProfiles/'+this.stateName
+                                url:'https://admin.intertradeapps.com/api/BusinessProfiles/'+this.stateName
                     
                                 })
                                 .then( (response)=> {
@@ -428,7 +428,7 @@ export default {
            this.axios({
 
                 method: 'get',
-                url:'https://micro.rtvrs.com.ng/api/States',
+                url:'https://admin.intertradeapps.com/api/States',
 
            })
            .then((response)=>{

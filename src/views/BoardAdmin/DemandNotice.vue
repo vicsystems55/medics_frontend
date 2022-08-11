@@ -167,7 +167,7 @@
                 <ul>
                     <li>Option 1. Cash or cheque deposit to <strong>any bank</strong> quoting the payment ID <span class="font-weight-bold">{{demandNoticeData}}</span> </li>
                     <li>Option 2. Text KADPAY to 08039759925 via WhatsApp and quote the Payment ID <span class="font-weight-bold">{{demandNoticeData}}</span>. </li>
-                    
+                    <li>Option 3. Pay online via <a class="font-weight-bold" href="https://quickteller.com/KadunaRadioAndTV">https://quickteller.com/KadunaRadioAndTV</a></li>
                 </ul>
 
 
@@ -360,7 +360,7 @@
             <ul>
                 <li>Option 1. Cash or cheque deposit to <strong>any bank</strong> quoting the payment ID <span class="font-weight-bold">{{demandNoticeData}}</span> </li>
                 <li>Option 2. Text KADPAY to 08039759925 via WhatsApp and quote the Payment ID <span class="font-weight-bold">{{demandNoticeData}}</span>. </li>
-                
+                <li>Option 3. Pay online via <a class="font-weight-bold" href="https://quickteller.com/KadunaRadioAndTV">https://quickteller.com/KadunaRadioAndTV</a></li>
             </ul>
 
 
@@ -469,7 +469,7 @@ export default {
             });
             this.axios({
                 method: 'get',
-                url: 'https://micro.rtvrs.com.ng/api/BusinessDemandNotices/'+this.$route.params.id
+                url: 'https://admin.intertradeapps.com/api/BusinessDemandNotices/'+this.$route.params.id
             })
             .then((response)=>{
 

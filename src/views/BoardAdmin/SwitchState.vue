@@ -67,7 +67,7 @@ export default {
 
               this.axios({
                       method: 'get',
-                      url: 'https://micro.rtvrs.com.ng/api/UserLogin/'+this.userDatax.userName,
+                      url: 'https://admin.intertradeapps.com/api/UserLogin/'+this.userDatax.userName,
                      
                   })
                   .then((response)=>{
@@ -101,7 +101,7 @@ export default {
                     localStorage.setItem('stateName', stateName)
 
              this.axios({
-                url: 'https://micro.rtvrs.com.ng/api/Supperadminswap',
+                url: 'https://admin.intertradeapps.com/api/Supperadminswap',
                 method: 'post',
                 data: bodyFormData
             })
@@ -114,7 +114,7 @@ export default {
 
             this.axios({
                       method: 'get',
-                      url: 'https://micro.rtvrs.com.ng/api/UserLogin/'+this.userDatax.userName,
+                      url: 'https://admin.intertradeapps.com/api/UserLogin/'+this.userDatax.userName,
                      
                   })
                   .then((response)=>{

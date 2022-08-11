@@ -387,7 +387,7 @@ export default {
             userData: [],
             stateName: '',
             states: [],
-            url: 'https://micro.rtvrs.com.ng/api/BusinessProfiles/'
+            url: 'https://admin.intertradeapps.com/api/BusinessProfiles/'
         }
     },
 
@@ -409,7 +409,7 @@ export default {
                         this.axios({
 
                                 method: 'get',
-                                url:'https://micro.rtvrs.com.ng/api/States',
+                                url:'https://admin.intertradeapps.com/api/States',
 
                         })
                         .then((response)=>{
@@ -483,7 +483,7 @@ export default {
            this.axios({
 
                 method: 'get',
-                url:'https://micro.rtvrs.com.ng/api/States',
+                url:'https://admin.intertradeapps.com/api/States',
 
            })
            .then((response)=>{

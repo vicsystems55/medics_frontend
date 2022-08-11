@@ -406,7 +406,7 @@ export default {
             });
             this.axios({
                 method: 'get',
-                url: 'https://micro.rtvrs.com.ng/api/BusinessDemandNotices/'+this.$route.params.id
+                url: 'https://admin.intertradeapps.com/api/BusinessDemandNotices/'+this.$route.params.id
             })
             .then((response)=>{
                 this.demandNoticeDetails = response.data.demandNoticeDetails

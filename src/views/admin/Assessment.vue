@@ -221,7 +221,7 @@
                             // let self = this;
                                     this.axios({
                                     method: "get",
-                                    url: " https://micro.rtvrs.com.ng/api/Assessment/"+this.$route.params.id,
+                                    url: " https://admin.intertradeapps.com/api/Assessment/"+this.$route.params.id,
                         
                                     })
                                     .then( (response)=> {
@@ -312,7 +312,7 @@
 
                 this.axios({
                     method: 'post',
-                    url: 'https://micro.rtvrs.com.ng/api/Assessment',
+                    url: 'https://admin.intertradeapps.com/api/Assessment',
                     data: bodyFormData,
                     headers: { "Content-Type": "multipart/form-data" },
                 })

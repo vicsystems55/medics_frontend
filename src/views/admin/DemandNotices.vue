@@ -384,7 +384,7 @@ export default {
                         // let self = this;
                                 this.axios({
                                 method: "get",
-                                url: " https://micro.rtvrs.com.ng/api/BusinessProfiles/KADUNA",
+                                url: " https://admin.intertradeapps.com/api/BusinessProfiles/KADUNA",
                     
                                 })
                                 .then( (response)=> {
