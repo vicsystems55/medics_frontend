@@ -112,7 +112,7 @@ export default {
            this.axios({
 
                 method: 'get',
-                url:'https://micro.rtvrs.com.ng/api/States',
+                url:'https://admin.intertradeapps.com/api/States',
 
            })
            .then((response)=>{
@@ -146,7 +146,7 @@ export default {
 
                 method: 'get',
                 async: false,
-                url:'https://micro.rtvrs.com.ng/api/States',
+                url:'https://admin.intertradeapps.com/api/States',
 
            })
            .then((response)=>{
@@ -176,12 +176,12 @@ export default {
             });
 
 
-            console.log("https://micro.rtvrs.com.ng/api/BusinessProfiles/"+localStorage.getItem('stateName'))
+            console.log("https://admin.intertradeapps.com/api/BusinessProfiles/"+localStorage.getItem('stateName'))
 
             this.axios({
                 method: 'get',
                 async: false,
-                url:'https://micro.rtvrs.com.ng/api/BusinessProfiles/'+localStorage.getItem('stateName'),
+                url:'https://admin.intertradeapps.com/api/BusinessProfiles/'+localStorage.getItem('stateName'),
 
             })
             .then((response)=>{
